@@ -1,7 +1,9 @@
+using System.Collections.Generic;
+
 namespace PCB_problem.solutionSearch
 {
     public interface PcbPathSolution
     {
-        Path[] FindSolution(Pcb pcb);
+        List<Path> FindSolution(Pcb pcb);
     }
 }

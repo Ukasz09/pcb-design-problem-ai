@@ -5,19 +5,22 @@ namespace PCB_problem.solutionSearch
 {
     public class RandomSearch : PcbPathSolution
     {
-        private readonly Random _random = new Random();
-
         private const int MinStepSize = 1;
         private const int MaxStepSize = 5;
         private const int MaxBendsQty = 10; // To avoid getting into inf loop of bad results
 
-        public Path[] FindSolution(Pcb pcb)
+        private readonly Random _random = new Random();
+
+        public List<Path> FindSolution(Pcb pcb)
         {
-            throw new NotImplementedException();
-            // while (expression)
-            // {
-            //    
-            // }
+            var solution = new List<Path>();
+            foreach (var (startPoint, stopPoint) in pcb.Endpoints)
+            {
+                var path = FindPath(startPoint, stopPoint, pcb);
+                solution.Add(path);
+            }
+
+            return solution;
         }
 
         private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb)
@@ -102,7 +105,7 @@ namespace PCB_problem.solutionSearch
                 lastPathPoint = newPathPoint;
             }
 
-            return (segment, lastPathPoint)
+            return (segment, lastPathPoint);
         }
 
         private Point GetNextPoint(Point lastPoint, Direction direction)
