@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace PCB_problem
 {
@@ -18,6 +20,13 @@ namespace PCB_problem
         public void AddEndpoint(Point startPoint, Point endPoint)
         {
             _endpoints.Add((startPoint, endPoint));
+        }
+
+        public bool IsOneOfEndpoints(Point point)
+        {
+            var result = _endpoints.FirstOrDefault((pair) => pair.Item1.Equals(point) || pair.Item2.Equals(point));
+            Console.WriteLine(result.ToString());
+            return result != default;
         }
 
         public override string ToString()
