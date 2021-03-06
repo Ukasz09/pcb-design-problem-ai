@@ -55,26 +55,30 @@ namespace PCB_problem.solutionSearch
         /**
          * @return: (segment, new last path point)
          */
-        private (Segment, Point) RandomSegment(Point segmentStartPoint, Point stopEndpoint, Pcb pcb)
+        private (Segment, Point) RandSegment(Point segmentStartPoint, Point stopPoint, Pcb pcb,
+            IList<Direction> availableDirections)
         {
-            var segment = new Segment(RandDirection(), RandStepSize());
+            var direction = RandDirection(availableDirections);
+            // To make sure that next time we don't get the same direction
+            availableDirections.Remove(direction);
+
+            var segment = new Segment(direction, RandStepSize());
             var lastPathPoint = segmentStartPoint;
+
             // Check overlapping
             for (int i = 0; i < segment.StepSize; i++)
             {
                 var newPathPoint = GetNextPoint(lastPathPoint, segment.Direction);
-                //TODO: take into consideration hitting startPoint !
-                //TODO: take into consideration no move scenario ! (return null ?)
-                
+
                 // if hit stop point
-                if (newPathPoint.Equals(stopEndpoint))
+                if (newPathPoint.Equals(stopPoint))
                 {
                     // remove extra part of segment 
                     segment.StepSize = i + 1;
                     return (segment, newPathPoint);
                 }
 
-                // if overlap with other start/stop point
+                // if overlap with other endpoints point or self startPoint 
                 if (pcb.IsOneOfEndpoints(newPathPoint))
                 {
                     // if stepSize can be shorter
@@ -84,14 +88,21 @@ namespace PCB_problem.solutionSearch
                         segment.StepSize = i;
                         return (segment, newPathPoint);
                     }
-                    else
+
+                    // there is no other move
+                    if (availableDirections.Count == 0)
                     {
-                        //TODO: need to rand new direction
+                        return (null, segmentStartPoint);
                     }
+
+                    // change direction
+                    return RandSegment(segmentStartPoint, stopPoint, pcb, availableDirections);
                 }
 
                 lastPathPoint = newPathPoint;
             }
+
+            return (segment, lastPathPoint)
         }
 
         private Point GetNextPoint(Point lastPoint, Direction direction)
@@ -117,9 +128,10 @@ namespace PCB_problem.solutionSearch
             }
         }
 
-        private Direction RandDirection()
+        private Direction RandDirection(IList<Direction> availableDirections)
         {
-            return (Direction) _random.Next(1, 5);
+            int randIndex = _random.Next(availableDirections.Count);
+            return availableDirections[randIndex];
         }
 
         private int RandStepSize()
