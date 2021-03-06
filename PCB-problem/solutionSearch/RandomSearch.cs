@@ -7,16 +7,9 @@ namespace PCB_problem.solutionSearch
     {
         private readonly Random _random = new Random();
 
-        private const int StepSizeMin = 1;
-        private const int StepSizeMax = 5;
-
-        private Dictionary<Direction, int> directionIncValue = new Dictionary<Direction, int>
-        {
-            {Direction.Left, -1},
-            {Direction.Up, 1},
-            {Direction.Right, 1},
-            {Direction.Down, -1}
-        };
+        private const int MinStepSize = 1;
+        private const int MaxStepSize = 5;
+        private const int MaxBendsQty = 10; // To avoid getting into inf loop of bad results
 
         public Path[] FindSolution(Pcb pcb)
         {
@@ -27,33 +20,40 @@ namespace PCB_problem.solutionSearch
             // }
         }
 
-        private Path FindPath(Point startPoint, Point endPoint, Pcb pcb)
+        private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb)
         {
-            Path path = new Path(startPoint, endPoint);
+            var path = new Path(startPoint, stopPoint);
+            var availableDirections = new List<Direction>
+                {Direction.Left, Direction.Up, Direction.Right, Direction.Down};
+            var direction = RandDirection(availableDirections);
+            // To make sure that next time we don't get opposite direction
+            availableDirections.Remove(GetOppositeDirection(direction));
+            var lastPathPoint = startPoint;
+            var bendsQty = 0;
+            // IMPORTANT: if there is no answer it will run forever
+            do
+            {
+                var (segment, point) = RandSegment(lastPathPoint, stopPoint, pcb, availableDirections);
+                // If need to clear path
+                if (segment == null || bendsQty >= MaxBendsQty)
+                {
+                    path = new Path(startPoint, stopPoint);
+                    lastPathPoint = startPoint;
+                    bendsQty = 0;
+                }
+                else
+                {
+                    path.AddSegment(segment);
+                    lastPathPoint = point;
+                    bendsQty++;
+                }
+            } while (lastPathPoint.Equals(stopPoint));
 
-            // var direction = RandDirection();
-            // var stepSize = _random.Next(StepSizeMin, StepSizeMax + 1);
-            // // Check overlapping
-            // var lastPathPoint = startPoint;
-            // for (int i = 0; i < stepSize; i++)
-            // {
-            //     var newPathPoint = GetNextPoint(lastPathPoint, direction);
-            //     if (newPathPoint.Equals(endPoint))
-            //     {
-            //         path.AddSegment(direction, stepSize);
-            //         return path;
-            //     }
-            //
-            //     if (pcb.IsOneOfEndpoints(newPathPoint))
-            //     {
-            //         return null;
-            //     }
-            // }
-            path.AddSegment(direction, stepSize);
+            return path;
         }
 
         /**
-         * @return: (segment, new last path point)
+         * @return: (segment or null, new last path point)
          */
         private (Segment, Point) RandSegment(Point segmentStartPoint, Point stopPoint, Pcb pcb,
             IList<Direction> availableDirections)
@@ -136,7 +136,13 @@ namespace PCB_problem.solutionSearch
 
         private int RandStepSize()
         {
-            return _random.Next(StepSizeMin, StepSizeMax + 1);
+            return _random.Next(MinStepSize, MaxStepSize + 1);
+        }
+
+        private Direction GetOppositeDirection(Direction direction)
+        {
+            var directionNumber = ((int) direction + 2) % 4;
+            return (Direction) directionNumber;
         }
     }
 }

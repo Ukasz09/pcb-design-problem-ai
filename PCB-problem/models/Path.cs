@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PCB_problem
 {
@@ -8,25 +7,7 @@ namespace PCB_problem
         public Point startPoint { get; }
         public Point endPoint { get; }
 
-        // /**
-        //  * Return last point of path line draw made from segments or startPoint if segments empty 
-        //  */
-        // public Point LastEdgePoint
-        // {
-        //     get
-        //     {
-        //         if (_segments.Count == 0)
-        //         {
-        //             return startPoint;
-        //         }
-        //
-        //         return _lastEdgePoint;
-        //     }
-        // }
-        //
-        // private Point _lastEdgePoint = null;
-
-        private readonly IList<(Direction, int)> _segments = new List<(Direction, int)>(); // <direction, stepSize>
+        private readonly IList<Segment> _segments = new List<Segment>();
 
         public Path(Point startPoint, Point endPoint)
         {
@@ -34,9 +15,9 @@ namespace PCB_problem
             this.endPoint = endPoint;
         }
 
-        public void AddSegment(Direction direction, int stepSize)
+        public void AddSegment(Segment segment)
         {
-            _segments.Add((direction, stepSize));
+            _segments.Add(segment);
         }
     }
 }
