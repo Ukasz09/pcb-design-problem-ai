@@ -8,7 +8,7 @@ namespace PCB_problem
         {
             const string filepath = "../../../../data.txt";
             var data = DataUtils.ReadDataFromFile(filepath);
-            var pcb=DataUtils.ConvertDataToPcb(data, ";");
+            var pcb = DataUtils.ConvertDataToPcb(data, ";");
             Console.WriteLine(pcb);
         }
     }
