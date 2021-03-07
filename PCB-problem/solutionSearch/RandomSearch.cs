@@ -111,7 +111,7 @@ namespace PCB_problem.solutionSearch
             var lastPathPoint = segmentStartPoint;
 
             // Check overlapping
-            for (int i = 0; i < segment.StepSize; i++)
+            for (var i = 0; i < segment.StepSize; i++)
             {
                 var newPathPoint = GetNextPoint(lastPathPoint, segment.Direction);
 
@@ -162,30 +162,18 @@ namespace PCB_problem.solutionSearch
 
         private Point GetNextPoint(Point lastPoint, Direction direction)
         {
-            switch (direction)
+            return direction switch
             {
-                case Direction.Down:
-                {
-                    return new Point(lastPoint.X, lastPoint.Y - 1);
-                }
-                case Direction.Up:
-                {
-                    return new Point(lastPoint.X, lastPoint.Y + 1);
-                }
-                case Direction.Left:
-                {
-                    return new Point(lastPoint.X - 1, lastPoint.Y);
-                }
-                default:
-                {
-                    return new Point(lastPoint.X + 1, lastPoint.Y);
-                }
-            }
+                Direction.Down => new Point(lastPoint.X, lastPoint.Y - 1),
+                Direction.Up => new Point(lastPoint.X, lastPoint.Y + 1),
+                Direction.Left => new Point(lastPoint.X - 1, lastPoint.Y),
+                _ => new Point(lastPoint.X + 1, lastPoint.Y)
+            };
         }
 
         private Direction RandDirection(IList<Direction> availableDirections)
         {
-            int randIndex = _random.Next(availableDirections.Count);
+            var randIndex = _random.Next(availableDirections.Count);
             return availableDirections[randIndex];
         }
 
