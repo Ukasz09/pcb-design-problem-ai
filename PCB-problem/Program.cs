@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using PCB_problem.solutionSearch;
 
 namespace PCB_problem

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace PCB_problem
 {
@@ -14,7 +13,6 @@ namespace PCB_problem
             return lines;
         }
 
-        // TODO: add data validation
         public static Pcb ConvertDataToPcb(string[] textLines, string delimiter)
         {
             var sizeData = textLines[0].Split(delimiter);
