@@ -15,7 +15,7 @@ namespace PCB_problem
 
         public override string ToString()
         {
-            return $"({X.ToString()},{Y.ToString()})";
+            return $"[{X.ToString()},{Y.ToString()}]";
         }
 
         public override bool Equals(object obj)

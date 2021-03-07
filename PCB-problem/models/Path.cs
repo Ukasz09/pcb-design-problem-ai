@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace PCB_problem
@@ -7,7 +8,7 @@ namespace PCB_problem
         public Point startPoint { get; }
         public Point endPoint { get; }
 
-        private readonly IList<Segment> _segments = new List<Segment>();
+        public IList<Segment> Segments { get; } = new List<Segment>();
 
         public Path(Point startPoint, Point endPoint)
         {
@@ -17,7 +18,12 @@ namespace PCB_problem
 
         public void AddSegment(Segment segment)
         {
-            _segments.Add(segment);
+            Segments.Add(segment);
+        }
+
+        public override string ToString()
+        {
+            return string.Join(",", Segments);
         }
     }
 }

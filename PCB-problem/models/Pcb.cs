@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 
 namespace PCB_problem
 {
@@ -25,7 +23,6 @@ namespace PCB_problem
         public bool IsOneOfEndpoints(Point point)
         {
             var result = Endpoints.FirstOrDefault((pair) => pair.Item1.Equals(point) || pair.Item2.Equals(point));
-            Console.WriteLine(result.ToString());
             return result != default;
         }
 

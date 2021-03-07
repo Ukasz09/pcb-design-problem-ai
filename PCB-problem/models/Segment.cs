@@ -10,5 +10,10 @@ namespace PCB_problem
             Direction = direction;
             StepSize = stepSize;
         }
+
+        public override string ToString()
+        {
+            return $"[{((int) Direction).ToString()},{StepSize.ToString()}]";
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCB_problem.solutionSearch
 {
-    public class RandomSearch : PcbPathSolution
+    public class RandomSearch : IPcbSolution
     {
         private const int MinStepSize = 1;
         private const int MaxStepSize = 5;
@@ -11,13 +11,14 @@ namespace PCB_problem.solutionSearch
 
         private readonly Random _random = new Random();
 
-        public List<Path> FindSolution(Pcb pcb)
+        public Dictionary<(Point,Point), Path> FindSolution(Pcb pcb)
         {
-            var solution = new List<Path>();
+            var solution = new Dictionary<(Point,Point), Path>();
             foreach (var (startPoint, stopPoint) in pcb.Endpoints)
             {
                 var path = FindPath(startPoint, stopPoint, pcb);
-                solution.Add(path);
+                solution.Add((startPoint,stopPoint),path);
+                Console.WriteLine($"Found solution for: ({startPoint},{stopPoint})");
             }
 
             return solution;
@@ -26,19 +27,20 @@ namespace PCB_problem.solutionSearch
         private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb)
         {
             var path = new Path(startPoint, stopPoint);
-            var availableDirections = new List<Direction>
-                {Direction.Left, Direction.Up, Direction.Right, Direction.Down};
+            var availableDirections = GetListOfAllDirection();
             var direction = RandDirection(availableDirections);
-            // To make sure that next time we don't get opposite direction
-            availableDirections.Remove(GetOppositeDirection(direction));
             var lastPathPoint = startPoint;
             var bendsQty = 0;
             // IMPORTANT: if there is no answer it will run forever
             do
             {
+                availableDirections = GetListOfAllDirection();
+                // To make sure that next time we don't get opposite direction
+                availableDirections.Remove(GetOppositeDirection(direction));
+
                 var (segment, point) = RandSegment(lastPathPoint, stopPoint, pcb, availableDirections);
                 // If need to clear path
-                if (segment == null || bendsQty >= MaxBendsQty)
+                if (bendsQty >= MaxBendsQty || segment == null )
                 {
                     path = new Path(startPoint, stopPoint);
                     lastPathPoint = startPoint;
@@ -50,7 +52,7 @@ namespace PCB_problem.solutionSearch
                     lastPathPoint = point;
                     bendsQty++;
                 }
-            } while (lastPathPoint.Equals(stopPoint));
+            } while (!lastPathPoint.Equals(stopPoint));
 
             return path;
         }
@@ -146,6 +148,11 @@ namespace PCB_problem.solutionSearch
         {
             var directionNumber = ((int) direction + 2) % 4;
             return (Direction) directionNumber;
+        }
+
+        private List<Direction> GetListOfAllDirection()
+        {
+            return new List<Direction> {Direction.Left, Direction.Up, Direction.Right, Direction.Down};
         }
     }
 }

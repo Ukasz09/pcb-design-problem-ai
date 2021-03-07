@@ -1,10 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 namespace PCB_problem
 {
     public class DataUtils
     {
         public static string[] ReadDataFromFile(string filepath)
         {
-            string[] lines = System.IO.File.ReadAllLines(filepath);
+            string[] lines = File.ReadAllLines(filepath);
             return lines;
         }
 
@@ -43,6 +48,31 @@ namespace PCB_problem
             int.TryParse(sizeData[1], out var pcbHeight);
             var pcb = new Pcb(pcbWidth, pcbHeight);
             return pcb;
+        }
+
+        public static void SaveSolution(Dictionary<(Point, Point), Path> solution, string filePath)
+        {
+            var lines = new string[solution.Count];
+            int i = 0;
+            foreach (var entry in solution)
+            {
+                var path = entry.Value;
+                var pathStringArr = path.Segments.Select(segment => segment.ToString()).ToArray();
+                lines[i] = $"{path.startPoint},[{string.Join(",", pathStringArr)}]";
+                i++;
+            }
+
+            // var textLines = solution.Select(path =>
+            //         path.Segments.Select(segment => segment.ToString()).ToArray())
+            //     .ToArray();
+            // File.WriteAllText(filePath, "");
+            // foreach (var lines in textLines)
+            // {
+                // File.AppendAllLines(filePath, lines);
+                File.WriteAllLines(filePath, lines);
+            // }
+
+            Console.WriteLine($"Solution correct saved in file: {filePath}");
         }
     }
 }
