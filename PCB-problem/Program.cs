@@ -7,12 +7,14 @@ namespace PCB_problem
     {
         static void Main(string[] args)
         {
-            const string filepath = "../../../../data.txt";
-            var data = DataUtils.ReadDataFromFile(filepath);
+            const string endpointsFilePath = "../../../../data.txt";
+            const string parsedEndpointsFilePath = "../../../../parsed-data.json";
+            var data = DataUtils.ReadDataFromFile(endpointsFilePath);
+            DataUtils.ParseEndpointsDataForUi(data, ";", parsedEndpointsFilePath);
             var pcb = DataUtils.ConvertDataToPcb(data, ";");
             IPcbSolution solution = new RandomSearch();
             var paths = solution.FindSolution(pcb);
-            DataUtils.SaveSolution(paths, "../../../../solution.txt");
+            DataUtils.SaveSolution(paths, "../../../../solution.json");
         }
     }
 }
