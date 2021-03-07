@@ -1,54 +1,60 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 
 namespace PCB_problem.solutionSearch
 {
     public class RandomSearch : IPcbSolution
     {
         private const int MinStepSize = 1;
+        private readonly int _maxStepSize;
         private const int MaxBendsQty = 10; // To avoid getting into inf loop of bad results
+        private readonly Pcb _pcb;
 
         private readonly Random _random = new Random();
 
-        public Dictionary<(Point, Point), Path> FindBestSolution(Pcb pcb, int individualsQty)
+        public RandomSearch(Pcb pcb)
+        {
+            _pcb = pcb;
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height);
+        }
+
+        public Dictionary<(Point, Point), Path> FindBestSolution(int individualsQty)
         {
             if (individualsQty < 1)
             {
                 throw new ArgumentException("Amount of individuals must cannot be less than 1", nameof(individualsQty));
             }
 
-            var (w1, w2, w3, w4, w5) = (2, 1, 1, 3, 3);
+            var (w1, w2, w3, w4, w5) = (3, 1, 1, 5, 5);
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            var bestIndividual = FindSolution(pcb);
-            var minPenalty = PenaltyFunction.CalculatePenalty(bestIndividual.Values, pcb, w1, w2, w3, w4, w5);
+            var bestIndividual = FindSolution();
+            var minPenalty = PenaltyFunction.CalculatePenalty(bestIndividual.Values, _pcb, w1, w2, w3, w4, w5);
             for (var i = 0; i < individualsQty - 1; i++)
             {
-                var individual = FindSolution(pcb);
-                var penalty = PenaltyFunction.CalculatePenalty(individual.Values, pcb, w1, w2, w3, w4, w5);
+                var individual = FindSolution();
+                var penalty = PenaltyFunction.CalculatePenalty(individual.Values, _pcb, w1, w2, w3, w4, w5);
                 if (penalty < minPenalty)
                 {
                     minPenalty = penalty;
                     bestIndividual = individual;
                 }
 
-                // Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
+                Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
             }
 
             watch.Stop();
             Console.WriteLine(
-                $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()}");
+                $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()} ms");
             return bestIndividual;
         }
 
-        public Dictionary<(Point, Point), Path> FindSolution(Pcb pcb)
+        public Dictionary<(Point, Point), Path> FindSolution()
         {
             var solution = new Dictionary<(Point, Point), Path>();
-            foreach (var (startPoint, stopPoint) in pcb.Endpoints)
+            foreach (var (startPoint, stopPoint) in _pcb.Endpoints)
             {
-                var path = FindPath(startPoint, stopPoint, pcb);
+                var path = FindPath(startPoint, stopPoint, _pcb, _maxStepSize);
                 solution.Add((startPoint, stopPoint), path);
                 // Console.WriteLine($"Found solution for: ({startPoint},{stopPoint})");
             }
