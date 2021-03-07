@@ -27,14 +27,13 @@ namespace PCB_problem.solutionSearch
         private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb)
         {
             var path = new Path(startPoint, stopPoint);
-            var availableDirections = GetListOfAllDirection();
-            var direction = RandDirection(availableDirections);
             var lastPathPoint = startPoint;
             var bendsQty = 0;
             // IMPORTANT: if there is no answer it will run forever
             do
             {
-                availableDirections = GetListOfAllDirection();
+                var availableDirections = GetListOfAllDirection();
+                var direction = RandDirection(availableDirections);
                 // To make sure that next time we don't get opposite direction
                 availableDirections.Remove(GetOppositeDirection(direction));
 
@@ -91,6 +90,7 @@ namespace PCB_problem.solutionSearch
                     {
                         // make shorter to avoid overlapping with endpoint 
                         segment.StepSize = i;
+                        newPathPoint = GetNextPoint(newPathPoint, GetOppositeDirection(segment.Direction));
                         return (segment, newPathPoint);
                     }
 
@@ -107,7 +107,7 @@ namespace PCB_problem.solutionSearch
                 lastPathPoint = newPathPoint;
             }
 
-            return (segment, lastPathPoint);
+             return (segment, lastPathPoint);
         }
 
         private Point GetNextPoint(Point lastPoint, Direction direction)
