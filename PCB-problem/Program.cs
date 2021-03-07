@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using PCB_problem.solutionSearch;
+﻿using PCB_problem.solutionSearch;
 
 namespace PCB_problem
 {
@@ -14,7 +12,7 @@ namespace PCB_problem
             DataUtils.ParseEndpointsDataForUi(data, ";", parsedEndpointsFilePath);
             var pcb = DataUtils.ConvertDataToPcb(data, ";");
             IPcbSolution solution = new RandomSearch();
-            var paths = solution.FindSolution(pcb);
+            var paths = solution.FindBestSolution(pcb,100000);
             DataUtils.SaveSolution(paths, "../../../../solution.json");
         }
     }

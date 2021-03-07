@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace PCB_problem.solutionSearch
@@ -18,19 +19,27 @@ namespace PCB_problem.solutionSearch
                 throw new ArgumentException("Amount of individuals must cannot be less than 1", nameof(individualsQty));
             }
 
+            var (w1, w2, w3, w4, w5) = (2, 1, 1, 3, 3);
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
             var bestIndividual = FindSolution(pcb);
-            var minPenalty = PenaltyFunction.CalculatePenalty(bestIndividual.Values, pcb);
+            var minPenalty = PenaltyFunction.CalculatePenalty(bestIndividual.Values, pcb, w1, w2, w3, w4, w5);
             for (var i = 0; i < individualsQty - 1; i++)
             {
                 var individual = FindSolution(pcb);
-                var penalty = PenaltyFunction.CalculatePenalty(individual.Values, pcb);
+                var penalty = PenaltyFunction.CalculatePenalty(individual.Values, pcb, w1, w2, w3, w4, w5);
                 if (penalty < minPenalty)
                 {
                     minPenalty = penalty;
                     bestIndividual = individual;
                 }
+
+                // Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
             }
 
+            watch.Stop();
+            Console.WriteLine(
+                $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()}");
             return bestIndividual;
         }
 
@@ -41,7 +50,7 @@ namespace PCB_problem.solutionSearch
             {
                 var path = FindPath(startPoint, stopPoint, pcb);
                 solution.Add((startPoint, stopPoint), path);
-                Console.WriteLine($"Found solution for: ({startPoint},{stopPoint})");
+                // Console.WriteLine($"Found solution for: ({startPoint},{stopPoint})");
             }
 
             return solution;

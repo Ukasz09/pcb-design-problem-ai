@@ -6,8 +6,7 @@ namespace PCB_problem.solutionSearch
 {
     public static class PenaltyFunction
     {
-        public static int CalculatePenalty(IEnumerable<Path> paths, Pcb pcb, int w1 = 1, int w2 = 1, int w3 = 1, int w4 = 1,
-            int w5 = 1)
+        public static int CalculatePenalty(IEnumerable<Path> paths, Pcb pcb, int w1, int w2, int w3, int w4, int w5)
         {
             var listOfAllPoints = FlatAllPathsToListOfPoints(paths).ToList();
             var pointsOutsideBoard = GetPointsOutsideBoard(pcb.Width, pcb.Height, listOfAllPoints);
@@ -16,8 +15,7 @@ namespace PCB_problem.solutionSearch
             var k3 = GetTotalSegmentsQty(paths);
             var k4 = GetNumberOfPathsOutsideBoard(paths, pointsOutsideBoard);
             var k5 = pointsOutsideBoard.Count();
-            Console.WriteLine(
-                $"k1:{k1.ToString()}, k2:{k2.ToString()}, k3:{k3.ToString()}, k4:{k4.ToString()}, k5:{k5.ToString()}");
+            // Console.WriteLine($"k1:{k1.ToString()}, k2:{k2.ToString()}, k3:{k3.ToString()}, k4:{k4.ToString()}, k5:{k5.ToString()}");
             return w1 * k1 + w2 * k2 + w3 * k3 + w4 * k4 + w5 * k5;
         }
 
