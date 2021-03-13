@@ -19,12 +19,13 @@ namespace PCB_problem
 
             // GA
             var solution = new GeneticAlgorithm(pcb, 30, 1, 1, 30, 30);
-            var selectionOperator =
-                new TournamentSelection(pcb, 4, 30, 1, 1, 30, 30); //best=4, 30, 1, 1, 30, 30
+            // var selectionOperator =
+            //     new TournamentSelection(pcb, 4, 30, 1, 1, 30, 30); //best=4, 30, 1, 1, 30, 30
+            var selectionOperator = new RouletteSelection(pcb, 30, 1, 1, 30, 30);
             var crossoverOperator = new UniformCrossover(0.5);
-            var mutationOperator = new MutationA(0.20);
-            var paths = solution.FindBestIndividual(2500, 50, selectionOperator, crossoverOperator,
-                mutationOperator); // 2000, 30
+            var mutationOperator = new MutationA(0.1);
+            var paths = solution.FindBestIndividual(2000, 30, selectionOperator, crossoverOperator,
+                mutationOperator); // 2000, 30-50
             DataUtils.SaveIndividual(paths, "../../../../solution.json");
         }
     }

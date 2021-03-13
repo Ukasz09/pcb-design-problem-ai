@@ -28,54 +28,28 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
         public Individual Select(Population population)
         {
-            var penaltyForIndividuals = new Dictionary<Individual, int>(population.Individuals.Count);
+            // example x axis for roulette: x1 - - - - - x2 - - x3 - - - - - - - - - - x4 - - - x5 - x6
+            var rouletteAxisX =
+                new Dictionary<Individual, (int, int)>(population.Individuals.Count); // <individual, <startX,stopX>
+            var minPenalty = int.MaxValue;
+            var lastXValue = 0;
+            var randRouletteChoice = _random.NextDouble() * (lastXValue);
             foreach (var individual in population.Individuals)
             {
                 var penalty = PenaltyFunction.CalculatePenalty(individual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
-                penaltyForIndividuals.Add(individual, penalty);
-            }
-
-            var rouletteAxisX = GetRouletteAxisX(penaltyForIndividuals);
-            var randRouletteChoice = _random.NextDouble();
-            foreach (var (individual, (startX, stopX)) in rouletteAxisX)
-            {
-                if (randRouletteChoice >= startX && randRouletteChoice <= stopX)
+                var inverselyPenalty = minPenalty / penalty;
+                var newXValue = lastXValue + inverselyPenalty;
+                rouletteAxisX.Add(individual, (lastXValue, newXValue));
+                if (randRouletteChoice >= lastXValue && randRouletteChoice <= newXValue)
                 {
                     return individual;
                 }
+
+                lastXValue = newXValue;
             }
 
             throw new ArithmeticException(
                 $"Incorrect roulette choice or axis: \n Choice: {randRouletteChoice}, \n Axis: {string.Join(",", rouletteAxisX.Values)}");
-        }
-
-        // <individual, <startX,stopX>
-        private Dictionary<Individual, (int, int)> GetRouletteAxisX(
-            Dictionary<Individual, int> penaltyForIndividuals)
-        {
-            // example x axis for roulette: x1 - - - - - x2 - - x3 - - - - - - - - - - x4 - - - x5 - x6
-            var xAxisValues =
-                new Dictionary<Individual, (int, int)>(penaltyForIndividuals.Count); // <individual, <startX,stopX>
-            var minPenalty = penaltyForIndividuals.Values.Min();
-            var lastXValue = 0;
-            foreach (var (individual, penalty) in penaltyForIndividuals)
-            {
-                var inverselyPenalty = minPenalty / penalty;
-                var newXValue = lastXValue + inverselyPenalty;
-                xAxisValues.Add(individual, (lastXValue, newXValue));
-                lastXValue = newXValue;
-            }
-
-            // Scaling x axis values to make it within range 0.0 - 1.0
-            var maxXValue = lastXValue;
-            foreach (var individual in xAxisValues.Keys)
-            {
-                var scaledStartX = xAxisValues[individual].Item1 / maxXValue;
-                var scaledStopX = xAxisValues[individual].Item2 / maxXValue;
-                xAxisValues[individual] = (scaledStartX, scaledStopX);
-            }
-
-            return xAxisValues;
         }
     }
 }

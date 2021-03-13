@@ -33,8 +33,8 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var startedPopulation = GetStartedPopulation(populationSize);
-            var minPenalty = int.MaxValue;
-            Individual bestIndividual = null;
+            var minPenalty = PenaltyFunction.CalculatePenalty(startedPopulation.Individuals[0].Paths,_pcb,_w1,_w2,_w3,_w4,_w5);
+            var bestIndividual = startedPopulation.Individuals[0];
             var perGenerationWatch = new System.Diagnostics.Stopwatch();
             for (var i = 0; i < generationsQty; i++)
             {
@@ -42,11 +42,13 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
                 var newPopulation = new Population();
 
+                // Always store the best individual
+                newPopulation.AddIndividual(bestIndividual);
+                
                 while (newPopulation.IndividualsQty < populationSize)
                 {
                     var parentA = selectionOperator.Select(startedPopulation);
                     var parentB = selectionOperator.Select(startedPopulation);
-
                     var newIndividual = crossoverOperator.ApplyCrossover(parentA, parentB);
                     mutationOperator.Mutate(newIndividual);
                     var penalty = PenaltyFunction.CalculatePenalty(newIndividual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
