@@ -30,12 +30,15 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
                 throw new ArgumentException("Started population size must be greater than 1");
             }
 
+            Console.WriteLine("Generating started population ...");
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var startedPopulation = GetStartedPopulation(populationSize);
-            var minPenalty = PenaltyFunction.CalculatePenalty(startedPopulation.Individuals[0].Paths,_pcb,_w1,_w2,_w3,_w4,_w5);
+            var minPenalty = PenaltyFunction.CalculatePenalty(startedPopulation.Individuals[0].Paths, _pcb, _w1, _w2,
+                _w3, _w4, _w5);
             var bestIndividual = startedPopulation.Individuals[0];
             var perGenerationWatch = new System.Diagnostics.Stopwatch();
+            Console.WriteLine("Calculating generations ...");
             for (var i = 0; i < epochsQty; i++)
             {
                 perGenerationWatch.Restart();
@@ -44,7 +47,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
                 // Always store the best individual
                 newPopulation.AddIndividual(bestIndividual);
-                
+
                 while (newPopulation.IndividualsQty < populationSize)
                 {
                     var parentA = selectionOperator.Select(startedPopulation);

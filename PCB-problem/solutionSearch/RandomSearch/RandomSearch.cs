@@ -7,7 +7,7 @@ namespace PCB_problem.solutionSearch
     {
         private const int MinStepSize = 1;
         private readonly int _maxStepSize;
-        private const int MaxBendsQty = 15; // To avoid getting into inf loop of bad results
+        private const int MaxBendsQty = 20; // To avoid getting into inf loop of bad results
         private readonly Pcb _pcb;
 
         private readonly Random _random = new Random();
@@ -15,7 +15,7 @@ namespace PCB_problem.solutionSearch
         public RandomSearch(Pcb pcb)
         {
             _pcb = pcb;
-            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) / 2;
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) / 4;
         }
 
         public Individual FindBestIndividual(int individualsQty)
@@ -44,8 +44,8 @@ namespace PCB_problem.solutionSearch
             }
 
             watch.Stop();
-            Console.WriteLine(
-                $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()} ms");
+            // Console.WriteLine(
+            //     $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()} ms");
             return bestIndividual;
         }
 
@@ -62,7 +62,7 @@ namespace PCB_problem.solutionSearch
             return individual;
         }
 
-        private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb, int maxStepSize = 5)
+        private Path FindPath(Point startPoint, Point stopPoint, Pcb pcb, int maxStepSize)
         {
             var path = new Path(startPoint, stopPoint);
             var lastPathPoint = startPoint;

@@ -2,7 +2,7 @@ using System;
 
 namespace PCB_problem.solutionSearch.GeneticAlgorithm
 {
-    public class UniformCrossover
+    public class UniformCrossover : ICrossover
     {
         private readonly double _crossoverProbability; // <0,1>
         private readonly Random _random = new Random();

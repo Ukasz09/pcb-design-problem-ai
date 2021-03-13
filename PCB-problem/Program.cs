@@ -37,11 +37,11 @@ namespace PCB_problem
         // epochsQty = 30
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
-            var (w1, w2, w3, w4, w5) = (30, 1, 1, 30, 30);
-            const int tournamentSize = 5;
+            var (w1, w2, w3, w4, w5) = (10, 1, 1, 3, 3);
+            const int tournamentSize = 4;
             const double crossoverProbability = 0.35;
             const double mutationProbability = 0.25;
-            const int populationSize = 1500;
+            const int populationSize = 2750;
             const int epochsQty = 25;
 
             var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
