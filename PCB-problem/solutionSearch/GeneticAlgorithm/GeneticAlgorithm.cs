@@ -22,8 +22,8 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _w5 = w5;
         }
 
-        public Individual FindBestIndividual(int populationSize, int generationsQty, ISelection selectionMethod,
-            UniformCrossover crossover)
+        public Individual FindBestIndividual(int populationSize, int generationsQty, ISelection selectionOperator,
+            UniformCrossover crossoverOperator, MutationA mutationOperator)
         {
             if (populationSize < 1)
             {
@@ -44,11 +44,11 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
                 while (newPopulation.IndividualsQty < populationSize)
                 {
-                    var parentA = selectionMethod.Select(startedPopulation);
-                    var parentB = selectionMethod.Select(startedPopulation);
-                    
-                    var newIndividual = crossover.ApplyCrossover(parentA, parentB);
-                    //TODO: add mutation
+                    var parentA = selectionOperator.Select(startedPopulation);
+                    var parentB = selectionOperator.Select(startedPopulation);
+
+                    var newIndividual = crossoverOperator.ApplyCrossover(parentA, parentB);
+                    mutationOperator.Mutate(newIndividual);
                     var penalty = PenaltyFunction.CalculatePenalty(newIndividual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
                     // Console.WriteLine($"{penalty.ToString()}");
                     if (penalty < minPenalty)
@@ -59,12 +59,12 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
                     newPopulation.AddIndividual(newIndividual);
                 }
-                
+
                 perGenerationWatch.Stop();
                 Console.WriteLine(
                     $"Generation {i}) calculated in {perGenerationWatch.ElapsedMilliseconds.ToString()} ms \nActual best penalty: {minPenalty}\n");
-                
-                
+
+
                 startedPopulation = newPopulation;
             }
 

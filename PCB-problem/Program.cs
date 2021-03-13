@@ -12,17 +12,19 @@ namespace PCB_problem
             var data = DataUtils.ReadDataFromFile(endpointsFilePath);
             DataUtils.ParseEndpointsDataForUi(data, ";", parsedEndpointsFilePath);
             var pcb = DataUtils.ConvertDataToPcb(data, ";");
-            
+
             // RAND
             // var solution = new RandomSearch(pcb);
             // var paths = solution.FindBestIndividual(100);
 
             // GA
-            var solution = new GeneticAlgorithm(pcb, 8, 1, 1, 10, 10);
-            var selectionMethod = new TournamentSelection(pcb, 4, 8, 1, 1, 10, 10); //1) tournament=7 //best=4, 8, 1, 1, 10, 10
-            var crossover = new UniformCrossover(0.5);
-            var paths = solution.FindBestIndividual(2500, 30, selectionMethod,crossover); //1) popSize=550, genQty=50, 2) popSize:2500, genQty=50 //best=2500, 30
-            // best: time 54s
+            var solution = new GeneticAlgorithm(pcb, 30, 1, 1, 30, 30);
+            var selectionOperator =
+                new TournamentSelection(pcb, 4, 30, 1, 1, 30, 30); //best=4, 30, 1, 1, 30, 30
+            var crossoverOperator = new UniformCrossover(0.5);
+            var mutationOperator = new MutationA(0.20);
+            var paths = solution.FindBestIndividual(2500, 50, selectionOperator, crossoverOperator,
+                mutationOperator); // 2000, 30
             DataUtils.SaveIndividual(paths, "../../../../solution.json");
         }
     }

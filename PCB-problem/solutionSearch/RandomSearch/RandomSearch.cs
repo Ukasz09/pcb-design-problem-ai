@@ -73,7 +73,7 @@ namespace PCB_problem.solutionSearch
             {
                 var availableDirections = GetListOfAllDirection();
                 // To make sure that next time we don't get opposite direction
-                availableDirections.Remove(GetOppositeDirection(lastDirection));
+                availableDirections.Remove(DirectionUtils.GetOppositeDirection(lastDirection));
                 var (segment, point, direction) =
                     RandSegment(lastPathPoint, stopPoint, pcb, availableDirections, maxStepSize);
                 var wasBend = lastDirection != direction;
@@ -131,14 +131,14 @@ namespace PCB_problem.solutionSearch
                     {
                         // make shorter to avoid overlapping with endpoint 
                         segment.StepSize = i;
-                        newPathPoint = GetNextPoint(newPathPoint, GetOppositeDirection(segment.Direction));
+                        newPathPoint = GetNextPoint(newPathPoint, DirectionUtils.GetOppositeDirection(segment.Direction));
                         return (segment, newPathPoint, direction);
                     }
 
                     // To make sure that next time we don't get the same direction
                     availableDirections.Remove(direction);
                     // To not allow turning back
-                    var oppositeDirection = GetOppositeDirection(direction);
+                    var oppositeDirection = DirectionUtils.GetOppositeDirection(direction);
                     if (availableDirections.Contains(oppositeDirection))
                     {
                         availableDirections.Remove(oppositeDirection);
@@ -180,12 +180,6 @@ namespace PCB_problem.solutionSearch
         private int RandStepSize(int stepSize)
         {
             return _random.Next(MinStepSize, stepSize + 1);
-        }
-
-        private Direction GetOppositeDirection(Direction direction)
-        {
-            var directionNumber = ((int) direction + 2) % 4;
-            return (Direction) directionNumber;
         }
 
         private List<Direction> GetListOfAllDirection()
