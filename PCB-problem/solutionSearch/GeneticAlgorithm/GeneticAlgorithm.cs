@@ -69,8 +69,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
             watch.Stop();
             _logger.Log(LogLevel.Info, "----- FINISHED -----");
-            var finalLog =
-                $"Best penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()} ms";
+            var finalLog = $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms";
             _logger.Log(LogLevel.Info, finalLog);
             return bestIndividual;
         }

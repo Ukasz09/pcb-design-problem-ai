@@ -1,18 +1,21 @@
-﻿using PCB_problem.solutionSearch;
+﻿using System;
+using NLog;
+using PCB_problem.solutionSearch;
 using PCB_problem.solutionSearch.GeneticAlgorithm;
 
 namespace PCB_problem
 {
     internal static class Program
     {
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
+
         private static void Main(string[] args)
         {
             var pcb = ReadAndParseInputData();
-
             // var solutionRandomSearch = RandomSearchSolution(pcb);
             var solutionGeneticAlgorithm = GeneticAlgorithmSolution(pcb);
-
-            DataUtils.SaveIndividual(solutionGeneticAlgorithm, "../../../../solution.json");
+            var outputFilePath = System.IO.Path.Combine(Environment.CurrentDirectory, "../../../..", "solution.json");
+            DataUtils.SaveIndividual(solutionGeneticAlgorithm, outputFilePath);
         }
 
 
@@ -37,12 +40,21 @@ namespace PCB_problem
         // epochsQty = 30
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
-            var (w1, w2, w3, w4, w5) = (15, 1, 1, 5,5);
+            var (w1, w2, w3, w4, w5) = (15, 1, 1, 5, 5);
             const int tournamentSize = 4;
             const double crossoverProbability = 0.35;
             const double mutationProbability = 0.25;
             const int populationSize = 2750;
             const int epochsQty = 25;
+            _logger.Log(LogLevel.Info, "-------------------------");
+            _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
+            _logger.Log(LogLevel.Info,
+                $"w=({w1.ToString()}, {w2.ToString()}, {w3.ToString()}, {w4.ToString()}, {w5.ToString()})");
+            _logger.Log(LogLevel.Info, $"tournament={tournamentSize.ToString()}");
+            _logger.Log(LogLevel.Info, $"crossoverProbability={crossoverProbability.ToString()}");
+            _logger.Log(LogLevel.Info, $"mutationProbability={mutationProbability.ToString()}");
+            _logger.Log(LogLevel.Info, $"populationSize={populationSize.ToString()}");
+            _logger.Log(LogLevel.Info, $"epochsQty={epochsQty.ToString()}");
 
             var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
             var tournamentOperator = new TournamentSelection(pcb, tournamentSize, w1, w2, w3, w4, w5);

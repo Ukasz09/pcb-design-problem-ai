@@ -1,0 +1,37 @@
+2021-03-13 22:31:39.5674 | Info | ------------------------- |  
+2021-03-13 22:31:39.6104 | Info | --- Genetic Algorithm --- |  
+2021-03-13 22:31:39.6104 | Info | w=(15, 1, 1, 5, 5) |  
+2021-03-13 22:31:39.6104 | Info | tournament=4 |  
+2021-03-13 22:31:39.6104 | Info | crossoverProbability=0.35 |  
+2021-03-13 22:31:39.6104 | Info | mutationProbability=0.25 |  
+2021-03-13 22:31:39.6104 | Info | populationSize=2750 |  
+2021-03-13 22:31:39.6104 | Info | epochsQty=25 |  
+2021-03-13 22:31:39.6140 | Info | Generating started population ... |  
+2021-03-13 22:32:03.1172 | Info | Calculating generations ... |  
+2021-03-13 22:32:08.6197 | Debug | Generation 0) - Actual best penalty: 320 |  
+2021-03-13 22:32:11.9244 | Debug | Generation 1) - Actual best penalty: 293 |  
+2021-03-13 22:32:14.9008 | Debug | Generation 2) - Actual best penalty: 259 |  
+2021-03-13 22:32:17.2559 | Debug | Generation 3) - Actual best penalty: 259 |  
+2021-03-13 22:32:18.7761 | Debug | Generation 4) - Actual best penalty: 259 |  
+2021-03-13 22:32:20.0036 | Debug | Generation 5) - Actual best penalty: 259 |  
+2021-03-13 22:32:21.1412 | Debug | Generation 6) - Actual best penalty: 237 |  
+2021-03-13 22:32:22.2699 | Debug | Generation 7) - Actual best penalty: 237 |  
+2021-03-13 22:32:23.3694 | Debug | Generation 8) - Actual best penalty: 237 |  
+2021-03-13 22:32:24.4374 | Debug | Generation 9) - Actual best penalty: 237 |  
+2021-03-13 22:32:25.5102 | Debug | Generation 10) - Actual best penalty: 235 |  
+2021-03-13 22:32:26.5908 | Debug | Generation 11) - Actual best penalty: 235 |  
+2021-03-13 22:32:27.6711 | Debug | Generation 12) - Actual best penalty: 227 |  
+2021-03-13 22:32:28.7501 | Debug | Generation 13) - Actual best penalty: 227 |  
+2021-03-13 22:32:29.8490 | Debug | Generation 14) - Actual best penalty: 227 |  
+2021-03-13 22:32:30.9537 | Debug | Generation 15) - Actual best penalty: 227 |  
+2021-03-13 22:32:32.0491 | Debug | Generation 16) - Actual best penalty: 209 |  
+2021-03-13 22:32:33.1373 | Debug | Generation 17) - Actual best penalty: 209 |  
+2021-03-13 22:32:34.2425 | Debug | Generation 18) - Actual best penalty: 209 |  
+2021-03-13 22:32:35.3756 | Debug | Generation 19) - Actual best penalty: 209 |  
+2021-03-13 22:32:36.5054 | Debug | Generation 20) - Actual best penalty: 209 |  
+2021-03-13 22:32:37.6563 | Debug | Generation 21) - Actual best penalty: 199 |  
+2021-03-13 22:32:38.9023 | Debug | Generation 22) - Actual best penalty: 199 |  
+2021-03-13 22:32:40.0712 | Debug | Generation 23) - Actual best penalty: 199 |  
+2021-03-13 22:32:41.2329 | Debug | Generation 24) - Actual best penalty: 199 |  
+2021-03-13 22:32:41.2329 | Info | ----- FINISHED ----- |  
+2021-03-13 22:32:41.2329 | Info | Best penalty: 199, Execution time: 61618 ms |  
