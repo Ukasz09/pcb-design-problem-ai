@@ -6,6 +6,8 @@ namespace PCB_problem
     {
         public IList<Individual> Individuals { get; } = new List<Individual>();
 
+        public int IndividualsQty => Individuals.Count;
+
         public void AddIndividual(Individual individual)
         {
             Individuals.Add(individual);

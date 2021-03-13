@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCB_problem.solutionSearch
 {
-    public class RandomSearch : IPcbSolution
+    public class RandomSearch 
     {
         private const int MinStepSize = 1;
         private readonly int _maxStepSize;
