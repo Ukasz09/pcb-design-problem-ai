@@ -7,7 +7,7 @@ namespace PCB_problem
 {
     internal static class Program
     {
-        private static Logger _logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         private static void Main(string[] args)
         {
@@ -41,7 +41,7 @@ namespace PCB_problem
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
             var (w1, w2, w3, w4, w5) = (15, 1, 1, 5, 5);
-            const int tournamentSize = 4;
+            const double tournamentSize = 0.0015;
             const double crossoverProbability = 0.35;
             const double mutationProbability = 0.25;
             const int populationSize = 2750;

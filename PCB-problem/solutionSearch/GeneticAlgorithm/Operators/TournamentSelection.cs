@@ -13,13 +13,13 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         private readonly int _w3;
         private readonly int _w4;
         private readonly int _w5;
-        private readonly int _tournamentSize;
+        private readonly double _tournamentSizePercent;
 
-        public TournamentSelection(Pcb pcb, int tournamentSize, int w1, int w2, int w3, int w4, int w5)
+        public TournamentSelection(Pcb pcb, double tournamentSizePercent, int w1, int w2, int w3, int w4, int w5)
         {
             _random = new Random();
             _pcb = pcb;
-            _tournamentSize = tournamentSize;
+            _tournamentSizePercent = tournamentSizePercent;
             _w1 = w1;
             _w2 = w2;
             _w3 = w3;
@@ -27,11 +27,11 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _w5 = w5;
         }
 
-        public TournamentSelection(int seed, Pcb pcb, int tournamentSize, int w1, int w2, int w3, int w4, int w5)
+        public TournamentSelection(int seed, Pcb pcb, int tournamentSizePercent, int w1, int w2, int w3, int w4, int w5)
         {
             _random = new Random(seed);
             _pcb = pcb;
-            _tournamentSize = tournamentSize;
+            _tournamentSizePercent = tournamentSizePercent;
             _w1 = w1;
             _w2 = w2;
             _w3 = w3;
@@ -41,13 +41,8 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
         public Individual Select(Population population)
         {
-            if (_tournamentSize > population.Individuals.Count)
-            {
-                throw new ArgumentException(
-                    "Quantity of individuals to select from population cannot be less than actual population size");
-            }
-
-            var individuals = DrawIndividualsWithoutRepeating(population, _tournamentSize);
+            var qtyToDraw = (int) (_tournamentSizePercent * population.IndividualsQty);
+            var individuals = DrawIndividualsWithoutRepeating(population, qtyToDraw);
             var bestIndividual =
                 PenaltyFunction.GetIndividualWithMinPenaltyCost(individuals, _pcb, _w1, _w2, _w3, _w4, _w5);
             return bestIndividual;
