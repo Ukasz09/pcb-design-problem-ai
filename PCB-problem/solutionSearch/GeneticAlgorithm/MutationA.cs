@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCB_problem.solutionSearch.GeneticAlgorithm
 {
-    public class MutationA
+    public class MutationA : IMutation
     {
         private readonly double _mutationProbability;
         private readonly Random _random;
@@ -99,7 +99,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         {
             var newExtraPrevSegment = new Segment(moveDirection, 1);
             segments.Insert(actualSegmentIndex, newExtraPrevSegment);
-            }
+        }
 
         private void InsertNewNextSegment(IList<Segment> segments, Direction moveDirection, int actualSegmentIndex)
         {

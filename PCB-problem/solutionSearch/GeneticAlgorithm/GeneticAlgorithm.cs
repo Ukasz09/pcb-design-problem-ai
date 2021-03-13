@@ -22,8 +22,8 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _w5 = w5;
         }
 
-        public Individual FindBestIndividual(int populationSize, int generationsQty, ISelection selectionOperator,
-            UniformCrossover crossoverOperator, MutationA mutationOperator)
+        public Individual FindBestIndividual(int populationSize, int epochsQty, ISelection selectionOperator,
+            UniformCrossover crossoverOperator, IMutation mutationOperator)
         {
             if (populationSize < 1)
             {
@@ -36,7 +36,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             var minPenalty = PenaltyFunction.CalculatePenalty(startedPopulation.Individuals[0].Paths,_pcb,_w1,_w2,_w3,_w4,_w5);
             var bestIndividual = startedPopulation.Individuals[0];
             var perGenerationWatch = new System.Diagnostics.Stopwatch();
-            for (var i = 0; i < generationsQty; i++)
+            for (var i = 0; i < epochsQty; i++)
             {
                 perGenerationWatch.Restart();
 

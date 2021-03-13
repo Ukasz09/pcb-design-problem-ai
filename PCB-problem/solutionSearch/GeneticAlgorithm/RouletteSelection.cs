@@ -33,19 +33,22 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
                 new Dictionary<Individual, (int, int)>(population.Individuals.Count); // <individual, <startX,stopX>
             var minPenalty = int.MaxValue;
             var lastXValue = 0;
-            var randRouletteChoice = _random.NextDouble() * (lastXValue);
             foreach (var individual in population.Individuals)
             {
                 var penalty = PenaltyFunction.CalculatePenalty(individual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
                 var inverselyPenalty = minPenalty / penalty;
                 var newXValue = lastXValue + inverselyPenalty;
                 rouletteAxisX.Add(individual, (lastXValue, newXValue));
-                if (randRouletteChoice >= lastXValue && randRouletteChoice <= newXValue)
+                lastXValue = newXValue;
+            }
+
+            var randRouletteChoice = _random.NextDouble() * (lastXValue);
+            foreach (var (individual, (startX, stopX)) in rouletteAxisX)
+            {
+                if (randRouletteChoice >= startX && randRouletteChoice <= stopX)
                 {
                     return individual;
                 }
-
-                lastXValue = newXValue;
             }
 
             throw new ArithmeticException(

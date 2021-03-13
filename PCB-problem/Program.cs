@@ -7,26 +7,61 @@ namespace PCB_problem
     {
         private static void Main(string[] args)
         {
-            const string endpointsFilePath = "../../../../data.txt";
-            const string parsedEndpointsFilePath = "../../../../parsed-data.json";
-            var data = DataUtils.ReadDataFromFile(endpointsFilePath);
-            DataUtils.ParseEndpointsDataForUi(data, ";", parsedEndpointsFilePath);
-            var pcb = DataUtils.ConvertDataToPcb(data, ";");
+            var pcb = ReadAndParseInputData();
 
-            // RAND
-            // var solution = new RandomSearch(pcb);
-            // var paths = solution.FindBestIndividual(100);
+            // var solutionRandomSearch = RandomSearchSolution(pcb);
+            var solutionGeneticAlgorithm = GeneticAlgorithmSolution(pcb);
 
-            // GA
-            var solution = new GeneticAlgorithm(pcb, 30, 1, 1, 30, 30);
-            // var selectionOperator =
-            //     new TournamentSelection(pcb, 4, 30, 1, 1, 30, 30); //best=4, 30, 1, 1, 30, 30
-            var selectionOperator = new RouletteSelection(pcb, 30, 1, 1, 30, 30);
-            var crossoverOperator = new UniformCrossover(0.5);
-            var mutationOperator = new MutationA(0.1);
-            var paths = solution.FindBestIndividual(2000, 30, selectionOperator, crossoverOperator,
-                mutationOperator); // 2000, 30-50
-            DataUtils.SaveIndividual(paths, "../../../../solution.json");
+            DataUtils.SaveIndividual(solutionGeneticAlgorithm, "../../../../solution.json");
+        }
+
+
+        private static Pcb ReadAndParseInputData()
+        {
+            const string inputDataFilePath = "../../../../data.txt";
+            const string parsedInputDataFilePath = "../../../../parsed-data.json";
+            const string dataDelimiter = ";";
+
+            var inputDataText = DataUtils.ReadDataFromFile(inputDataFilePath);
+            DataUtils.ParseEndpointsDataForUi(inputDataText, dataDelimiter, parsedInputDataFilePath);
+            var pcb = DataUtils.ConvertDataToPcb(inputDataText, dataDelimiter);
+            return pcb;
+        }
+
+        // Best: 
+        // tournamentSize = 4
+        // w1, w2, w3, w4, w5 = 30, 1, 1, 30, 30
+        // crossoverProbability = 0.5
+        // mutationProbability = 0.2
+        // populationSize = 2000
+        // epochsQty = 30
+        private static Individual GeneticAlgorithmSolution(Pcb pcb)
+        {
+            var (w1, w2, w3, w4, w5) = (30, 1, 1, 30, 30);
+            const int tournamentSize = 5;
+            const double crossoverProbability = 0.35;
+            const double mutationProbability = 0.25;
+            const int populationSize = 1500;
+            const int epochsQty = 25;
+
+            var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+            var tournamentOperator = new TournamentSelection(pcb, tournamentSize, w1, w2, w3, w4, w5);
+            var rouletteOperator = new RouletteSelection(pcb, w1, w2, w3, w4, w5);
+            var crossoverOperator = new UniformCrossover(crossoverProbability);
+            var mutationOperator = new MutationA(mutationProbability);
+            var bestIndividual = geneticAlgorithm.FindBestIndividual(populationSize, epochsQty, tournamentOperator,
+                crossoverOperator,
+                mutationOperator);
+            return bestIndividual;
+        }
+
+        private static Individual RandomSearchSolution(Pcb pcb)
+        {
+            const int attemptsQty = 100;
+
+            var randomSearch = new RandomSearch(pcb);
+            var bestIndividual = randomSearch.FindBestIndividual(attemptsQty);
+            return bestIndividual;
         }
     }
 }
