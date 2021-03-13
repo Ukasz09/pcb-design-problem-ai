@@ -55,7 +55,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
         private IEnumerable<Individual> DrawIndividualsWithoutRepeating(Population population, int qty)
         {
-            var possibleIndexesToDraw = Enumerable.Range(0, qty).ToList();
+            var possibleIndexesToDraw = Enumerable.Range(0, population.IndividualsQty).ToList();
             var individuals = new List<Individual>(qty);
             for (var i = 0; i < qty; i++)
             {

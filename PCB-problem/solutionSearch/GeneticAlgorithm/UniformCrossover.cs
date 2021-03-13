@@ -7,6 +7,9 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         private readonly double _crossOverProbability; // <0,1>
         private readonly Random _random = new Random();
 
+        /**
+         * crossOverProbability: probability within range 0.0 and 1.0 
+         */
         public UniformCrossover(double crossOverProbability)
         {
             _crossOverProbability = crossOverProbability;

@@ -40,7 +40,7 @@ namespace PCB_problem.solutionSearch
                     bestIndividual = individual;
                 }
 
-                Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
+                // Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
             }
 
             watch.Stop();
