@@ -9,18 +9,18 @@ namespace PCB_problem
     {
         public static string[] ReadDataFromFile(string filepath)
         {
-            string[] lines = File.ReadAllLines(filepath);
+            var lines = File.ReadAllLines(filepath);
             return lines;
         }
 
         public static Pcb ConvertDataToPcb(string[] textLines, string delimiter)
         {
             var sizeData = textLines[0].Split(delimiter);
-            var pcb = generatePcb(sizeData);
+            var pcb = GeneratePcb(sizeData);
             for (var i = 1; i < textLines.Length; i++)
             {
                 var endpointsData = textLines[i].Split(delimiter);
-                var (startPoint, endPoint) = parseEndpointData(endpointsData);
+                var (startPoint, endPoint) = ParseEndpointData(endpointsData);
                 pcb.AddEndpoint(startPoint, endPoint);
             }
 
@@ -30,7 +30,7 @@ namespace PCB_problem
         /**
          * Return: (startPoint, endPoint)
          */
-        private static (Point, Point) parseEndpointData(string[] endpointsData)
+        private static (Point, Point) ParseEndpointData(IReadOnlyList<string> endpointsData)
         {
             int.TryParse(endpointsData[0], out var startPointX);
             int.TryParse(endpointsData[1], out var startPointY);
@@ -41,7 +41,7 @@ namespace PCB_problem
             return (startPoint, endPoint);
         }
 
-        private static Pcb generatePcb(string[] sizeData)
+        private static Pcb GeneratePcb(IReadOnlyList<string> sizeData)
         {
             int.TryParse(sizeData[0], out var pcbWidth);
             int.TryParse(sizeData[1], out var pcbHeight);
@@ -49,18 +49,17 @@ namespace PCB_problem
             return pcb;
         }
 
-        public static void SaveSolution(Dictionary<(Point, Point), Path> solution, string filePath)
+        public static void SaveIndividual(Individual individual, string filePath)
         {
-            var lines = new string[solution.Count + 2];
+            var lines = new string[individual.Paths.Count + 2];
             lines[0] = "[";
-            int i = 1;
-            foreach (var entry in solution)
+            var i = 1;
+            foreach (var path in individual.Paths)
             {
-                var path = entry.Value;
                 var pathStringArr = path.Segments.Select(segment => segment.ToString()).ToArray();
                 lines[i] = $"[{path.startPoint},[{string.Join(",", pathStringArr)}]],";
                 // If last line of result then remove comma
-                if (i == solution.Count)
+                if (i == individual.Paths.Count)
                 {
                     lines[i] = lines[i].Remove(lines[i].Length - 1, 1);
                 }

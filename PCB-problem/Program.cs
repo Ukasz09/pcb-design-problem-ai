@@ -12,8 +12,8 @@ namespace PCB_problem
             DataUtils.ParseEndpointsDataForUi(data, ";", parsedEndpointsFilePath);
             var pcb = DataUtils.ConvertDataToPcb(data, ";");
             IPcbSolution solution = new RandomSearch(pcb);
-            var paths = solution.FindBestSolution(1000);
-            DataUtils.SaveSolution(paths, "../../../../solution.json");
+            var paths = solution.FindBestIndividual(100);
+            DataUtils.SaveIndividual(paths, "../../../../solution.json");
         }
     }
 }
