@@ -4,9 +4,11 @@ namespace PCB_problem
 {
     public class Individual
     {
-        private readonly Dictionary<(Point, Point), Path> _paths;
+        private readonly Dictionary<(Point, Point), Path> _paths; // <(startPoint,stopPoint), path>
 
         public Dictionary<(Point, Point), Path>.ValueCollection Paths => _paths.Values;
+        public Dictionary<(Point, Point), Path>.KeyCollection StartPoints => _paths.Keys;
+
 
         public Individual() : this(new Dictionary<(Point, Point), Path>())
         {
@@ -25,6 +27,11 @@ namespace PCB_problem
         public void AddPath((Point, Point) startedPoint, Path path)
         {
             _paths.Add(startedPoint, path);
+        }
+
+        public Path GetPath((Point, Point) endpoint)
+        {
+            return _paths[endpoint];
         }
     }
 }
