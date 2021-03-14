@@ -18,7 +18,7 @@ namespace PCB_problem
             Segments = new List<Segment>();
         }
 
-        private Path(Point startPoint, Point stopPoint, IList<Segment> segments)
+        public Path(Point startPoint, Point stopPoint, IList<Segment> segments)
         {
             this.startPoint = startPoint;
             this.stopPoint = stopPoint;

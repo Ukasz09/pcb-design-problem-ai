@@ -2,5 +2,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0b478afc_002De447_002D4086_002Dbace_002D1170b5a810ff/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TournamentSelectionTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::1E659DA7-6451-42D8-AD5C-4F158A7DF995::.NETCoreApp,Version=v3.1::PCB_problem.Test.TournamentSelectionTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::1E659DA7-6451-42D8-AD5C-4F158A7DF995::.NETCoreApp,Version=v3.1::PCB_problem.Test.PenaltyFunctionTests.WhenGetIndividualWithMinPenaltyCostThenProperIndividual&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

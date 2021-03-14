@@ -10,10 +10,18 @@ namespace PCB_problem.Test
     {
         private Pcb _pcb;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             _pcb = new Pcb(16, 16);
+            _pcb.AddEndpoint(new Point(2, 7), new Point(9, 7));
+            _pcb.AddEndpoint(new Point(3, 8), new Point(7, 6));
+            _pcb.AddEndpoint(new Point(4, 4), new Point(5, 13));
+            _pcb.AddEndpoint(new Point(5, 2), new Point(10, 12));
+            _pcb.AddEndpoint(new Point(6, 6), new Point(6, 8));
+            _pcb.AddEndpoint(new Point(7, 10), new Point(13, 10));
+            _pcb.AddEndpoint(new Point(8, 2), new Point(8, 15));
+            _pcb.AddEndpoint(new Point(10, 10), new Point(13, 6));
         }
 
         [Test]

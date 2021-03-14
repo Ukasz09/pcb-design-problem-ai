@@ -8,7 +8,7 @@ namespace PCB_problem
         private readonly Dictionary<(Point, Point), Path> _paths; // <(startPoint,stopPoint), path>
 
         public Dictionary<(Point, Point), Path>.ValueCollection Paths => _paths.Values;
-        public Dictionary<(Point, Point), Path>.KeyCollection StartPoints => _paths.Keys;
+        public Dictionary<(Point, Point), Path>.KeyCollection EndPoints => _paths.Keys;
 
 
         public Individual() : this(new Dictionary<(Point, Point), Path>())

@@ -18,7 +18,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         public Individual ApplyCrossover(Individual parentA, Individual parentB)
         {
             var newIndividual = new Individual();
-            foreach (var endpoint in parentA.StartPoints)
+            foreach (var endpoint in parentA.EndPoints)
             {
                 var pathFromA = parentA.GetPath(endpoint);
                 var pathFromB = parentB.GetPath(endpoint);
