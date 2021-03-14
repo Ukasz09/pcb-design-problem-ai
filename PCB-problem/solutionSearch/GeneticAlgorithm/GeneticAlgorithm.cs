@@ -24,18 +24,11 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _logger = LogManager.GetCurrentClassLogger();
         }
 
-        public Individual FindBestIndividual(int populationSize, int epochsQty, ISelection selectionOperator,
+        public Individual FindBestIndividual(Population startedPopulation, int epochsQty, ISelection selectionOperator,
             UniformCrossover crossoverOperator, IMutation mutationOperator)
         {
-            if (populationSize < 1)
-            {
-                throw new ArgumentException("Started population size must be greater than 1");
-            }
-
-            _logger.Log(LogLevel.Info, "Generating started population ...");
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            var startedPopulation = GetStartedPopulation(populationSize);
             var minPenalty = PenaltyFunction.CalculatePenalty(startedPopulation.Individuals[0].Paths, _pcb, _w1, _w2,
                 _w3, _w4, _w5);
             var bestIndividual = startedPopulation.Individuals[0];
@@ -47,7 +40,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
                 // Always store the best individual
                 newPopulation.AddIndividual(bestIndividual);
 
-                while (newPopulation.IndividualsQty < populationSize)
+                while (newPopulation.IndividualsQty < startedPopulation.IndividualsQty)
                 {
                     var parentA = selectionOperator.Select(startedPopulation);
                     var parentB = selectionOperator.Select(startedPopulation);
@@ -68,23 +61,9 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             }
 
             watch.Stop();
-            _logger.Log(LogLevel.Info, "----- FINISHED -----");
             var finalLog = $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms";
             _logger.Log(LogLevel.Info, finalLog);
             return bestIndividual;
-        }
-
-        private Population GetStartedPopulation(int size)
-        {
-            var randomSearch = new RandomSearch(_pcb);
-            var population = new Population();
-            for (var i = 0; i < size; i++)
-            {
-                var individual = randomSearch.FindIndividual();
-                population.AddIndividual(individual);
-            }
-
-            return population;
         }
     }
 }

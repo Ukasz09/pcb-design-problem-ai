@@ -3,18 +3,19 @@ using System.Collections.Generic;
 
 namespace PCB_problem.solutionSearch
 {
-    public class RandomSearch 
+    public class RandomSearch
     {
         private const int MinStepSize = 1;
         private readonly int _maxStepSize;
         private const int MaxBendsQty = 20; // To avoid getting into inf loop of bad results
         private readonly Pcb _pcb;
 
-        private readonly Random _random = new Random();
+        private readonly Random _random;
 
-        public RandomSearch(Pcb pcb)
+        public RandomSearch(Pcb pcb, int? seed = null)
         {
             _pcb = pcb;
+            _random = seed != null ? new Random(seed.Value) : new Random();
             _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) / 4;
         }
 
@@ -131,7 +132,8 @@ namespace PCB_problem.solutionSearch
                     {
                         // make shorter to avoid overlapping with endpoint 
                         segment.StepSize = i;
-                        newPathPoint = GetNextPoint(newPathPoint, DirectionUtils.GetOppositeDirection(segment.Direction));
+                        newPathPoint = GetNextPoint(newPathPoint,
+                            DirectionUtils.GetOppositeDirection(segment.Direction));
                         return (segment, newPathPoint, direction);
                     }
 

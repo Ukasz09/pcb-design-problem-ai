@@ -61,7 +61,10 @@ namespace PCB_problem
             var rouletteOperator = new RouletteSelection(pcb, w1, w2, w3, w4, w5);
             var crossoverOperator = new UniformCrossover(crossoverProbability);
             var mutationOperator = new MutationA(mutationProbability);
-            var bestIndividual = geneticAlgorithm.FindBestIndividual(populationSize, epochsQty, tournamentOperator,
+            _logger.Log(LogLevel.Info, "Generating started population ...");
+            var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
+            
+            var bestIndividual = geneticAlgorithm.FindBestIndividual(startedPopulation, epochsQty, tournamentOperator,
                 crossoverOperator,
                 mutationOperator);
             return bestIndividual;
