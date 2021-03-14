@@ -32,20 +32,20 @@ namespace PCB_problem
         }
 
         // Best: 
-        // tournamentSize = 4
-        // w1, w2, w3, w4, w5 = 30, 1, 1, 30, 30
+        // tournamentPercent = 0,002
+        // w1, w2, w3, w4, w5 = 30, 1, 1, 30, 30 //40
         // crossoverProbability = 0.5
         // mutationProbability = 0.2
-        // populationSize = 2000
-        // epochsQty = 30
+        // populationSize = 2000 //5000
+        // epochsQty = 30 //50
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
-            var (w1, w2, w3, w4, w5) = (30, 1, 1, 5, 5);
+            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
             const double tournamentSizePercent = 0.002;
             const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.4;
-            const int populationSize = 2000;
-            const int epochsQty = 25;
+            const double mutationProbability = 0.15;
+            const int populationSize = 5000;
+            const int epochsQty = 50;
             _logger.Log(LogLevel.Info, "-------------------------");
             _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
             _logger.Log(LogLevel.Info,
@@ -63,11 +63,14 @@ namespace PCB_problem
             var mutationOperator = new MutationA(mutationProbability);
             _logger.Log(LogLevel.Info, "Generating started population ...");
             var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
-            
-            var bestIndividual = geneticAlgorithm.FindBestIndividual(startedPopulation, epochsQty, tournamentOperator,
+
+            return geneticAlgorithm.FindBestIndividual(
+                startedPopulation,
+                epochsQty,
+                tournamentOperator,
                 crossoverOperator,
-                mutationOperator);
-            return bestIndividual;
+                mutationOperator
+            );
         }
 
         private static Individual RandomSearchSolution(Pcb pcb)

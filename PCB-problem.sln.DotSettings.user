@@ -1,7 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0b478afc_002De447_002D4086_002Dbace_002D1170b5a810ff/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TournamentSelectionTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::1E659DA7-6451-42D8-AD5C-4F158A7DF995::.NETCoreApp,Version=v3.1::PCB_problem.Test.TournamentSelectionTests&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::1E659DA7-6451-42D8-AD5C-4F158A7DF995::.NETCoreApp,Version=v3.1::PCB_problem.Test.PenaltyFunctionTests.WhenGetIndividualWithMinPenaltyCostThenProperIndividual&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=da128167_002D7c5a_002D47b9_002Dab5b_002D5b20c4210495/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from PenaltyFunctionTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;1E659DA7-6451-42D8-AD5C-4F158A7DF995/f:PenaltyFunctionTests.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;1E659DA7-6451-42D8-AD5C-4F158A7DF995/f:TournamentSelectionTests.cs&lt;/ProjectFile&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -528,3 +528,449 @@
 2021-03-14 09:00:30.1448 | Info | Generating started population ... |  
 2021-03-14 09:00:39.6167 | Info | Calculating generations ... |  
 2021-03-14 09:00:56.5889 | Info | Best penalty: 262, Execution time: 16977 ms |  
+2021-03-14 11:42:53.7932 | Info | ------------------------- |  
+2021-03-14 11:42:53.8375 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:42:53.8375 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 11:42:53.8375 | Info | tournament=0.002 |  
+2021-03-14 11:42:53.8375 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:42:53.8375 | Info | mutationProbability=0.25 |  
+2021-03-14 11:42:53.8375 | Info | populationSize=2000 |  
+2021-03-14 11:42:53.8375 | Info | epochsQty=25 |  
+2021-03-14 11:42:53.8409 | Info | Generating started population ... |  
+2021-03-14 11:43:03.8823 | Info | Calculating generations ... |  
+2021-03-14 11:43:22.3242 | Info | Best penalty: 212, Execution time: 18447 ms |  
+2021-03-14 11:43:49.5673 | Info | ------------------------- |  
+2021-03-14 11:43:49.6175 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:43:49.6201 | Info | w=(50, 1, 1, 5, 5) |  
+2021-03-14 11:43:49.6201 | Info | tournament=0.002 |  
+2021-03-14 11:43:49.6201 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:43:49.6201 | Info | mutationProbability=0.2 |  
+2021-03-14 11:43:49.6201 | Info | populationSize=2000 |  
+2021-03-14 11:43:49.6201 | Info | epochsQty=25 |  
+2021-03-14 11:43:49.6201 | Info | Generating started population ... |  
+2021-03-14 11:43:59.7514 | Info | Calculating generations ... |  
+2021-03-14 11:44:16.4516 | Info | Best penalty: 246, Execution time: 16705 ms |  
+2021-03-14 11:45:25.9293 | Info | ------------------------- |  
+2021-03-14 11:45:25.9752 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:45:25.9767 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:45:25.9767 | Info | tournament=0.002 |  
+2021-03-14 11:45:25.9767 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:45:25.9767 | Info | mutationProbability=0.2 |  
+2021-03-14 11:45:25.9767 | Info | populationSize=2000 |  
+2021-03-14 11:45:25.9767 | Info | epochsQty=35 |  
+2021-03-14 11:45:25.9767 | Info | Generating started population ... |  
+2021-03-14 11:45:36.6144 | Info | Calculating generations ... |  
+2021-03-14 11:45:55.4465 | Info | Best penalty: 213, Execution time: 18836 ms |  
+2021-03-14 11:46:12.8677 | Info | ------------------------- |  
+2021-03-14 11:46:12.9219 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:46:12.9219 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:46:12.9219 | Info | tournament=0.002 |  
+2021-03-14 11:46:12.9243 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:46:12.9243 | Info | mutationProbability=0.2 |  
+2021-03-14 11:46:12.9243 | Info | populationSize=2000 |  
+2021-03-14 11:46:12.9243 | Info | epochsQty=50 |  
+2021-03-14 11:46:12.9243 | Info | Generating started population ... |  
+2021-03-14 11:46:22.1892 | Info | Calculating generations ... |  
+2021-03-14 11:46:48.6512 | Info | Best penalty: 220, Execution time: 26466 ms |  
+2021-03-14 11:47:04.0412 | Info | ------------------------- |  
+2021-03-14 11:47:04.0934 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:47:04.0934 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:47:04.0934 | Info | tournament=0.002 |  
+2021-03-14 11:47:04.0934 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:47:04.0934 | Info | mutationProbability=0.4 |  
+2021-03-14 11:47:04.0934 | Info | populationSize=2000 |  
+2021-03-14 11:47:04.0934 | Info | epochsQty=50 |  
+2021-03-14 11:47:04.0934 | Info | Generating started population ... |  
+2021-03-14 11:47:14.4676 | Info | Calculating generations ... |  
+2021-03-14 11:47:48.1973 | Info | Best penalty: 225, Execution time: 33734 ms |  
+2021-03-14 11:48:24.7230 | Info | ------------------------- |  
+2021-03-14 11:48:24.7729 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:48:24.7729 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:48:24.7729 | Info | tournament=0.008 |  
+2021-03-14 11:48:24.7729 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:48:24.7729 | Info | mutationProbability=0.4 |  
+2021-03-14 11:48:24.7729 | Info | populationSize=2000 |  
+2021-03-14 11:48:24.7729 | Info | epochsQty=50 |  
+2021-03-14 11:48:24.7767 | Info | Generating started population ... |  
+2021-03-14 11:48:34.6188 | Info | Calculating generations ... |  
+2021-03-14 11:50:00.3369 | Info | Best penalty: 259, Execution time: 85723 ms |  
+2021-03-14 11:50:26.5107 | Info | ------------------------- |  
+2021-03-14 11:50:26.5599 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:50:26.5607 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:50:26.5607 | Info | tournament=0.002 |  
+2021-03-14 11:50:26.5607 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:50:26.5607 | Info | mutationProbability=0.75 |  
+2021-03-14 11:50:26.5607 | Info | populationSize=2000 |  
+2021-03-14 11:50:26.5607 | Info | epochsQty=50 |  
+2021-03-14 11:50:26.5607 | Info | Generating started population ... |  
+2021-03-14 11:50:37.3071 | Info | Calculating generations ... |  
+2021-03-14 11:51:11.8138 | Info | Best penalty: 458, Execution time: 34511 ms |  
+2021-03-14 11:51:36.3463 | Info | ------------------------- |  
+2021-03-14 11:51:36.4001 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:51:36.4001 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:51:36.4001 | Info | tournament=0.002 |  
+2021-03-14 11:51:36.4001 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:51:36.4001 | Info | mutationProbability=1 |  
+2021-03-14 11:51:36.4001 | Info | populationSize=2000 |  
+2021-03-14 11:51:36.4001 | Info | epochsQty=50 |  
+2021-03-14 11:51:36.4043 | Info | Generating started population ... |  
+2021-03-14 11:51:46.0760 | Info | Calculating generations ... |  
+2021-03-14 11:52:24.8416 | Info | Best penalty: 678, Execution time: 38770 ms |  
+2021-03-14 11:52:46.2733 | Info | ------------------------- |  
+2021-03-14 11:52:46.3152 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:52:46.3152 | Info | w=(40, 1, 1, 25, 25) |  
+2021-03-14 11:52:46.3162 | Info | tournament=0.002 |  
+2021-03-14 11:52:46.3162 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:52:46.3162 | Info | mutationProbability=0.1 |  
+2021-03-14 11:52:46.3162 | Info | populationSize=2000 |  
+2021-03-14 11:52:46.3162 | Info | epochsQty=50 |  
+2021-03-14 11:52:46.3162 | Info | Generating started population ... |  
+2021-03-14 11:52:56.2566 | Info | Calculating generations ... |  
+2021-03-14 11:53:21.3003 | Info | Best penalty: 254, Execution time: 25048 ms |  
+2021-03-14 11:53:47.5725 | Info | ------------------------- |  
+2021-03-14 11:53:47.6249 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:53:47.6249 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:53:47.6249 | Info | tournament=0.002 |  
+2021-03-14 11:53:47.6249 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:53:47.6249 | Info | mutationProbability=0.1 |  
+2021-03-14 11:53:47.6249 | Info | populationSize=2000 |  
+2021-03-14 11:53:47.6249 | Info | epochsQty=50 |  
+2021-03-14 11:53:47.6285 | Info | Generating started population ... |  
+2021-03-14 11:53:57.6835 | Info | Calculating generations ... |  
+2021-03-14 11:54:22.1115 | Info | Best penalty: 181, Execution time: 24433 ms |  
+2021-03-14 11:54:37.2273 | Info | ------------------------- |  
+2021-03-14 11:54:37.2765 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:54:37.2765 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:54:37.2765 | Info | tournament=0.002 |  
+2021-03-14 11:54:37.2765 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:54:37.2765 | Info | mutationProbability=0.25 |  
+2021-03-14 11:54:37.2765 | Info | populationSize=2000 |  
+2021-03-14 11:54:37.2765 | Info | epochsQty=50 |  
+2021-03-14 11:54:37.2765 | Info | Generating started population ... |  
+2021-03-14 11:54:46.8522 | Info | Calculating generations ... |  
+2021-03-14 11:55:14.4249 | Info | Best penalty: 198, Execution time: 27577 ms |  
+2021-03-14 11:55:30.6969 | Info | ------------------------- |  
+2021-03-14 11:55:30.7489 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:55:30.7530 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:55:30.7530 | Info | tournament=0.002 |  
+2021-03-14 11:55:30.7530 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:55:30.7530 | Info | mutationProbability=0.25 |  
+2021-03-14 11:55:30.7530 | Info | populationSize=2000 |  
+2021-03-14 11:55:30.7530 | Info | epochsQty=75 |  
+2021-03-14 11:55:30.7530 | Info | Generating started population ... |  
+2021-03-14 11:55:40.4269 | Info | Calculating generations ... |  
+2021-03-14 11:56:19.7893 | Info | Best penalty: 222, Execution time: 39367 ms |  
+2021-03-14 11:56:42.2846 | Info | ------------------------- |  
+2021-03-14 11:56:42.3343 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:56:42.3343 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:56:42.3343 | Info | tournament=0.002 |  
+2021-03-14 11:56:42.3343 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:56:42.3343 | Info | mutationProbability=0.25 |  
+2021-03-14 11:56:42.3343 | Info | populationSize=2500 |  
+2021-03-14 11:56:42.3343 | Info | epochsQty=75 |  
+2021-03-14 11:56:42.3369 | Info | Generating started population ... |  
+2021-03-14 11:56:54.0515 | Info | Calculating generations ... |  
+2021-03-14 11:57:52.0197 | Info | Best penalty: 263, Execution time: 57973 ms |  
+2021-03-14 11:58:05.8114 | Info | ------------------------- |  
+2021-03-14 11:58:05.8654 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:58:05.8654 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:58:05.8679 | Info | tournament=0.002 |  
+2021-03-14 11:58:05.8679 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:58:05.8679 | Info | mutationProbability=0.1 |  
+2021-03-14 11:58:05.8679 | Info | populationSize=2500 |  
+2021-03-14 11:58:05.8679 | Info | epochsQty=75 |  
+2021-03-14 11:58:05.8679 | Info | Generating started population ... |  
+2021-03-14 11:58:17.3574 | Info | Calculating generations ... |  
+2021-03-14 11:59:08.9629 | Info | Best penalty: 248, Execution time: 51610 ms |  
+2021-03-14 11:59:18.9847 | Info | ------------------------- |  
+2021-03-14 11:59:19.0341 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:59:19.0341 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:59:19.0341 | Info | tournament=0.002 |  
+2021-03-14 11:59:19.0341 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:59:19.0341 | Info | mutationProbability=0.1 |  
+2021-03-14 11:59:19.0341 | Info | populationSize=1500 |  
+2021-03-14 11:59:19.0360 | Info | epochsQty=75 |  
+2021-03-14 11:59:19.0360 | Info | Generating started population ... |  
+2021-03-14 11:59:26.1259 | Info | Calculating generations ... |  
+2021-03-14 11:59:48.0735 | Info | Best penalty: 248, Execution time: 21952 ms |  
+2021-03-14 11:59:57.5549 | Info | ------------------------- |  
+2021-03-14 11:59:57.6060 | Info | --- Genetic Algorithm --- |  
+2021-03-14 11:59:57.6060 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 11:59:57.6060 | Info | tournament=0.002 |  
+2021-03-14 11:59:57.6082 | Info | crossoverProbability=0.5 |  
+2021-03-14 11:59:57.6082 | Info | mutationProbability=0.25 |  
+2021-03-14 11:59:57.6082 | Info | populationSize=1500 |  
+2021-03-14 11:59:57.6082 | Info | epochsQty=75 |  
+2021-03-14 11:59:57.6082 | Info | Generating started population ... |  
+2021-03-14 12:00:04.7714 | Info | Calculating generations ... |  
+2021-03-14 12:00:29.5858 | Info | Best penalty: 246, Execution time: 24819 ms |  
+2021-03-14 12:00:48.5881 | Info | ------------------------- |  
+2021-03-14 12:00:48.6333 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:00:48.6333 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:00:48.6333 | Info | tournament=0.002 |  
+2021-03-14 12:00:48.6333 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:00:48.6333 | Info | mutationProbability=0.25 |  
+2021-03-14 12:00:48.6333 | Info | populationSize=1250 |  
+2021-03-14 12:00:48.6333 | Info | epochsQty=150 |  
+2021-03-14 12:00:48.6368 | Info | Generating started population ... |  
+2021-03-14 12:00:54.7641 | Info | Calculating generations ... |  
+2021-03-14 12:01:36.3838 | Info | Best penalty: 253, Execution time: 41624 ms |  
+2021-03-14 12:01:49.5845 | Info | ------------------------- |  
+2021-03-14 12:01:49.6255 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:01:49.6255 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:01:49.6255 | Info | tournament=0.002 |  
+2021-03-14 12:01:49.6255 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:01:49.6255 | Info | mutationProbability=0.35 |  
+2021-03-14 12:01:49.6255 | Info | populationSize=1250 |  
+2021-03-14 12:01:49.6255 | Info | epochsQty=150 |  
+2021-03-14 12:01:49.6289 | Info | Generating started population ... |  
+2021-03-14 12:01:55.7118 | Info | Calculating generations ... |  
+2021-03-14 12:02:40.2994 | Info | Best penalty: 261, Execution time: 44592 ms |  
+2021-03-14 12:02:50.0143 | Info | ------------------------- |  
+2021-03-14 12:02:50.0668 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:02:50.0668 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:02:50.0679 | Info | tournament=0.002 |  
+2021-03-14 12:02:50.0679 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:02:50.0679 | Info | mutationProbability=0.1 |  
+2021-03-14 12:02:50.0679 | Info | populationSize=1250 |  
+2021-03-14 12:02:50.0679 | Info | epochsQty=150 |  
+2021-03-14 12:02:50.0679 | Info | Generating started population ... |  
+2021-03-14 12:02:56.2259 | Info | Calculating generations ... |  
+2021-03-14 12:03:31.1821 | Info | Best penalty: 250, Execution time: 34961 ms |  
+2021-03-14 12:03:53.6030 | Info | ------------------------- |  
+2021-03-14 12:03:53.6605 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:03:53.6605 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:03:53.6605 | Info | tournament=0.01 |  
+2021-03-14 12:03:53.6605 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:03:53.6640 | Info | mutationProbability=0.25 |  
+2021-03-14 12:03:53.6640 | Info | populationSize=1250 |  
+2021-03-14 12:03:53.6640 | Info | epochsQty=150 |  
+2021-03-14 12:03:53.6640 | Info | Generating started population ... |  
+2021-03-14 12:04:00.1408 | Info | Calculating generations ... |  
+2021-03-14 12:04:56.4758 | Info | ------------------------- |  
+2021-03-14 12:04:56.5360 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:04:56.5360 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:04:56.5360 | Info | tournament=0.01 |  
+2021-03-14 12:04:56.5360 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:04:56.5360 | Info | mutationProbability=0.1 |  
+2021-03-14 12:04:56.5360 | Info | populationSize=1250 |  
+2021-03-14 12:04:56.5360 | Info | epochsQty=150 |  
+2021-03-14 12:04:56.5410 | Info | Generating started population ... |  
+2021-03-14 12:05:02.7671 | Info | Calculating generations ... |  
+2021-03-14 12:05:52.7793 | Info | ------------------------- |  
+2021-03-14 12:05:52.8305 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:05:52.8305 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:05:52.8324 | Info | tournament=0.01 |  
+2021-03-14 12:05:52.8324 | Info | crossoverProbability=0.25 |  
+2021-03-14 12:05:52.8324 | Info | mutationProbability=0.1 |  
+2021-03-14 12:05:52.8324 | Info | populationSize=1250 |  
+2021-03-14 12:05:52.8324 | Info | epochsQty=150 |  
+2021-03-14 12:05:52.8324 | Info | Generating started population ... |  
+2021-03-14 12:05:59.4178 | Info | Calculating generations ... |  
+2021-03-14 12:07:47.4561 | Info | Best penalty: 258, Execution time: 108046 ms |  
+2021-03-14 12:08:12.9805 | Info | ------------------------- |  
+2021-03-14 12:08:13.0267 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:08:13.0267 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:08:13.0281 | Info | tournament=0.002 |  
+2021-03-14 12:08:13.0281 | Info | crossoverProbability=0.25 |  
+2021-03-14 12:08:13.0281 | Info | mutationProbability=0.1 |  
+2021-03-14 12:08:13.0281 | Info | populationSize=1250 |  
+2021-03-14 12:08:13.0281 | Info | epochsQty=150 |  
+2021-03-14 12:08:13.0281 | Info | Generating started population ... |  
+2021-03-14 12:08:19.2485 | Info | Calculating generations ... |  
+2021-03-14 12:08:55.0469 | Info | Best penalty: 222, Execution time: 35803 ms |  
+2021-03-14 12:09:04.1712 | Info | ------------------------- |  
+2021-03-14 12:09:04.2227 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:09:04.2227 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:09:04.2243 | Info | tournament=0.002 |  
+2021-03-14 12:09:04.2243 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:09:04.2243 | Info | mutationProbability=0.1 |  
+2021-03-14 12:09:04.2243 | Info | populationSize=1250 |  
+2021-03-14 12:09:04.2243 | Info | epochsQty=150 |  
+2021-03-14 12:09:04.2243 | Info | Generating started population ... |  
+2021-03-14 12:09:10.3337 | Info | Calculating generations ... |  
+2021-03-14 12:09:44.7493 | Info | Best penalty: 205, Execution time: 34420 ms |  
+2021-03-14 12:10:22.6992 | Info | ------------------------- |  
+2021-03-14 12:10:22.7464 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:10:22.7488 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:10:22.7488 | Info | tournament=0.002 |  
+2021-03-14 12:10:22.7488 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:10:22.7520 | Info | mutationProbability=0.05 |  
+2021-03-14 12:10:22.7520 | Info | populationSize=1250 |  
+2021-03-14 12:10:22.7520 | Info | epochsQty=150 |  
+2021-03-14 12:10:22.7520 | Info | Generating started population ... |  
+2021-03-14 12:10:29.1000 | Info | Calculating generations ... |  
+2021-03-14 12:11:03.1004 | Info | Best penalty: 210, Execution time: 34005 ms |  
+2021-03-14 12:11:12.2116 | Info | ------------------------- |  
+2021-03-14 12:11:12.2570 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:11:12.2570 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:11:12.2570 | Info | tournament=0.002 |  
+2021-03-14 12:11:12.2570 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:11:12.2570 | Info | mutationProbability=0.15 |  
+2021-03-14 12:11:12.2570 | Info | populationSize=1250 |  
+2021-03-14 12:11:12.2570 | Info | epochsQty=150 |  
+2021-03-14 12:11:12.2570 | Info | Generating started population ... |  
+2021-03-14 12:11:18.4006 | Info | Calculating generations ... |  
+2021-03-14 12:11:54.4747 | Info | Best penalty: 244, Execution time: 36079 ms |  
+2021-03-14 12:12:02.0816 | Info | ------------------------- |  
+2021-03-14 12:12:02.1236 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:12:02.1241 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:12:02.1241 | Info | tournament=0.002 |  
+2021-03-14 12:12:02.1241 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:12:02.1241 | Info | mutationProbability=0.1 |  
+2021-03-14 12:12:02.1241 | Info | populationSize=1250 |  
+2021-03-14 12:12:02.1241 | Info | epochsQty=150 |  
+2021-03-14 12:12:02.1241 | Info | Generating started population ... |  
+2021-03-14 12:12:08.4841 | Info | Calculating generations ... |  
+2021-03-14 12:12:43.3662 | Info | Best penalty: 252, Execution time: 34886 ms |  
+2021-03-14 12:12:58.0498 | Info | ------------------------- |  
+2021-03-14 12:12:58.1008 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:12:58.1008 | Info | w=(40, 1, 1, 40, 40) |  
+2021-03-14 12:12:58.1008 | Info | tournament=0.002 |  
+2021-03-14 12:12:58.1008 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:12:58.1008 | Info | mutationProbability=0.1 |  
+2021-03-14 12:12:58.1008 | Info | populationSize=2000 |  
+2021-03-14 12:12:58.1008 | Info | epochsQty=150 |  
+2021-03-14 12:12:58.1041 | Info | Generating started population ... |  
+2021-03-14 12:13:07.6393 | Info | Calculating generations ... |  
+2021-03-14 12:14:18.5368 | Info | Best penalty: 221, Execution time: 70902 ms |  
+2021-03-14 12:14:26.6660 | Info | ------------------------- |  
+2021-03-14 12:14:26.7170 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:14:26.7170 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:14:26.7170 | Info | tournament=0.002 |  
+2021-03-14 12:14:26.7170 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:14:26.7170 | Info | mutationProbability=0.1 |  
+2021-03-14 12:14:26.7170 | Info | populationSize=2000 |  
+2021-03-14 12:14:26.7170 | Info | epochsQty=150 |  
+2021-03-14 12:14:26.7209 | Info | Generating started population ... |  
+2021-03-14 12:14:36.3504 | Info | Calculating generations ... |  
+2021-03-14 12:15:48.5917 | Info | Best penalty: 187, Execution time: 72246 ms |  
+2021-03-14 12:15:57.5928 | Info | ------------------------- |  
+2021-03-14 12:15:57.6447 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:15:57.6447 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:15:57.6447 | Info | tournament=0.002 |  
+2021-03-14 12:15:57.6447 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:15:57.6447 | Info | mutationProbability=0.2 |  
+2021-03-14 12:15:57.6447 | Info | populationSize=2000 |  
+2021-03-14 12:15:57.6447 | Info | epochsQty=150 |  
+2021-03-14 12:15:57.6447 | Info | Generating started population ... |  
+2021-03-14 12:16:06.5401 | Info | Calculating generations ... |  
+2021-03-14 12:17:26.1099 | Info | Best penalty: 150, Execution time: 79574 ms |  
+2021-03-14 12:17:50.7036 | Info | ------------------------- |  
+2021-03-14 12:17:50.7495 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:17:50.7495 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:17:50.7495 | Info | tournament=0.002 |  
+2021-03-14 12:17:50.7495 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:17:50.7495 | Info | mutationProbability=0.25 |  
+2021-03-14 12:17:50.7495 | Info | populationSize=2000 |  
+2021-03-14 12:17:50.7495 | Info | epochsQty=150 |  
+2021-03-14 12:17:50.7523 | Info | Generating started population ... |  
+2021-03-14 12:18:00.0542 | Info | Calculating generations ... |  
+2021-03-14 12:19:01.4227 | Info | ------------------------- |  
+2021-03-14 12:19:01.4712 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:19:01.4712 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:19:01.4723 | Info | tournament=0.002 |  
+2021-03-14 12:19:01.4723 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:19:01.4723 | Info | mutationProbability=0.225 |  
+2021-03-14 12:19:01.4723 | Info | populationSize=2000 |  
+2021-03-14 12:19:01.4723 | Info | epochsQty=150 |  
+2021-03-14 12:19:01.4723 | Info | Generating started population ... |  
+2021-03-14 12:19:11.1812 | Info | Calculating generations ... |  
+2021-03-14 12:20:09.7335 | Info | ------------------------- |  
+2021-03-14 12:20:09.7839 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:20:09.7847 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:20:09.7847 | Info | tournament=0.002 |  
+2021-03-14 12:20:09.7847 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:20:09.7847 | Info | mutationProbability=0.2 |  
+2021-03-14 12:20:09.7847 | Info | populationSize=2000 |  
+2021-03-14 12:20:09.7847 | Info | epochsQty=100 |  
+2021-03-14 12:20:09.7847 | Info | Generating started population ... |  
+2021-03-14 12:20:19.3336 | Info | Calculating generations ... |  
+2021-03-14 12:21:09.4990 | Info | Best penalty: 212, Execution time: 50170 ms |  
+2021-03-14 12:21:15.0454 | Info | ------------------------- |  
+2021-03-14 12:21:15.0951 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:21:15.0951 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:21:15.0965 | Info | tournament=0.002 |  
+2021-03-14 12:21:15.0965 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:21:15.0965 | Info | mutationProbability=0.2 |  
+2021-03-14 12:21:15.0965 | Info | populationSize=2500 |  
+2021-03-14 12:21:15.0965 | Info | epochsQty=100 |  
+2021-03-14 12:21:15.0965 | Info | Generating started population ... |  
+2021-03-14 12:21:26.6748 | Info | Calculating generations ... |  
+2021-03-14 12:22:40.7222 | Info | Best penalty: 184, Execution time: 74052 ms |  
+2021-03-14 12:23:02.2765 | Info | ------------------------- |  
+2021-03-14 12:23:02.3236 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:23:02.3245 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:23:02.3245 | Info | tournament=0.002 |  
+2021-03-14 12:23:02.3245 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:23:02.3245 | Info | mutationProbability=0.25 |  
+2021-03-14 12:23:02.3245 | Info | populationSize=2500 |  
+2021-03-14 12:23:02.3245 | Info | epochsQty=100 |  
+2021-03-14 12:23:02.3245 | Info | Generating started population ... |  
+2021-03-14 12:23:13.8853 | Info | Calculating generations ... |  
+2021-03-14 12:24:06.5286 | Info | ------------------------- |  
+2021-03-14 12:24:06.5726 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:24:06.5726 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:24:06.5726 | Info | tournament=0.002 |  
+2021-03-14 12:24:06.5726 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:24:06.5726 | Info | mutationProbability=0.15 |  
+2021-03-14 12:24:06.5726 | Info | populationSize=2500 |  
+2021-03-14 12:24:06.5726 | Info | epochsQty=100 |  
+2021-03-14 12:24:06.5726 | Info | Generating started population ... |  
+2021-03-14 12:24:18.2057 | Info | Calculating generations ... |  
+2021-03-14 12:25:27.3475 | Info | Best penalty: 208, Execution time: 69146 ms |  
+2021-03-14 12:25:35.4543 | Info | ------------------------- |  
+2021-03-14 12:25:35.4909 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:25:35.4909 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:25:35.4909 | Info | tournament=0.002 |  
+2021-03-14 12:25:35.4909 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:25:35.4919 | Info | mutationProbability=0.2 |  
+2021-03-14 12:25:35.4919 | Info | populationSize=2500 |  
+2021-03-14 12:25:35.4919 | Info | epochsQty=100 |  
+2021-03-14 12:25:35.4919 | Info | Generating started population ... |  
+2021-03-14 12:25:47.0996 | Info | Calculating generations ... |  
+2021-03-14 12:27:02.0527 | Info | Best penalty: 217, Execution time: 74957 ms |  
+2021-03-14 12:27:08.3162 | Info | ------------------------- |  
+2021-03-14 12:27:08.3653 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:27:08.3653 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:27:08.3653 | Info | tournament=0.002 |  
+2021-03-14 12:27:08.3653 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:27:08.3653 | Info | mutationProbability=0.2 |  
+2021-03-14 12:27:08.3653 | Info | populationSize=5000 |  
+2021-03-14 12:27:08.3653 | Info | epochsQty=50 |  
+2021-03-14 12:27:08.3653 | Info | Generating started population ... |  
+2021-03-14 12:27:30.5573 | Info | Calculating generations ... |  
+2021-03-14 12:29:44.1090 | Info | Best penalty: 182, Execution time: 133556 ms |  
+2021-03-14 12:30:04.5097 | Info | ------------------------- |  
+2021-03-14 12:30:04.5689 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:30:04.5689 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:30:04.5689 | Info | tournament=0.002 |  
+2021-03-14 12:30:04.5689 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:30:04.5689 | Info | mutationProbability=0.15 |  
+2021-03-14 12:30:04.5720 | Info | populationSize=5000 |  
+2021-03-14 12:30:04.5720 | Info | epochsQty=50 |  
+2021-03-14 12:30:04.5720 | Info | Generating started population ... |  
+2021-03-14 12:30:27.0537 | Info | Calculating generations ... |  
+2021-03-14 12:32:36.3050 | Info | Best penalty: 206, Execution time: 129259 ms |  
+2021-03-14 12:38:02.8027 | Info | ------------------------- |  
+2021-03-14 12:38:02.8340 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:38:02.8340 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:38:02.8340 | Info | tournament=0.002 |  
+2021-03-14 12:38:02.8340 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:38:02.8340 | Info | mutationProbability=0.15 |  
+2021-03-14 12:38:02.8340 | Info | populationSize=5000 |  
+2021-03-14 12:38:02.8340 | Info | epochsQty=50 |  
+2021-03-14 12:38:02.8361 | Info | Generating started population ... |  
+2021-03-14 12:38:25.7368 | Info | Calculating generations ... |  
+2021-03-14 12:40:33.7729 | Info | Best penalty: 151, Execution time: 128041 ms |  
+2021-03-14 12:40:47.7773 | Info | ------------------------- |  
+2021-03-14 12:40:47.8254 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:40:47.8254 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:40:47.8254 | Info | tournament=0.002 |  
+2021-03-14 12:40:47.8287 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:40:47.8287 | Info | mutationProbability=0.15 |  
+2021-03-14 12:40:47.8287 | Info | populationSize=5000 |  
+2021-03-14 12:40:47.8287 | Info | epochsQty=50 |  
+2021-03-14 12:40:47.8287 | Info | Generating started population ... |  
+2021-03-14 12:41:11.3182 | Info | Calculating generations ... |  
+2021-03-14 12:43:16.2489 | Info | Best penalty: 178, Execution time: 124936 ms |  
