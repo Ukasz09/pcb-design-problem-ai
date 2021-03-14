@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NLog;
 
 namespace PCB_problem.solutionSearch
 {
@@ -9,24 +10,26 @@ namespace PCB_problem.solutionSearch
         private readonly int _maxStepSize;
         private const int MaxBendsQty = 20; // To avoid getting into inf loop of bad results
         private readonly Pcb _pcb;
+        private readonly Logger _logger;
 
         private readonly Random _random;
 
         public RandomSearch(Pcb pcb, int? seed = null)
         {
             _pcb = pcb;
+            _logger = LogManager.GetCurrentClassLogger();
             _random = seed != null ? new Random(seed.Value) : new Random();
-            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) / 4;
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) / 2;
         }
 
-        public Individual FindBestIndividual(int individualsQty)
+        public Individual FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)
         {
             if (individualsQty < 1)
             {
                 throw new ArgumentException("Amount of individuals must cannot be less than 1", nameof(individualsQty));
             }
 
-            var (w1, w2, w3, w4, w5) = (2, 1, 1, 5, 5);
+            _logger.Log(LogLevel.Info, "Searching best individual ...");
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var bestIndividual = FindIndividual();
@@ -40,13 +43,13 @@ namespace PCB_problem.solutionSearch
                     minPenalty = penalty;
                     bestIndividual = individual;
                 }
-
-                // Console.WriteLine($"{i} - find. Penalty: {penalty.ToString()}");
             }
 
             watch.Stop();
-            // Console.WriteLine(
-            //     $"- FINISHED - \n\nBest penalty: {minPenalty}\nExecution time: {watch.ElapsedMilliseconds.ToString()} ms");
+            _logger.Log(
+                LogLevel.Info,
+                $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms"
+            );
             return bestIndividual;
         }
 
@@ -57,7 +60,6 @@ namespace PCB_problem.solutionSearch
             {
                 var path = FindPath(startPoint, stopPoint, _pcb, _maxStepSize);
                 individual.AddPath((startPoint, stopPoint), path);
-                // Console.WriteLine($"Found solution for: ({startPoint},{stopPoint})");
             }
 
             return individual;

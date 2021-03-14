@@ -33,11 +33,11 @@ namespace PCB_problem
 
         // Best: 
         // tournamentPercent = 0,002
-        // w1, w2, w3, w4, w5 = 30, 1, 1, 30, 30 //40
+        // w1, w2, w3, w4, w5 = 40, 5, 5, 30, 30
         // crossoverProbability = 0.5
-        // mutationProbability = 0.2
-        // populationSize = 2000 //5000
-        // epochsQty = 30 //50
+        // mutationProbability = 0.15
+        // populationSize = 5000
+        // epochsQty = 50
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
             var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
@@ -76,9 +76,17 @@ namespace PCB_problem
         private static Individual RandomSearchSolution(Pcb pcb)
         {
             const int attemptsQty = 100;
+            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
+            _logger.Log(LogLevel.Info, "-------------------------");
+            _logger.Log(LogLevel.Info, "--- Random Search ---");
+            _logger.Log(
+                LogLevel.Info,
+                $"w=({w1.ToString()}, {w2.ToString()}, {w3.ToString()}, {w4.ToString()}, {w5.ToString()})"
+            );
+            _logger.Log(LogLevel.Info, $"Attempts qty={attemptsQty.ToString()}");
 
             var randomSearch = new RandomSearch(pcb);
-            var bestIndividual = randomSearch.FindBestIndividual(attemptsQty);
+            var bestIndividual = randomSearch.FindBestIndividual(attemptsQty, w1, w2, w3, w4, w5);
             return bestIndividual;
         }
     }

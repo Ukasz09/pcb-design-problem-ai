@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using NLog;
 
 namespace PCB_problem
 {
-    public class DataUtils
+    public static class DataUtils
     {
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
         public static string[] ReadDataFromFile(string filepath)
         {
             var lines = File.ReadAllLines(filepath);
@@ -69,7 +72,7 @@ namespace PCB_problem
 
             lines[^1] = "]";
             File.WriteAllLines(filePath, lines);
-            Console.WriteLine($"Solution correct saved in file: {filePath}");
+            _logger.Log(LogLevel.Info, $"Solution correct saved in file: {filePath}");
         }
 
         public static void ParseEndpointsDataForUi(string[] data, string delimiter, string filePath)
@@ -86,7 +89,7 @@ namespace PCB_problem
 
             textLines[^1] = "]";
             File.WriteAllLines(filePath, textLines);
-            Console.WriteLine($"Endpoints data correct parsed and saved in file: {filePath}");
+            _logger.Log(LogLevel.Info, $"Endpoints data correct parsed and saved in file: {filePath}");
         }
     }
 }

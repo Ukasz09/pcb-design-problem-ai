@@ -18,32 +18,16 @@ namespace PCB_problem
             return $"[{X.ToString()},{Y.ToString()}]";
         }
 
-        public override bool Equals(object obj)
+        private bool Equals(Point other)
         {
-            return Equals(obj as Point);
+            return X == other.X && Y == other.Y;
         }
 
-        private bool Equals(Point p)
+        public override bool Equals(object obj)
         {
-            // If parameter is null, return false.
-            if (ReferenceEquals(p, null))
-            {
-                return false;
-            }
-
-            // Optimization for a common success case.
-            if (ReferenceEquals(this, p))
-            {
-                return true;
-            }
-
-            // If run-time types are not exactly the same, return false.
-            if (GetType() != p.GetType())
-            {
-                return false;
-            }
-
-            return (X == p.X) && (Y == p.Y);
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType() && Equals((Point) obj);
         }
 
         public override int GetHashCode()

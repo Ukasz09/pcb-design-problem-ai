@@ -15,7 +15,6 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
                 var individual = randomSearch.FindIndividual();
                 population.AddIndividual(individual);
             }
-
             return population;
         }
 

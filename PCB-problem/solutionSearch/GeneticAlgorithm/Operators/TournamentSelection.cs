@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PCB_problem.solutionSearch.GeneticAlgorithm
 {
@@ -31,28 +29,27 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         public Individual Select(Population population)
         {
             var qtyToDraw = (int) Math.Ceiling(_tournamentSizePercent * population.IndividualsQty);
-            // var individuals = GeneticAlgorithmUtils.DrawIndividualsWithoutRepeating(population, qtyToDraw, _random);
+            var individuals = GeneticAlgorithmUtils.DrawIndividualsWithoutRepeating(population, qtyToDraw, _random);
+            var bestIndividual =
+                PenaltyFunction.GetIndividualWithMinPenaltyCost(individuals, _pcb, _w1, _w2, _w3, _w4, _w5);
+            return bestIndividual;
 
             // For performance purpose
-            var minCost = int.MaxValue;
-            Individual bestIndividual = null;
-            for (var i = 0; i < qtyToDraw; i++)
-            {
-                var randIndex = _random.Next(population.IndividualsQty);
-                var randIndividual = population.Individuals[randIndex];
-                var cost = PenaltyFunction.CalculatePenalty(randIndividual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
-                if (cost < minCost)
-                {
-                    minCost = cost;
-                    bestIndividual = randIndividual;
-                }
-            }
-
-            return bestIndividual;
-
-            // var bestIndividual =
-            //     PenaltyFunction.GetIndividualWithMinPenaltyCost(individuals, _pcb, _w1, _w2, _w3, _w4, _w5);
-            return bestIndividual;
+            // var minCost = int.MaxValue;
+            // Individual bestIndividual = null;
+            // for (var i = 0; i < qtyToDraw; i++)
+            // {
+            //     var randIndex = _random.Next(population.IndividualsQty);
+            //     var randIndividual = population.Individuals[randIndex];
+            //     var cost = PenaltyFunction.CalculatePenalty(randIndividual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
+            //     if (cost < minCost)
+            //     {
+            //         minCost = cost;
+            //         bestIndividual = randIndividual;
+            //     }
+            // }
+            //
+            // return bestIndividual;
         }
     }
 }

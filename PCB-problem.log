@@ -974,3 +974,24 @@
 2021-03-14 12:40:47.8287 | Info | Generating started population ... |  
 2021-03-14 12:41:11.3182 | Info | Calculating generations ... |  
 2021-03-14 12:43:16.2489 | Info | Best penalty: 178, Execution time: 124936 ms |  
+2021-03-14 12:51:09.6089 | Info | ------------------------- |  
+2021-03-14 12:51:09.6515 | Info | --- Genetic Algorithm --- |  
+2021-03-14 12:51:09.6523 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 12:51:09.6523 | Info | tournament=0.002 |  
+2021-03-14 12:51:09.6523 | Info | crossoverProbability=0.5 |  
+2021-03-14 12:51:09.6523 | Info | mutationProbability=0.15 |  
+2021-03-14 12:51:09.6523 | Info | populationSize=5000 |  
+2021-03-14 12:51:09.6523 | Info | epochsQty=50 |  
+2021-03-14 12:51:09.6523 | Info | Generating started population ... |  
+2021-03-14 12:51:45.5016 | Info | Calculating generations ... |  
+2021-03-14 12:54:42.9615 | Info | Best penalty: 153, Execution time: 177464 ms |  
+2021-03-14 13:02:05.6248 | Info | Endpoints data correct parsed and saved in file: ../../../../parsed-data.json |  
+2021-03-14 13:02:05.6838 | Info | ------------------------- |  
+2021-03-14 13:02:05.6851 | Info | --- Genetic Algorithm --- |  
+2021-03-14 13:02:05.6851 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 13:02:05.6851 | Info | tournament=0.002 |  
+2021-03-14 13:02:05.6851 | Info | crossoverProbability=0.5 |  
+2021-03-14 13:02:05.6851 | Info | mutationProbability=0.15 |  
+2021-03-14 13:02:05.6851 | Info | populationSize=5000 |  
+2021-03-14 13:02:05.6851 | Info | epochsQty=50 |  
+2021-03-14 13:02:05.6888 | Info | Generating started population ... |  
