@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PCB_problem.solutionSearch.GeneticAlgorithm
 {
@@ -26,27 +27,55 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
         public Individual Select(Population population)
         {
-            var penalties = new List<int>(population.Individuals.Count);
-            var penaltySum = 0;
+            var penaltyForIndividuals = new Dictionary<Individual, int>(population.Individuals.Count);
             foreach (var individual in population.Individuals)
             {
                 var penalty = PenaltyFunction.CalculatePenalty(individual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
-                penalties.Add(penalty);
-                penaltySum += penalty;
+                penaltyForIndividuals.Add(individual, penalty);
             }
 
-            var randRouletteChoice = _random.Next(0, penaltySum + 1);
-            var buffer = 0;
-            for (var i = 0; i < penalties.Count; i++)
+            var rouletteAxisX = GetRouletteAxisX(penaltyForIndividuals);
+            var randRouletteChoice = _random.NextDouble();
+            foreach (var (individual, (startX, stopX)) in rouletteAxisX)
             {
-                buffer += penalties[i];
-                if (buffer >= randRouletteChoice)
+                if (randRouletteChoice >= startX && randRouletteChoice <= stopX)
                 {
-                    return population.Individuals[i];
+                    return individual;
                 }
             }
 
-            return population.Individuals[penalties.Count - 1];
+            throw new ArithmeticException(
+                $"Incorrect roulette choice or axis: \n Choice: {randRouletteChoice}, \n Axis: {string.Join(",", rouletteAxisX.Values)}");
+        }
+
+        // <individual, <startX,stopX>
+        private Dictionary<Individual, (double, double)> GetRouletteAxisX(
+            Dictionary<Individual, int> penaltyForIndividuals)
+        {
+            // example x axis for roulette: x1 - - - - - x2 - - x3 - - - - - - - - - - x4 - - - x5 - x6
+            var xAxisValues =
+                new Dictionary<Individual, (double, double)>(penaltyForIndividuals
+                    .Count); // <individual, <startX,stopX>
+            var minPenalty = penaltyForIndividuals.Values.Min();
+            var lastXValue = 0d;
+            foreach (var (individual, penalty) in penaltyForIndividuals)
+            {
+                var inverselyPenalty = (double) minPenalty / penalty;
+                var newXValue = lastXValue + inverselyPenalty;
+                xAxisValues.Add(individual, (lastXValue, newXValue));
+                lastXValue = newXValue;
+            }
+
+            // Scaling x axis values to make it within range 0.0 - 1.0
+            var maxXValue = lastXValue;
+            foreach (var individual in xAxisValues.Keys.ToList())
+            {
+                var scaledStartX = xAxisValues[individual].Item1 / maxXValue;
+                var scaledStopX = xAxisValues[individual].Item2 / maxXValue;
+                xAxisValues[individual] = (scaledStartX, scaledStopX);
+            }
+
+            return xAxisValues;
         }
     }
 }

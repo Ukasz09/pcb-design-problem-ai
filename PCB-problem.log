@@ -1249,3 +1249,17 @@
 2021-03-14 15:57:53.4244 | Info | populationSize=100 |  
 2021-03-14 15:57:53.4244 | Info | epochsQty=30 |  
 2021-03-14 15:57:53.4244 | Info | Generating started population ... |  
+2021-03-14 15:57:57.5565 | Info | Calculating generations ... |  
+2021-03-14 16:01:32.4922 | Info | Endpoints data correct parsed and saved in file: ../../../../parsed-data.json |  
+2021-03-14 16:01:32.5568 | Info | ------------------------- |  
+2021-03-14 16:01:32.5568 | Info | --- Genetic Algorithm --- |  
+2021-03-14 16:01:32.5568 | Info | w=(40, 1, 1, 30, 30) |  
+2021-03-14 16:01:32.5568 | Info | tournament=0.002 |  
+2021-03-14 16:01:32.5568 | Info | crossoverProbability=0.5 |  
+2021-03-14 16:01:32.5568 | Info | mutationProbability=0.1 |  
+2021-03-14 16:01:32.5568 | Info | populationSize=100 |  
+2021-03-14 16:01:32.5568 | Info | epochsQty=30 |  
+2021-03-14 16:01:32.5603 | Info | Generating started population ... |  
+2021-03-14 16:01:34.7310 | Info | Calculating generations ... |  
+2021-03-14 16:02:07.1329 | Info | Best penalty: 470, Execution time: 32407 ms |  
+2021-03-14 16:02:07.1384 | Info | Solution correct saved in file: /home/ukasz09/Documents/OneDrive/Uczelnia/Semestr_VI/SI/impl-1/PCB-problem/PCB-problem/bin/Release/netcoreapp3.1/../../../../solution.json |  
