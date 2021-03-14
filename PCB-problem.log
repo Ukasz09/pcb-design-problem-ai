@@ -272,3 +272,237 @@
 2021-03-13 23:44:48.4676 | Debug | Generation 24) - Actual best penalty: 189 |  
 2021-03-13 23:44:48.4676 | Info | ----- FINISHED ----- |  
 2021-03-13 23:44:48.4684 | Info | Best penalty: 189, Execution time: 65627 ms |  
+2021-03-13 23:50:30.6835 | Info | ------------------------- |  
+2021-03-13 23:50:30.7235 | Info | --- Genetic Algorithm --- |  
+2021-03-13 23:50:30.7241 | Info | w=(15, 1, 1, 5, 5) |  
+2021-03-13 23:50:30.7241 | Info | tournament=0.0015 |  
+2021-03-13 23:50:30.7241 | Info | crossoverProbability=0.45 |  
+2021-03-13 23:50:30.7241 | Info | mutationProbability=0.3 |  
+2021-03-13 23:50:30.7241 | Info | populationSize=2750 |  
+2021-03-13 23:50:30.7241 | Info | epochsQty=30 |  
+2021-03-13 23:50:30.7241 | Info | Generating started population ... |  
+2021-03-13 23:50:53.2049 | Info | Calculating generations ... |  
+2021-03-13 23:50:59.6207 | Debug | Generation 0) - Actual best penalty: 284 |  
+2021-03-13 23:51:03.7665 | Debug | Generation 1) - Actual best penalty: 284 |  
+2021-03-13 23:51:06.0192 | Debug | Generation 2) - Actual best penalty: 284 |  
+2021-03-13 23:51:07.7089 | Debug | Generation 3) - Actual best penalty: 280 |  
+2021-03-13 23:51:09.1208 | Debug | Generation 4) - Actual best penalty: 246 |  
+2021-03-13 23:51:10.3903 | Debug | Generation 5) - Actual best penalty: 246 |  
+2021-03-13 23:51:11.5639 | Debug | Generation 6) - Actual best penalty: 246 |  
+2021-03-13 23:51:12.7216 | Debug | Generation 7) - Actual best penalty: 246 |  
+2021-03-13 23:51:13.9007 | Debug | Generation 8) - Actual best penalty: 232 |  
+2021-03-13 23:51:15.0668 | Debug | Generation 9) - Actual best penalty: 232 |  
+2021-03-13 23:51:16.2012 | Debug | Generation 10) - Actual best penalty: 215 |  
+2021-03-13 23:51:17.3074 | Debug | Generation 11) - Actual best penalty: 215 |  
+2021-03-13 23:51:18.4619 | Debug | Generation 12) - Actual best penalty: 215 |  
+2021-03-13 23:51:19.5517 | Debug | Generation 13) - Actual best penalty: 215 |  
+2021-03-13 23:51:20.7110 | Debug | Generation 14) - Actual best penalty: 215 |  
+2021-03-13 23:51:21.8360 | Debug | Generation 15) - Actual best penalty: 214 |  
+2021-03-13 23:51:22.9698 | Debug | Generation 16) - Actual best penalty: 214 |  
+2021-03-13 23:51:24.1343 | Debug | Generation 17) - Actual best penalty: 214 |  
+2021-03-13 23:51:25.2494 | Debug | Generation 18) - Actual best penalty: 212 |  
+2021-03-13 23:51:26.3587 | Debug | Generation 19) - Actual best penalty: 210 |  
+2021-03-13 23:51:27.4940 | Debug | Generation 20) - Actual best penalty: 193 |  
+2021-03-13 23:51:28.6475 | Debug | Generation 21) - Actual best penalty: 193 |  
+2021-03-13 23:51:29.8807 | Debug | Generation 22) - Actual best penalty: 193 |  
+2021-03-13 23:51:31.0682 | Debug | Generation 23) - Actual best penalty: 193 |  
+2021-03-13 23:51:32.2025 | Debug | Generation 24) - Actual best penalty: 189 |  
+2021-03-13 23:51:33.3617 | Debug | Generation 25) - Actual best penalty: 189 |  
+2021-03-13 23:51:34.5166 | Debug | Generation 26) - Actual best penalty: 189 |  
+2021-03-13 23:51:35.7044 | Debug | Generation 27) - Actual best penalty: 189 |  
+2021-03-13 23:51:36.8765 | Debug | Generation 28) - Actual best penalty: 189 |  
+2021-03-13 23:51:38.0809 | Debug | Generation 29) - Actual best penalty: 189 |  
+2021-03-13 23:51:38.0809 | Info | ----- FINISHED ----- |  
+2021-03-13 23:51:38.0809 | Info | Best penalty: 189, Execution time: 67353 ms |  
+2021-03-13 23:52:07.1340 | Info | ------------------------- |  
+2021-03-13 23:52:07.1767 | Info | --- Genetic Algorithm --- |  
+2021-03-13 23:52:07.1767 | Info | w=(15, 1, 1, 5, 5) |  
+2021-03-13 23:52:07.1767 | Info | tournament=0.0015 |  
+2021-03-13 23:52:07.1767 | Info | crossoverProbability=0.5 |  
+2021-03-13 23:52:07.1767 | Info | mutationProbability=0.45 |  
+2021-03-13 23:52:07.1767 | Info | populationSize=2750 |  
+2021-03-13 23:52:07.1767 | Info | epochsQty=60 |  
+2021-03-13 23:52:07.1803 | Info | Generating started population ... |  
+2021-03-13 23:52:32.6752 | Info | Calculating generations ... |  
+2021-03-13 23:52:38.8888 | Debug | Generation 0) - Actual best penalty: 317 |  
+2021-03-13 23:52:42.3779 | Debug | Generation 1) - Actual best penalty: 304 |  
+2021-03-13 23:52:44.6497 | Debug | Generation 2) - Actual best penalty: 297 |  
+2021-03-13 23:52:46.3040 | Debug | Generation 3) - Actual best penalty: 297 |  
+2021-03-13 23:52:47.7132 | Debug | Generation 4) - Actual best penalty: 297 |  
+2021-03-13 23:52:48.9965 | Debug | Generation 5) - Actual best penalty: 297 |  
+2021-03-13 23:52:50.2550 | Debug | Generation 6) - Actual best penalty: 289 |  
+2021-03-13 23:52:51.4953 | Debug | Generation 7) - Actual best penalty: 286 |  
+2021-03-13 23:52:52.7240 | Debug | Generation 8) - Actual best penalty: 275 |  
+2021-03-13 23:52:54.0288 | Debug | Generation 9) - Actual best penalty: 267 |  
+2021-03-13 23:52:55.3243 | Debug | Generation 10) - Actual best penalty: 250 |  
+2021-03-13 23:52:56.6262 | Debug | Generation 11) - Actual best penalty: 250 |  
+2021-03-13 23:52:57.9498 | Debug | Generation 12) - Actual best penalty: 250 |  
+2021-03-13 23:52:59.3159 | Debug | Generation 13) - Actual best penalty: 246 |  
+2021-03-13 23:53:00.6934 | Debug | Generation 14) - Actual best penalty: 246 |  
+2021-03-13 23:53:02.0448 | Debug | Generation 15) - Actual best penalty: 246 |  
+2021-03-13 23:53:03.4579 | Debug | Generation 16) - Actual best penalty: 246 |  
+2021-03-13 23:53:05.0078 | Debug | Generation 17) - Actual best penalty: 246 |  
+2021-03-13 23:53:06.4978 | Debug | Generation 18) - Actual best penalty: 233 |  
+2021-03-13 23:53:07.9181 | Debug | Generation 19) - Actual best penalty: 224 |  
+2021-03-13 23:53:09.2805 | Debug | Generation 20) - Actual best penalty: 224 |  
+2021-03-13 23:53:10.7021 | Debug | Generation 21) - Actual best penalty: 224 |  
+2021-03-13 23:53:12.0316 | Debug | Generation 22) - Actual best penalty: 224 |  
+2021-03-13 23:53:13.3985 | Debug | Generation 23) - Actual best penalty: 224 |  
+2021-03-13 23:53:14.7979 | Debug | Generation 24) - Actual best penalty: 224 |  
+2021-03-13 23:53:16.1570 | Debug | Generation 25) - Actual best penalty: 224 |  
+2021-03-13 23:53:17.5506 | Debug | Generation 26) - Actual best penalty: 224 |  
+2021-03-13 23:53:18.9093 | Debug | Generation 27) - Actual best penalty: 224 |  
+2021-03-13 23:53:20.3272 | Debug | Generation 28) - Actual best penalty: 208 |  
+2021-03-13 23:53:21.7802 | Debug | Generation 29) - Actual best penalty: 208 |  
+2021-03-13 23:53:23.1671 | Debug | Generation 30) - Actual best penalty: 208 |  
+2021-03-13 23:53:24.5668 | Debug | Generation 31) - Actual best penalty: 208 |  
+2021-03-13 23:53:25.9659 | Debug | Generation 32) - Actual best penalty: 208 |  
+2021-03-13 23:53:27.3689 | Debug | Generation 33) - Actual best penalty: 208 |  
+2021-03-13 23:53:28.7656 | Debug | Generation 34) - Actual best penalty: 208 |  
+2021-03-13 23:53:30.2938 | Debug | Generation 35) - Actual best penalty: 208 |  
+2021-03-13 23:53:31.7978 | Debug | Generation 36) - Actual best penalty: 208 |  
+2021-03-13 23:53:33.4251 | Debug | Generation 37) - Actual best penalty: 208 |  
+2021-03-13 23:53:34.9597 | Debug | Generation 38) - Actual best penalty: 208 |  
+2021-03-13 23:53:36.6138 | Debug | Generation 39) - Actual best penalty: 208 |  
+2021-03-13 23:53:38.1724 | Debug | Generation 40) - Actual best penalty: 208 |  
+2021-03-13 23:53:39.6256 | Debug | Generation 41) - Actual best penalty: 208 |  
+2021-03-13 23:53:41.1126 | Debug | Generation 42) - Actual best penalty: 208 |  
+2021-03-13 23:53:42.6659 | Debug | Generation 43) - Actual best penalty: 208 |  
+2021-03-13 23:53:44.1545 | Debug | Generation 44) - Actual best penalty: 208 |  
+2021-03-13 23:53:45.6615 | Debug | Generation 45) - Actual best penalty: 208 |  
+2021-03-13 23:53:47.2449 | Debug | Generation 46) - Actual best penalty: 208 |  
+2021-03-13 23:53:48.7751 | Debug | Generation 47) - Actual best penalty: 208 |  
+2021-03-13 23:53:50.3817 | Debug | Generation 48) - Actual best penalty: 208 |  
+2021-03-13 23:53:51.9012 | Debug | Generation 49) - Actual best penalty: 208 |  
+2021-03-13 23:53:53.4406 | Debug | Generation 50) - Actual best penalty: 208 |  
+2021-03-13 23:53:54.9851 | Debug | Generation 51) - Actual best penalty: 208 |  
+2021-03-13 23:53:56.5674 | Debug | Generation 52) - Actual best penalty: 208 |  
+2021-03-13 23:53:58.0846 | Debug | Generation 53) - Actual best penalty: 208 |  
+2021-03-13 23:53:59.6598 | Debug | Generation 54) - Actual best penalty: 208 |  
+2021-03-13 23:54:01.2746 | Debug | Generation 55) - Actual best penalty: 208 |  
+2021-03-13 23:54:02.8197 | Debug | Generation 56) - Actual best penalty: 208 |  
+2021-03-13 23:54:04.4292 | Debug | Generation 57) - Actual best penalty: 208 |  
+2021-03-13 23:54:05.9915 | Debug | Generation 58) - Actual best penalty: 208 |  
+2021-03-13 23:54:07.6492 | Debug | Generation 59) - Actual best penalty: 208 |  
+2021-03-13 23:54:07.6492 | Info | ----- FINISHED ----- |  
+2021-03-13 23:54:07.6492 | Info | Best penalty: 208, Execution time: 120468 ms |  
+2021-03-13 23:54:47.5530 | Info | ------------------------- |  
+2021-03-13 23:54:47.6031 | Info | --- Genetic Algorithm --- |  
+2021-03-13 23:54:47.6031 | Info | w=(15, 1, 1, 5, 5) |  
+2021-03-13 23:54:47.6042 | Info | tournament=0.0015 |  
+2021-03-13 23:54:47.6042 | Info | crossoverProbability=0.5 |  
+2021-03-13 23:54:47.6042 | Info | mutationProbability=0.55 |  
+2021-03-13 23:54:47.6042 | Info | populationSize=3000 |  
+2021-03-13 23:54:47.6042 | Info | epochsQty=60 |  
+2021-03-13 23:54:47.6042 | Info | Generating started population ... |  
+2021-03-13 23:55:12.1455 | Info | Calculating generations ... |  
+2021-03-13 23:57:03.0652 | Info | ----- FINISHED ----- |  
+2021-03-13 23:57:03.0652 | Info | Best penalty: 249, Execution time: 135458 ms |  
+2021-03-13 23:58:18.3751 | Info | ------------------------- |  
+2021-03-13 23:58:18.4095 | Info | --- Genetic Algorithm --- |  
+2021-03-13 23:58:18.4095 | Info | w=(15, 1, 1, 5, 5) |  
+2021-03-13 23:58:18.4095 | Info | tournament=0.0015 |  
+2021-03-13 23:58:18.4095 | Info | crossoverProbability=0.5 |  
+2021-03-13 23:58:18.4095 | Info | mutationProbability=0.35 |  
+2021-03-13 23:58:18.4095 | Info | populationSize=5000 |  
+2021-03-13 23:58:18.4095 | Info | epochsQty=50 |  
+2021-03-13 23:58:18.4132 | Info | Generating started population ... |  
+2021-03-13 23:59:03.3685 | Info | Calculating generations ... |  
+2021-03-14 00:02:21.7262 | Info | ----- FINISHED ----- |  
+2021-03-14 00:02:21.7262 | Info | Best penalty: 170, Execution time: 243312 ms |  
+2021-03-14 00:03:29.6199 | Info | ------------------------- |  
+2021-03-14 00:03:29.6742 | Info | --- Genetic Algorithm --- |  
+2021-03-14 00:03:29.6742 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 00:03:29.6761 | Info | tournament=0.0015 |  
+2021-03-14 00:03:29.6761 | Info | crossoverProbability=0.5 |  
+2021-03-14 00:03:29.6761 | Info | mutationProbability=0.4 |  
+2021-03-14 00:03:29.6761 | Info | populationSize=5000 |  
+2021-03-14 00:03:29.6761 | Info | epochsQty=300 |  
+2021-03-14 00:03:29.6761 | Info | Generating started population ... |  
+2021-03-14 00:04:14.8405 | Info | Calculating generations ... |  
+2021-03-14 00:08:20.9425 | Info | ------------------------- |  
+2021-03-14 00:08:20.9896 | Info | --- Genetic Algorithm --- |  
+2021-03-14 00:08:20.9896 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 00:08:20.9896 | Info | tournament=0.0015 |  
+2021-03-14 00:08:20.9896 | Info | crossoverProbability=0.5 |  
+2021-03-14 00:08:20.9896 | Info | mutationProbability=0.4 |  
+2021-03-14 00:08:20.9896 | Info | populationSize=15000 |  
+2021-03-14 00:08:20.9896 | Info | epochsQty=15 |  
+2021-03-14 00:08:20.9931 | Info | Generating started population ... |  
+2021-03-14 00:10:21.0040 | Info | Calculating generations ... |  
+2021-03-14 00:21:38.5070 | Info | ----- FINISHED ----- |  
+2021-03-14 00:21:38.5070 | Info | Best penalty: 191, Execution time: 797513 ms |  
+2021-03-14 00:26:36.4199 | Info | ------------------------- |  
+2021-03-14 00:26:36.4634 | Info | --- Genetic Algorithm --- |  
+2021-03-14 00:26:36.4640 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 00:26:36.4640 | Info | tournament=0.1 |  
+2021-03-14 00:26:36.4640 | Info | crossoverProbability=0.5 |  
+2021-03-14 00:26:36.4640 | Info | mutationProbability=0.4 |  
+2021-03-14 00:26:36.4640 | Info | populationSize=5000 |  
+2021-03-14 00:26:36.4640 | Info | epochsQty=50 |  
+2021-03-14 00:26:36.4703 | Info | Generating started population ... |  
+2021-03-14 00:27:03.8592 | Info | Calculating generations ... |  
+2021-03-14 00:44:47.4031 | Info | ------------------------- |  
+2021-03-14 00:44:47.4461 | Info | --- Genetic Algorithm --- |  
+2021-03-14 00:44:47.4461 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 00:44:47.4461 | Info | tournament=0.1 |  
+2021-03-14 00:44:47.4461 | Info | crossoverProbability=0.5 |  
+2021-03-14 00:44:47.4461 | Info | mutationProbability=0.4 |  
+2021-03-14 00:44:47.4461 | Info | populationSize=5000 |  
+2021-03-14 00:44:47.4461 | Info | epochsQty=50 |  
+2021-03-14 00:44:47.4511 | Info | Generating started population ... |  
+2021-03-14 00:45:11.3814 | Info | Calculating generations ... |  
+2021-03-14 08:39:41.8642 | Info | ------------------------- |  
+2021-03-14 08:39:41.8945 | Info | --- Genetic Algorithm --- |  
+2021-03-14 08:39:41.8945 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 08:39:41.8945 | Info | tournament=0.1 |  
+2021-03-14 08:39:41.8945 | Info | crossoverProbability=0.5 |  
+2021-03-14 08:39:41.8945 | Info | mutationProbability=0.4 |  
+2021-03-14 08:39:41.8945 | Info | populationSize=5000 |  
+2021-03-14 08:39:41.8945 | Info | epochsQty=50 |  
+2021-03-14 08:39:41.8984 | Info | Generating started population ... |  
+2021-03-14 08:40:07.3097 | Info | Calculating generations ... |  
+2021-03-14 08:40:11.8421 | Info | ------------------------- |  
+2021-03-14 08:40:11.8768 | Info | --- Genetic Algorithm --- |  
+2021-03-14 08:40:11.8768 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 08:40:11.8768 | Info | tournament=10 |  
+2021-03-14 08:40:11.8768 | Info | crossoverProbability=0.5 |  
+2021-03-14 08:40:11.8768 | Info | mutationProbability=0.4 |  
+2021-03-14 08:40:11.8768 | Info | populationSize=1500 |  
+2021-03-14 08:40:11.8768 | Info | epochsQty=50 |  
+2021-03-14 08:40:11.8816 | Info | Generating started population ... |  
+2021-03-14 08:40:19.5172 | Info | Calculating generations ... |  
+2021-03-14 08:41:11.3114 | Info | ------------------------- |  
+2021-03-14 08:41:11.3615 | Info | --- Genetic Algorithm --- |  
+2021-03-14 08:41:11.3615 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 08:41:11.3615 | Info | tournament=0.1 |  
+2021-03-14 08:41:11.3615 | Info | crossoverProbability=0.5 |  
+2021-03-14 08:41:11.3615 | Info | mutationProbability=0.4 |  
+2021-03-14 08:41:11.3615 | Info | populationSize=1500 |  
+2021-03-14 08:41:11.3615 | Info | epochsQty=50 |  
+2021-03-14 08:41:11.3679 | Info | Generating started population ... |  
+2021-03-14 08:41:18.8064 | Info | Calculating generations ... |  
+2021-03-14 08:44:15.2441 | Info | ------------------------- |  
+2021-03-14 08:44:15.2818 | Info | --- Genetic Algorithm --- |  
+2021-03-14 08:44:15.2818 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 08:44:15.2818 | Info | tournament=0.05 |  
+2021-03-14 08:44:15.2818 | Info | crossoverProbability=0.5 |  
+2021-03-14 08:44:15.2818 | Info | mutationProbability=0.4 |  
+2021-03-14 08:44:15.2818 | Info | populationSize=1500 |  
+2021-03-14 08:44:15.2818 | Info | epochsQty=10 |  
+2021-03-14 08:44:15.2883 | Info | Generating started population ... |  
+2021-03-14 08:44:22.3886 | Info | Calculating generations ... |  
+2021-03-14 08:45:36.0804 | Info | ----- FINISHED ----- |  
+2021-03-14 08:45:36.0804 | Info | Best penalty: 285, Execution time: 80792 ms |  
+2021-03-14 08:47:11.5986 | Info | ------------------------- |  
+2021-03-14 08:47:11.6464 | Info | --- Genetic Algorithm --- |  
+2021-03-14 08:47:11.6464 | Info | w=(30, 1, 1, 5, 5) |  
+2021-03-14 08:47:11.6464 | Info | tournament=0.002 |  
+2021-03-14 08:47:11.6464 | Info | crossoverProbability=0.5 |  
+2021-03-14 08:47:11.6464 | Info | mutationProbability=0.4 |  
+2021-03-14 08:47:11.6464 | Info | populationSize=2000 |  
+2021-03-14 08:47:11.6464 | Info | epochsQty=25 |  
+2021-03-14 08:47:11.6522 | Info | Generating started population ... |  
+2021-03-14 08:47:22.3284 | Info | Calculating generations ... |  
+2021-03-14 08:47:39.3783 | Info | ----- FINISHED ----- |  
+2021-03-14 08:47:39.3783 | Info | Best penalty: 272, Execution time: 27725 ms |  

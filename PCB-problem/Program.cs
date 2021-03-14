@@ -40,24 +40,24 @@ namespace PCB_problem
         // epochsQty = 30
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
-            var (w1, w2, w3, w4, w5) = (15, 1, 1, 5, 5);
-            const double tournamentSize = 0.0015;
-            const double crossoverProbability = 0.35;
-            const double mutationProbability = 0.25;
-            const int populationSize = 2750;
+            var (w1, w2, w3, w4, w5) = (30, 1, 1, 5, 5);
+            const double tournamentSizePercent = 0.002;
+            const double crossoverProbability = 0.5;
+            const double mutationProbability = 0.4;
+            const int populationSize = 2000;
             const int epochsQty = 25;
             _logger.Log(LogLevel.Info, "-------------------------");
             _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
             _logger.Log(LogLevel.Info,
                 $"w=({w1.ToString()}, {w2.ToString()}, {w3.ToString()}, {w4.ToString()}, {w5.ToString()})");
-            _logger.Log(LogLevel.Info, $"tournament={tournamentSize.ToString()}");
+            _logger.Log(LogLevel.Info, $"tournament={tournamentSizePercent.ToString()}");
             _logger.Log(LogLevel.Info, $"crossoverProbability={crossoverProbability.ToString()}");
             _logger.Log(LogLevel.Info, $"mutationProbability={mutationProbability.ToString()}");
             _logger.Log(LogLevel.Info, $"populationSize={populationSize.ToString()}");
             _logger.Log(LogLevel.Info, $"epochsQty={epochsQty.ToString()}");
 
             var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
-            var tournamentOperator = new TournamentSelection(pcb, tournamentSize, w1, w2, w3, w4, w5);
+            var tournamentOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
             var rouletteOperator = new RouletteSelection(pcb, w1, w2, w3, w4, w5);
             var crossoverOperator = new UniformCrossover(crossoverProbability);
             var mutationOperator = new MutationA(mutationProbability);

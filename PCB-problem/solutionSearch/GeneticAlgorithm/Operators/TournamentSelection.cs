@@ -45,6 +45,22 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             var individuals = DrawIndividualsWithoutRepeating(population, qtyToDraw);
             var bestIndividual =
                 PenaltyFunction.GetIndividualWithMinPenaltyCost(individuals, _pcb, _w1, _w2, _w3, _w4, _w5);
+
+            // Give up drawing without repeating for performance reason
+            // var minPenalty = int.MaxValue;
+            // Individual bestIndividual = null;
+            // for (var i = 0; i < qtyToDraw; i++)
+            // {
+            //     var individual = population.Individuals[_random.Next(population.IndividualsQty)];
+            //     var individualPenalty =
+            //         PenaltyFunction.CalculatePenalty(individual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
+            //     if (individualPenalty < minPenalty)
+            //     {
+            //         minPenalty = individualPenalty;
+            //         bestIndividual = individual;
+            //     }
+            // }
+
             return bestIndividual;
         }
 

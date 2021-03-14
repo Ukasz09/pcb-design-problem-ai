@@ -8,14 +8,14 @@ namespace PCB_problem.solutionSearch
     {
         public static int CalculatePenalty(IEnumerable<Path> paths, Pcb pcb, int w1, int w2, int w3, int w4, int w5)
         {
-            var listOfAllPoints = FlatAllPathsToListOfPoints(paths).ToList();
-            var pointsOutsideBoard = GetPointsOutsideBoard(pcb.Width, pcb.Height, listOfAllPoints);
+            var listOfPointsForEachPath = FlatAllPathsToListOfPoints(paths);
+            var listOfAllPoints = listOfPointsForEachPath.SelectMany(i => i).ToList();
             var k1 = GetNumberOfCrosses(listOfAllPoints);
             var k2 = GetTotalPathsLength(listOfAllPoints);
             var k3 = GetTotalSegmentsQty(paths);
-            var k4 = GetNumberOfPathsOutsideBoard(paths, pointsOutsideBoard);
+            var pointsOutsideBoard = GetPointsOutsideBoard(pcb.Width, pcb.Height, listOfAllPoints);
+            var k4 = GetNumberOfPathsOutsideBoard(listOfPointsForEachPath, pointsOutsideBoard);
             var k5 = pointsOutsideBoard.Count();
-            // Console.WriteLine($"k1:{k1.ToString()}, k2:{k2.ToString()}, k3:{k3.ToString()}, k4:{k4.ToString()}, k5:{k5.ToString()}");
             return w1 * k1 + w2 * k2 + w3 * k3 + w4 * k4 + w5 * k5;
         }
 
@@ -36,15 +36,10 @@ namespace PCB_problem.solutionSearch
             return paths.Sum((path => path.Segments.Count()));
         }
 
-        private static int GetNumberOfPathsOutsideBoard(IEnumerable<Path> paths, ICollection<Point> pointsOutsideBoard)
+        private static int GetNumberOfPathsOutsideBoard(IEnumerable<List<Point>> pointsForEachSegment,
+            ICollection<Point> pointsOutsideBoard)
         {
-            return paths.Count(path => PathIsOutsideBoard(path, pointsOutsideBoard));
-        }
-
-        private static bool PathIsOutsideBoard(Path path, ICollection<Point> pointsOutsideBoard)
-        {
-            var pathPoints = ParsePathToPoints(path);
-            return pathPoints.Any(pointsOutsideBoard.Contains);
+            return pointsForEachSegment.Count(points => points.Any(pointsOutsideBoard.Contains));
         }
 
         private static List<Point> GetPointsOutsideBoard(int boardWidth, int boardHeight,
@@ -58,11 +53,9 @@ namespace PCB_problem.solutionSearch
             return point.X < 0 || point.Y < 0 || point.X >= boardWidth || point.Y >= boardHeight;
         }
 
-        private static IEnumerable<Point> FlatAllPathsToListOfPoints(IEnumerable<Path> paths)
+        private static List<List<Point>> FlatAllPathsToListOfPoints(IEnumerable<Path> paths)
         {
-            var listOfPoints = new List<Point>();
-            listOfPoints = paths.Select(ParsePathToPoints)
-                .Aggregate(listOfPoints, (current, pathPoints) => current.Concat(pathPoints).ToList());
+            var listOfPoints = paths.Select(ParsePathToPoints).ToList();
             return listOfPoints;
         }
 
@@ -84,7 +77,8 @@ namespace PCB_problem.solutionSearch
             return points;
         }
 
-        public static Individual GetIndividualWithMinPenaltyCost(IEnumerable<Individual> individuals, Pcb pcb, int w1, int w2,
+        public static Individual GetIndividualWithMinPenaltyCost(IEnumerable<Individual> individuals, Pcb pcb, int w1,
+            int w2,
             int w3,
             int w4, int w5)
         {
