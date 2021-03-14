@@ -77,10 +77,8 @@ namespace PCB_problem.solutionSearch
             return points;
         }
 
-        public static Individual GetIndividualWithMinPenaltyCost(IEnumerable<Individual> individuals, Pcb pcb, int w1,
-            int w2,
-            int w3,
-            int w4, int w5)
+        public static Individual GetIndividualWithMinPenaltyCost
+            (IEnumerable<Individual> individuals, Pcb pcb, int w1, int w2, int w3, int w4, int w5)
         {
             var minPenalty = int.MaxValue;
             Individual bestIndividual = null;

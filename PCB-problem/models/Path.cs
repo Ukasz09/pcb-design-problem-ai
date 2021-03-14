@@ -38,9 +38,31 @@ namespace PCB_problem
         public Path Clone()
         {
             var segmentsCopy = Segments.Select(segment => new Segment(segment.Direction, segment.StepSize)).ToList();
-            var startPointCopy = new Point(startPoint.X,startPoint.Y);
-            var stopPointCopy = new Point(stopPoint.X,stopPoint.Y);
+            var startPointCopy = new Point(startPoint.X, startPoint.Y);
+            var stopPointCopy = new Point(stopPoint.X, stopPoint.Y);
             return new Path(startPointCopy, stopPointCopy, segmentsCopy);
+        }
+
+        private bool Equals(Path other)
+        {
+            if (!startPoint.Equals(other.startPoint) || !stopPoint.Equals(other.stopPoint))
+            {
+                return false;
+            }
+
+            return Segments.All(segment => other.Segments.Contains(segment));
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == this.GetType() && Equals((Path) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(startPoint, stopPoint, Segments);
         }
     }
 }

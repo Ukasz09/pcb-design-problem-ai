@@ -15,21 +15,10 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         private readonly int _w5;
         private readonly double _tournamentSizePercent;
 
-        public TournamentSelection(Pcb pcb, double tournamentSizePercent, int w1, int w2, int w3, int w4, int w5)
+        public TournamentSelection(Pcb pcb, double tournamentSizePercent, int w1, int w2, int w3, int w4, int w5,
+            int? seed = null)
         {
-            _random = new Random();
-            _pcb = pcb;
-            _tournamentSizePercent = tournamentSizePercent;
-            _w1 = w1;
-            _w2 = w2;
-            _w3 = w3;
-            _w4 = w4;
-            _w5 = w5;
-        }
-
-        public TournamentSelection(int seed, Pcb pcb, int tournamentSizePercent, int w1, int w2, int w3, int w4, int w5)
-        {
-            _random = new Random(seed);
+            _random = seed != null ? new Random(seed.Value) : new Random();
             _pcb = pcb;
             _tournamentSizePercent = tournamentSizePercent;
             _w1 = w1;
@@ -41,42 +30,11 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
         public Individual Select(Population population)
         {
-            var qtyToDraw = (int) (_tournamentSizePercent * population.IndividualsQty);
-            var individuals = DrawIndividualsWithoutRepeating(population, qtyToDraw);
+            var qtyToDraw = (int)Math.Ceiling(_tournamentSizePercent * population.IndividualsQty);
+            var individuals = GeneticAlgorithmUtils.DrawIndividualsWithoutRepeating(population, qtyToDraw, _random);
             var bestIndividual =
                 PenaltyFunction.GetIndividualWithMinPenaltyCost(individuals, _pcb, _w1, _w2, _w3, _w4, _w5);
-
-            // Give up drawing without repeating for performance reason
-            // var minPenalty = int.MaxValue;
-            // Individual bestIndividual = null;
-            // for (var i = 0; i < qtyToDraw; i++)
-            // {
-            //     var individual = population.Individuals[_random.Next(population.IndividualsQty)];
-            //     var individualPenalty =
-            //         PenaltyFunction.CalculatePenalty(individual.Paths, _pcb, _w1, _w2, _w3, _w4, _w5);
-            //     if (individualPenalty < minPenalty)
-            //     {
-            //         minPenalty = individualPenalty;
-            //         bestIndividual = individual;
-            //     }
-            // }
-
             return bestIndividual;
-        }
-
-        private IEnumerable<Individual> DrawIndividualsWithoutRepeating(Population population, int qty)
-        {
-            var possibleIndexesToDraw = Enumerable.Range(0, population.IndividualsQty).ToList();
-            var individuals = new List<Individual>(qty);
-            for (var i = 0; i < qty; i++)
-            {
-                var randIndex = possibleIndexesToDraw[_random.Next(possibleIndexesToDraw.Count)];
-                possibleIndexesToDraw.Remove(randIndex);
-                var individual = population.Individuals[randIndex];
-                individuals.Add(individual);
-            }
-
-            return individuals;
         }
     }
 }

@@ -526,3 +526,5 @@
 2021-03-14 09:00:30.1416 | Info | populationSize=2000 |  
 2021-03-14 09:00:30.1416 | Info | epochsQty=25 |  
 2021-03-14 09:00:30.1448 | Info | Generating started population ... |  
+2021-03-14 09:00:39.6167 | Info | Calculating generations ... |  
+2021-03-14 09:00:56.5889 | Info | Best penalty: 262, Execution time: 16977 ms |  
