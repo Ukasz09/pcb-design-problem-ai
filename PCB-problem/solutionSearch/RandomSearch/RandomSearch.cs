@@ -19,7 +19,7 @@ namespace PCB_problem.solutionSearch
             _pcb = pcb;
             _logger = LogManager.GetCurrentClassLogger();
             _random = seed != null ? new Random(seed.Value) : new Random();
-            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height) ; // /2
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height); 
         }
 
         public Individual FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)

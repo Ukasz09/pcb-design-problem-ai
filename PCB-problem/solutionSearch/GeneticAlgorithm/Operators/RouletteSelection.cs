@@ -49,17 +49,17 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         }
 
         // <individual, <startX,stopX>
-        private Dictionary<Individual, (int, int)> GetRouletteAxisX(
+        private Dictionary<Individual, (double, double)> GetRouletteAxisX(
             Dictionary<Individual, int> penaltyForIndividuals)
         {
             // example x axis for roulette: x1 - - - - - x2 - - x3 - - - - - - - - - - x4 - - - x5 - x6
             var xAxisValues =
-                new Dictionary<Individual, (int, int)>(penaltyForIndividuals.Count); // <individual, <startX,stopX>
+                new Dictionary<Individual, (double, double)>(penaltyForIndividuals.Count); // <individual, <startX,stopX>
             var minPenalty = penaltyForIndividuals.Values.Min();
-            var lastXValue = 0;
+            var lastXValue = 0d;
             foreach (var (individual, penalty) in penaltyForIndividuals)
             {
-                var inverselyPenalty = minPenalty / penalty;
+                var inverselyPenalty = (double) minPenalty / penalty;
                 var newXValue = lastXValue + inverselyPenalty;
                 xAxisValues.Add(individual, (lastXValue, newXValue));
                 lastXValue = newXValue;
@@ -67,7 +67,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
 
             // Scaling x axis values to make it within range 0.0 - 1.0
             var maxXValue = lastXValue;
-            foreach (var individual in xAxisValues.Keys)
+            foreach (var individual in xAxisValues.Keys.ToList())
             {
                 var scaledStartX = xAxisValues[individual].Item1 / maxXValue;
                 var scaledStopX = xAxisValues[individual].Item2 / maxXValue;

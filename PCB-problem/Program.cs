@@ -43,8 +43,9 @@ namespace PCB_problem
             var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
             const double tournamentSizePercent = 0.002;
             const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.1; 
-            const int populationSize = 5000;
+            const double mutationProbability = 0.1;
+            const int populationSize = 500;
+            // const int populationSize = 5000;
             const int epochsQty = 30;
             _logger.Log(LogLevel.Info, "-------------------------");
             _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
@@ -67,7 +68,8 @@ namespace PCB_problem
             return geneticAlgorithm.FindBestIndividual(
                 startedPopulation,
                 epochsQty,
-                tournamentOperator,
+                // tournamentOperator,
+                rouletteOperator,
                 crossoverOperator,
                 mutationOperator
             );
