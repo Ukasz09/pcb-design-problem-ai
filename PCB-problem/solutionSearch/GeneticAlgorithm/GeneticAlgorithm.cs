@@ -1,4 +1,3 @@
-using System;
 using NLog;
 
 namespace PCB_problem.solutionSearch.GeneticAlgorithm

@@ -33,19 +33,19 @@ namespace PCB_problem
 
         // Best: 
         // tournamentPercent = 0,002
-        // w1, w2, w3, w4, w5 = 40, 5, 5, 30, 30
+        // w1, w2, w3, w4, w5 = 40, 1, 1, 30, 30
         // crossoverProbability = 0.5
-        // mutationProbability = 0.15
+        // mutationProbability = 0.1
         // populationSize = 5000
-        // epochsQty = 50
+        // epochsQty = 30
         private static Individual GeneticAlgorithmSolution(Pcb pcb)
         {
             var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
             const double tournamentSizePercent = 0.002;
             const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.15;
+            const double mutationProbability = 0.1; 
             const int populationSize = 5000;
-            const int epochsQty = 50;
+            const int epochsQty = 30;
             _logger.Log(LogLevel.Info, "-------------------------");
             _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
             _logger.Log(LogLevel.Info,
