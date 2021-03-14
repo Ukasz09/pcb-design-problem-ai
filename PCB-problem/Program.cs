@@ -44,7 +44,7 @@ namespace PCB_problem
             const double tournamentSizePercent = 0.002;
             const double crossoverProbability = 0.5;
             const double mutationProbability = 0.1;
-            const int populationSize = 500;
+            const int populationSize = 100;
             // const int populationSize = 5000;
             const int epochsQty = 30;
             _logger.Log(LogLevel.Info, "-------------------------");
