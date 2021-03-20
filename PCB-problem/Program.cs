@@ -28,21 +28,11 @@ namespace PCB_problem
         private static Pcb pcb;
         private static Population startedPopulation;
 
-        private static ISelection selectionOperator;
-        private static GeneticAlgorithm geneticAlgorithm;
-        private static ICrossover crossoverOperator;
-        private static IMutation mutationOperator;
-
         private static void Main(string[] args)
         {
             pcb = ReadPcbData();
-
             InvestigateAffectOfPopulationSize(new[] {10, 50});
             // InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000});
-
-
-            // var outputFilePath = System.IO.Path.Combine(Environment.CurrentDirectory, "../../../..", "solution.json");
-            // DataUtils.SaveIndividual(solutionGeneticAlgorithm, outputFilePath);
         }
 
         private static Pcb ReadPcbData()
@@ -58,10 +48,10 @@ namespace PCB_problem
             var outputFilePathPrefix = $"../../../../{resultsDirectoryName}/population-size-investigation";
             const string outputFilePathExtension = ".csv";
 
-            geneticAlgorithm = new GeneticAlgorithm(pcb, _w1, _w2, _w3, _w4, _w5);
-            selectionOperator = new TournamentSelection(pcb, _tournamentSizePercent, _w1, _w2, _w3, _w4, _w5);
-            crossoverOperator = new UniformCrossover(_crossoverProbability);
-            mutationOperator = new MutationA(_mutationProbability);
+            var geneticAlgorithm = new GeneticAlgorithm(pcb, _w1, _w2, _w3, _w4, _w5);
+            var selectionOperator = new TournamentSelection(pcb, _tournamentSizePercent, _w1, _w2, _w3, _w4, _w5);
+            var crossoverOperator = new UniformCrossover(_crossoverProbability);
+            var mutationOperator = new MutationA(_mutationProbability);
 
             _logger.Info("----------------------------------------------");
             _logger.Info("-- Started population size investigations --");
@@ -75,13 +65,15 @@ namespace PCB_problem
                 File.WriteAllLines(outputFilePath, new[] {contentHeader});
 
                 startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, _populationSize);
-                GeneticAlgorithmSolution(outputFilePath);
+                GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
+                    mutationOperator);
             }
         }
 
-        private static void GeneticAlgorithmSolution(object outputFilePath)
+        private static void GeneticAlgorithmSolution
+        (string outputFilePath, ISelection selectionOperator, GeneticAlgorithm geneticAlgorithm,
+            ICrossover crossoverOperator, IMutation mutationOperator)
         {
-            var outputFilePathTxt = (string) outputFilePath;
             var bestPenaltiesForEpochs = new Dictionary<int, List<int>>(); // <epoch, penalties>
             for (var i = 0; i < epochsQty; i++)
             {
@@ -112,7 +104,7 @@ namespace PCB_problem
             var avgPenaltiesForEpoch = bestPenaltiesForEpochs.Select(e => (int) e.Value.Average()).ToList();
             var worstPenaltiesForEpoch = bestPenaltiesForEpochs.Select(e => e.Value.Max()).ToList();
             var avgExecTimeMs = (int) execTimes.Average();
-            SaveExaminationResult(outputFilePathTxt, worstPenaltiesForEpoch, avgPenaltiesForEpoch,
+            SaveExaminationResult(outputFilePath, worstPenaltiesForEpoch, avgPenaltiesForEpoch,
                 bestPenaltiesForEpoch, avgExecTimeMs);
             _logger.Info(
                 $"Calulated for:  {_populationSize.ToString()},{_w1.ToString()},{_w2.ToString()},{_w3.ToString()},{_w4.ToString()},{_w5.ToString()},{_tournamentSizePercent.ToString()},{_crossoverProbability.ToString()}{_mutationProbability.ToString()}{epochsQty.ToString()}");
