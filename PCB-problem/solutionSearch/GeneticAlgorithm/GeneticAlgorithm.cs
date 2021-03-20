@@ -24,7 +24,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         }
 
         public Individual FindBestIndividual(Population startedPopulation, int epochsQty, ISelection selectionOperator,
-            UniformCrossover crossoverOperator, IMutation mutationOperator)
+            ICrossover crossoverOperator, IMutation mutationOperator)
         {
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();

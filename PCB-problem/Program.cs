@@ -1,5 +1,5 @@
-﻿using System;
-using NLog;
+﻿using System.Collections.Generic;
+using System.Threading;
 using PCB_problem.solutionSearch;
 using PCB_problem.solutionSearch.GeneticAlgorithm;
 
@@ -7,69 +7,65 @@ namespace PCB_problem
 {
     internal static class Program
     {
-        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        private static int _populationSize = 100;
+        private static int _w1 = 40;
+        private static int _w2 = 1;
+        private static int _w3 = 2;
+        private static int _w4 = 30;
+        private static int _w5 = 30;
+        private static double _tournamentSizePercent = 0.002;
+        private static double _crossoverProbability = 0.5;
+        private static double _mutationProbability = 0.1;
+        private static int epochsQty = 30;
+
+        private static Pcb pcb;
+        private static Population startedPopulation;
+
+        private static ISelection selectionOperator;
+        private static GeneticAlgorithm geneticAlgorithm;
+        private static ICrossover crossoverOperator;
+        private static IMutation mutationOperator;
 
         private static void Main(string[] args)
         {
-            var pcb = ReadAndParseInputData();
-            // var solutionRandomSearch = RandomSearchSolution(pcb);
-            var solutionGeneticAlgorithm = GeneticAlgorithmSolution(pcb);
-            var outputFilePath = System.IO.Path.Combine(Environment.CurrentDirectory, "../../../..", "solution.json");
-            DataUtils.SaveIndividual(solutionGeneticAlgorithm, outputFilePath);
+            pcb = ReadPcbData();
+
+            InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000});
+
+
+            // var outputFilePath = System.IO.Path.Combine(Environment.CurrentDirectory, "../../../..", "solution.json");
+            // DataUtils.SaveIndividual(solutionGeneticAlgorithm, outputFilePath);
         }
 
-
-        private static Pcb ReadAndParseInputData()
+        private static Pcb ReadPcbData()
         {
             const string inputDataFilePath = "../../../../data.txt";
-            const string parsedInputDataFilePath = "../../../../parsed-data.json";
             const string dataDelimiter = ";";
-
             var inputDataText = DataUtils.ReadDataFromFile(inputDataFilePath);
-            DataUtils.ParseEndpointsDataForUi(inputDataText, dataDelimiter, parsedInputDataFilePath);
-            var pcb = DataUtils.ConvertDataToPcb(inputDataText, dataDelimiter);
-            return pcb;
+            return DataUtils.ConvertDataToPcb(inputDataText, dataDelimiter);
         }
 
-        // Best: 
-        // tournamentPercent = 0,002
-        // w1, w2, w3, w4, w5 = 40, 1, 1, 30, 30
-        // crossoverProbability = 0.5
-        // mutationProbability = 0.1
-        // populationSize = 5000
-        // epochsQty = 30
-        private static Individual GeneticAlgorithmSolution(Pcb pcb)
+        private static void InvestigateAffectOfPopulationSize(IEnumerable<int> populationSizes)
         {
-            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
-            const double tournamentSizePercent = 0.002;
-            const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.1;
-            const int populationSize = 100;
-            // const int populationSize = 5000;
-            const int epochsQty = 30;
-            _logger.Log(LogLevel.Info, "-------------------------");
-            _logger.Log(LogLevel.Info, "--- Genetic Algorithm ---");
-            _logger.Log(LogLevel.Info,
-                $"w=({w1.ToString()}, {w2.ToString()}, {w3.ToString()}, {w4.ToString()}, {w5.ToString()})");
-            _logger.Log(LogLevel.Info, $"tournament={tournamentSizePercent.ToString()}");
-            _logger.Log(LogLevel.Info, $"crossoverProbability={crossoverProbability.ToString()}");
-            _logger.Log(LogLevel.Info, $"mutationProbability={mutationProbability.ToString()}");
-            _logger.Log(LogLevel.Info, $"populationSize={populationSize.ToString()}");
-            _logger.Log(LogLevel.Info, $"epochsQty={epochsQty.ToString()}");
+            geneticAlgorithm = new GeneticAlgorithm(pcb, _w1, _w2, _w3, _w4, _w5);
+            selectionOperator = new TournamentSelection(pcb, _tournamentSizePercent, _w1, _w2, _w3, _w4, _w5);
+            crossoverOperator = new UniformCrossover(_crossoverProbability);
+            mutationOperator = new MutationA(_mutationProbability);
+            foreach (var size in populationSizes)
+            {
+                _populationSize = size;
+                startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, _populationSize);
+                new Thread(GeneticAlgorithmSolution).Start();
+            }
+        }
 
-            var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
-            var tournamentOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
-            var rouletteOperator = new RouletteSelection(pcb, w1, w2, w3, w4, w5);
-            var crossoverOperator = new UniformCrossover(crossoverProbability);
-            var mutationOperator = new MutationA(mutationProbability);
-            _logger.Log(LogLevel.Info, "Generating started population ...");
-            var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
-
-            return geneticAlgorithm.FindBestIndividual(
+        private static void GeneticAlgorithmSolution()
+        {
+            // return 
+            geneticAlgorithm.FindBestIndividual(
                 startedPopulation,
                 epochsQty,
-                // tournamentOperator,
-                rouletteOperator,
+                selectionOperator,
                 crossoverOperator,
                 mutationOperator
             );
@@ -78,15 +74,7 @@ namespace PCB_problem
         private static Individual RandomSearchSolution(Pcb pcb)
         {
             const int attemptsQty = 100;
-            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
-            _logger.Log(LogLevel.Info, "-------------------------");
-            _logger.Log(LogLevel.Info, "--- Random Search ---");
-            _logger.Log(
-                LogLevel.Info,
-                $"w=({w1.ToString()}, {w2.ToString()}, {w3.ToString()}, {w4.ToString()}, {w5.ToString()})"
-            );
-            _logger.Log(LogLevel.Info, $"Attempts qty={attemptsQty.ToString()}");
-
+            var (w1, w2, w3, w4, w5) = (40, 1, 2, 30, 30);
             var randomSearch = new RandomSearch(pcb);
             var bestIndividual = randomSearch.FindBestIndividual(attemptsQty, w1, w2, w3, w4, w5);
             return bestIndividual;
