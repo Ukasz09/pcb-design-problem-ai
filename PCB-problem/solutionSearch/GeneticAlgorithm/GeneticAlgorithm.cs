@@ -23,7 +23,8 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _logger = LogManager.GetCurrentClassLogger();
         }
 
-        public Individual FindBestIndividual(Population startedPopulation, int epochsQty, ISelection selectionOperator,
+        public (Individual, int, long) FindBestIndividual(Population startedPopulation, int epochsQty,
+            ISelection selectionOperator,
             ICrossover crossoverOperator, IMutation mutationOperator)
         {
             var watch = new System.Diagnostics.Stopwatch();
@@ -62,7 +63,7 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             watch.Stop();
             var finalLog = $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms";
             _logger.Log(LogLevel.Info, finalLog);
-            return bestIndividual;
+            return (bestIndividual, minPenalty,watch.ElapsedMilliseconds);
         }
     }
 }

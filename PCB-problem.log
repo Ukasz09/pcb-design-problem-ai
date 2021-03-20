@@ -1926,3 +1926,204 @@
 2021-03-20 11:57:45.6223 | Info | Calculating generations ... |  
 2021-03-20 11:57:48.7671 | Info | Best penalty: 942, Execution time: 3145 ms |  
 2021-03-20 11:57:54.7101 | Info | Calculating generations ... |  
+2021-03-20 12:49:03.2438 | Info | Calculating generations ... |  
+2021-03-20 12:49:03.6060 | Info | Best penalty: 946, Execution time: 376 ms |  
+2021-03-20 12:49:03.6060 | Info | Calculating generations ... |  
+2021-03-20 12:49:03.7385 | Info | Best penalty: 1286, Execution time: 129 ms |  
+2021-03-20 12:49:03.7385 | Info | Calculating generations ... |  
+2021-03-20 12:49:03.8994 | Info | Best penalty: 1154, Execution time: 160 ms |  
+2021-03-20 12:49:03.8994 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.0752 | Info | Best penalty: 1178, Execution time: 175 ms |  
+2021-03-20 12:49:04.0752 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.2140 | Info | Best penalty: 1216, Execution time: 141 ms |  
+2021-03-20 12:49:04.2140 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.3980 | Info | Best penalty: 3350, Execution time: 180 ms |  
+2021-03-20 12:49:04.3980 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.6639 | Info | Best penalty: 4298, Execution time: 264 ms |  
+2021-03-20 12:49:04.6639 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.7886 | Info | Calculating generations ... |  
+2021-03-20 12:49:04.8510 | Info | Best penalty: 1456, Execution time: 186 ms |  
+2021-03-20 12:49:04.8510 | Info | Calculating generations ... |  
+2021-03-20 12:49:06.4583 | Info | Best penalty: 1094, Execution time: 1606 ms |  
+2021-03-20 12:49:06.4583 | Info | Calculating generations ... |  
+2021-03-20 12:49:07.3101 | Info | Best penalty: 860, Execution time: 2522 ms |  
+2021-03-20 12:49:07.3101 | Info | Calculating generations ... |  
+2021-03-20 12:49:08.2852 | Info | Best penalty: 988, Execution time: 1826 ms |  
+2021-03-20 12:49:08.3308 | Info | Calculating generations ... |  
+2021-03-20 12:49:09.2878 | Info | Best penalty: 1452, Execution time: 1976 ms |  
+2021-03-20 12:49:09.2878 | Info | Calculating generations ... |  
+2021-03-20 12:49:13.5633 | Info | Best penalty: 750, Execution time: 4275 ms |  
+2021-03-20 12:49:13.5633 | Info | Calculating generations ... |  
+2021-03-20 12:49:13.9805 | Info | Best penalty: 1034, Execution time: 5650 ms |  
+2021-03-20 12:49:13.9819 | Info | Calculating generations ... |  
+2021-03-20 12:49:17.5318 | Info | Best penalty: 776, Execution time: 3968 ms |  
+2021-03-20 12:49:17.5417 | Info | Calculating generations ... |  
+2021-03-20 12:49:20.2912 | Info | Best penalty: 792, Execution time: 6310 ms |  
+2021-03-20 12:49:20.2912 | Info | Calculating generations ... |  
+2021-03-20 12:49:21.1873 | Info | Best penalty: 948, Execution time: 3646 ms |  
+2021-03-20 12:49:21.2064 | Info | Calculating generations ... |  
+2021-03-20 12:49:24.7580 | Info | Best penalty: 908, Execution time: 4465 ms |  
+2021-03-20 12:49:24.7580 | Info | Calculating generations ... |  
+2021-03-20 12:49:26.0704 | Info | Calculating generations ... |  
+2021-03-20 12:49:26.8698 | Info | Best penalty: 984, Execution time: 5675 ms |  
+2021-03-20 12:49:26.8698 | Info | Calculating generations ... |  
+2021-03-20 12:49:29.8494 | Info | Best penalty: 828, Execution time: 5091 ms |  
+2021-03-20 12:49:29.8498 | Info | Calculating generations ... |  
+2021-03-20 12:49:54.4594 | Info | Best penalty: 766, Execution time: 28389 ms |  
+2021-03-20 12:49:54.4594 | Info | Calculating generations ... |  
+2021-03-20 12:49:58.9812 | Info | Best penalty: 652, Execution time: 32111 ms |  
+2021-03-20 12:49:58.9820 | Info | Calculating generations ... |  
+2021-03-20 12:49:59.0531 | Info | Best penalty: 678, Execution time: 29203 ms |  
+2021-03-20 12:49:59.0692 | Info | Calculating generations ... |  
+2021-03-20 12:50:09.1386 | Info | Calculating generations ... |  
+2021-03-20 12:50:29.3938 | Info | Best penalty: 352, Execution time: 20255 ms |  
+2021-03-20 12:50:29.3938 | Info | Best penalty: 686, Execution time: 34934 ms |  
+2021-03-20 12:50:29.3938 | Info | Calculating generations ... |  
+2021-03-20 12:50:29.3938 | Info | Calculating generations ... |  
+2021-03-20 12:50:34.0911 | Info | Best penalty: 456, Execution time: 35022 ms |  
+2021-03-20 12:50:34.0911 | Info | Calculating generations ... |  
+2021-03-20 12:50:34.3406 | Info | Best penalty: 786, Execution time: 35359 ms |  
+2021-03-20 12:50:34.3406 | Info | Calculating generations ... |  
+2021-03-20 12:50:53.3408 | Info | Best penalty: 370, Execution time: 23946 ms |  
+2021-03-20 12:50:53.3408 | Info | Calculating generations ... |  
+2021-03-20 12:50:53.5801 | Info | Best penalty: 362, Execution time: 24185 ms |  
+2021-03-20 12:50:53.5801 | Info | Calculating generations ... |  
+2021-03-20 12:50:58.9799 | Info | Best penalty: 358, Execution time: 24638 ms |  
+2021-03-20 12:50:58.9799 | Info | Calculating generations ... |  
+2021-03-20 12:50:59.7203 | Info | Best penalty: 346, Execution time: 25624 ms |  
+2021-03-20 12:50:59.7203 | Info | Calculating generations ... |  
+2021-03-20 12:51:16.3257 | Info | Best penalty: 400, Execution time: 22737 ms |  
+2021-03-20 12:51:16.3262 | Info | Calculating generations ... |  
+2021-03-20 12:51:17.5258 | Info | Best penalty: 368, Execution time: 24184 ms |  
+2021-03-20 12:51:17.5258 | Info | Calculating generations ... |  
+2021-03-20 12:51:22.4047 | Info | Best penalty: 348, Execution time: 23425 ms |  
+2021-03-20 12:51:23.0636 | Info | Best penalty: 376, Execution time: 23343 ms |  
+2021-03-20 12:51:23.0636 | Info | Calculating generations ... |  
+2021-03-20 12:51:37.1450 | Info | Best penalty: 362, Execution time: 20818 ms |  
+2021-03-20 12:51:37.1450 | Info | Calculating generations ... |  
+2021-03-20 12:51:38.4222 | Info | Best penalty: 334, Execution time: 20896 ms |  
+2021-03-20 12:51:38.4222 | Info | Calculating generations ... |  
+2021-03-20 12:51:42.5584 | Info | Best penalty: 356, Execution time: 19494 ms |  
+2021-03-20 12:51:42.5584 | Info | Calculating generations ... |  
+2021-03-20 12:51:56.1233 | Info | Best penalty: 382, Execution time: 18978 ms |  
+2021-03-20 12:51:56.1233 | Info | Calculating generations ... |  
+2021-03-20 12:51:57.1907 | Info | Best penalty: 378, Execution time: 18768 ms |  
+2021-03-20 12:51:57.1907 | Info | Calculating generations ... |  
+2021-03-20 12:52:00.7441 | Info | Best penalty: 376, Execution time: 18185 ms |  
+2021-03-20 12:52:04.4783 | Info | Calculating generations ... |  
+2021-03-20 12:52:12.3823 | Info | Best penalty: 342, Execution time: 16258 ms |  
+2021-03-20 12:52:12.3823 | Info | Calculating generations ... |  
+2021-03-20 12:52:13.2396 | Info | Best penalty: 350, Execution time: 16048 ms |  
+2021-03-20 12:52:13.2396 | Info | Calculating generations ... |  
+2021-03-20 12:52:47.5487 | Info | Best penalty: 204, Execution time: 43071 ms |  
+2021-03-20 12:52:47.5505 | Info | Calculating generations ... |  
+2021-03-20 12:52:51.8143 | Info | Best penalty: 364, Execution time: 39431 ms |  
+2021-03-20 12:52:51.8143 | Info | Calculating generations ... |  
+2021-03-20 12:52:52.5093 | Info | Best penalty: 364, Execution time: 39269 ms |  
+2021-03-20 12:52:52.5119 | Info | Calculating generations ... |  
+2021-03-20 12:55:29.3804 | Info | Best penalty: 4574, Execution time: 161830 ms |  
+2021-03-20 12:55:29.3804 | Info | Calculating generations ... |  
+2021-03-20 12:55:30.7394 | Info | Best penalty: 4656, Execution time: 158925 ms |  
+2021-03-20 12:55:30.7394 | Info | Calculating generations ... |  
+2021-03-20 12:55:32.2400 | Info | Best penalty: 4614, Execution time: 159728 ms |  
+2021-03-20 12:55:32.2400 | Info | Calculating generations ... |  
+2021-03-20 13:03:16.3496 | Info | Calculating generations ... |  
+2021-03-20 13:03:16.8956 | Info | Best penalty: 1692, Execution time: 570 ms |  
+2021-03-20 13:03:16.8956 | Info | Calculating generations ... |  
+2021-03-20 13:03:17.2732 | Info | Best penalty: 3504, Execution time: 376 ms |  
+2021-03-20 13:03:17.2744 | Info | Calculating generations ... |  
+2021-03-20 13:03:17.5859 | Info | Calculating generations ... |  
+2021-03-20 13:03:17.6892 | Info | Best penalty: 3560, Execution time: 415 ms |  
+2021-03-20 13:03:17.6899 | Info | Calculating generations ... |  
+2021-03-20 13:03:19.8882 | Info | Best penalty: 1440, Execution time: 2301 ms |  
+2021-03-20 13:03:19.8882 | Info | Calculating generations ... |  
+2021-03-20 13:03:19.9091 | Info | Best penalty: 632, Execution time: 2219 ms |  
+2021-03-20 13:03:19.9109 | Info | Calculating generations ... |  
+2021-03-20 13:03:21.7061 | Info | Best penalty: 1500, Execution time: 1795 ms |  
+2021-03-20 13:03:21.7061 | Info | Calculating generations ... |  
+2021-03-20 13:03:21.7750 | Info | Best penalty: 1292, Execution time: 1885 ms |  
+2021-03-20 13:03:21.7750 | Info | Calculating generations ... |  
+2021-03-20 13:03:23.2878 | Info | Best penalty: 876, Execution time: 1512 ms |  
+2021-03-20 13:03:23.2878 | Info | Calculating generations ... |  
+2021-03-20 13:03:23.6971 | Info | Best penalty: 768, Execution time: 1990 ms |  
+2021-03-20 13:03:23.6971 | Info | Calculating generations ... |  
+2021-03-20 13:03:25.1520 | Info | Best penalty: 1000, Execution time: 1863 ms |  
+2021-03-20 13:03:25.1520 | Info | Calculating generations ... |  
+2021-03-20 13:03:25.4518 | Info | Best penalty: 1426, Execution time: 1754 ms |  
+2021-03-20 13:03:25.4518 | Info | Calculating generations ... |  
+2021-03-20 13:03:26.4924 | Info | Best penalty: 698, Execution time: 1339 ms |  
+2021-03-20 13:03:26.4924 | Info | Calculating generations ... |  
+2021-03-20 13:03:27.5692 | Info | Best penalty: 1056, Execution time: 2117 ms |  
+2021-03-20 13:03:27.5692 | Info | Calculating generations ... |  
+2021-03-20 13:03:28.1191 | Info | Best penalty: 1154, Execution time: 1626 ms |  
+2021-03-20 13:03:28.1191 | Info | Calculating generations ... |  
+2021-03-20 13:03:28.9162 | Info | Best penalty: 1254, Execution time: 1346 ms |  
+2021-03-20 13:03:28.9162 | Info | Calculating generations ... |  
+2021-03-20 13:03:29.5364 | Info | Best penalty: 1302, Execution time: 1416 ms |  
+2021-03-20 13:03:29.5378 | Info | Calculating generations ... |  
+2021-03-20 13:03:30.9553 | Info | Best penalty: 970, Execution time: 2038 ms |  
+2021-03-20 13:03:31.3909 | Info | Best penalty: 1474, Execution time: 1853 ms |  
+2021-03-20 13:03:31.3909 | Info | Calculating generations ... |  
+2021-03-20 13:03:32.3526 | Info | Best penalty: 632, Execution time: 961 ms |  
+2021-03-20 13:03:32.3526 | Info | Calculating generations ... |  
+2021-03-20 13:03:33.7841 | Info | Best penalty: 1270, Execution time: 1431 ms |  
+2021-03-20 13:08:11.7831 | Info | Calculating generations ... |  
+2021-03-20 13:08:11.9549 | Info | Best penalty: 1596, Execution time: 181 ms |  
+2021-03-20 13:08:11.9549 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.0625 | Info | Best penalty: 974, Execution time: 108 ms |  
+2021-03-20 13:08:12.0660 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.1742 | Info | Best penalty: 1666, Execution time: 111 ms |  
+2021-03-20 13:08:12.1779 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.4075 | Info | Best penalty: 1234, Execution time: 229 ms |  
+2021-03-20 13:08:12.4075 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.5228 | Info | Best penalty: 1030, Execution time: 115 ms |  
+2021-03-20 13:08:12.5228 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.6474 | Info | Best penalty: 890, Execution time: 122 ms |  
+2021-03-20 13:08:12.6521 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.7699 | Info | Best penalty: 954, Execution time: 119 ms |  
+2021-03-20 13:08:12.7699 | Info | Calculating generations ... |  
+2021-03-20 13:08:12.8854 | Info | Best penalty: 1606, Execution time: 113 ms |  
+2021-03-20 13:08:12.8861 | Info | Calculating generations ... |  
+2021-03-20 13:08:13.0152 | Info | Best penalty: 1198, Execution time: 129 ms |  
+2021-03-20 13:08:13.0152 | Info | Calculating generations ... |  
+2021-03-20 13:08:13.1030 | Info | Best penalty: 764, Execution time: 87 ms |  
+2021-03-20 13:08:13.2020 | Info | Calculating generations ... |  
+2021-03-20 13:08:14.6071 | Info | Best penalty: 1140, Execution time: 1406 ms |  
+2021-03-20 13:08:14.6071 | Info | Calculating generations ... |  
+2021-03-20 13:08:15.6552 | Info | Calculating generations ... |  
+2021-03-20 13:08:16.1492 | Info | Best penalty: 1134, Execution time: 1541 ms |  
+2021-03-20 13:08:16.1500 | Info | Calculating generations ... |  
+2021-03-20 13:08:19.0383 | Info | Best penalty: 852, Execution time: 2888 ms |  
+2021-03-20 13:08:19.0383 | Info | Calculating generations ... |  
+2021-03-20 13:08:19.2103 | Info | Best penalty: 1036, Execution time: 3555 ms |  
+2021-03-20 13:08:19.2103 | Info | Calculating generations ... |  
+2021-03-20 13:08:22.6432 | Info | Best penalty: 1134, Execution time: 3604 ms |  
+2021-03-20 13:08:22.6432 | Info | Calculating generations ... |  
+2021-03-20 13:08:23.9461 | Info | Best penalty: 848, Execution time: 4734 ms |  
+2021-03-20 13:08:23.9461 | Info | Calculating generations ... |  
+2021-03-20 13:08:26.3233 | Info | Best penalty: 762, Execution time: 2376 ms |  
+2021-03-20 13:08:26.3233 | Info | Calculating generations ... |  
+2021-03-20 13:08:26.4098 | Info | Best penalty: 1018, Execution time: 3766 ms |  
+2021-03-20 13:08:26.4098 | Info | Calculating generations ... |  
+2021-03-20 13:08:29.0138 | Info | Best penalty: 650, Execution time: 2603 ms |  
+2021-03-20 13:08:29.0138 | Info | Calculating generations ... |  
+2021-03-20 13:08:29.0292 | Info | Best penalty: 1298, Execution time: 2705 ms |  
+2021-03-20 13:08:29.0298 | Info | Calculating generations ... |  
+2021-03-20 13:08:31.8262 | Info | Best penalty: 734, Execution time: 2812 ms |  
+2021-03-20 13:08:31.8262 | Info | Calculating generations ... |  
+2021-03-20 13:08:32.1693 | Info | Best penalty: 982, Execution time: 3139 ms |  
+2021-03-20 13:08:32.1699 | Info | Calculating generations ... |  
+2021-03-20 13:08:35.7618 | Info | Best penalty: 940, Execution time: 3592 ms |  
+2021-03-20 13:08:35.7618 | Info | Calculating generations ... |  
+2021-03-20 13:08:36.2708 | Info | Best penalty: 942, Execution time: 4444 ms |  
+2021-03-20 13:08:36.2708 | Info | Calculating generations ... |  
+2021-03-20 13:08:38.8153 | Info | Best penalty: 816, Execution time: 2544 ms |  
+2021-03-20 13:08:38.8153 | Info | Calculating generations ... |  
+2021-03-20 13:08:39.1106 | Info | Best penalty: 844, Execution time: 3348 ms |  
+2021-03-20 13:08:39.1106 | Info | Calculating generations ... |  
+2021-03-20 13:08:41.8700 | Info | Best penalty: 634, Execution time: 2758 ms |  
+2021-03-20 13:08:41.8700 | Info | Calculating generations ... |  
+2021-03-20 13:08:41.9621 | Info | Best penalty: 840, Execution time: 3146 ms |  
+2021-03-20 13:08:45.0953 | Info | Best penalty: 836, Execution time: 3225 ms |  
+2021-03-20 13:08:45.0953 | Info | Calculating generations ... |  
+2021-03-20 13:08:47.9273 | Info | Best penalty: 1186, Execution time: 2831 ms |  
