@@ -14,12 +14,23 @@ namespace PCB_problem
         private const string ContentHeaderText = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
 
         private static Pcb pcb;
+        private const int _defaultPopulationSize = 1000;
+        private const int _defaultW1 = 40;
+        private const int _defaultW2 = 1;
+        private const int _defaultW3 = 2;
+        private const int _defaultW4 = 30;
+        private const int _defaultW5 = 30;
+        private const double _defaultTournamentSizePercent = 0.002;
+        private const double _defaultCrossoverProbability = 0.5;
+        private const double _defaultMutationProbability = 0.1;
+        private const int _defaultEpochsQty = 100;
 
         private static void Main(string[] args)
         {
             pcb = ReadPcbData();
             // InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000});
-            InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000});
+            // InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000});
+            InvestigateCrossoverProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9});
         }
 
         private static Pcb ReadPcbData()
@@ -35,11 +46,11 @@ namespace PCB_problem
             var outputFilePathPrefix = $"../../../../{ResultsDirectoryName}/population-size-investigation";
             const string outputFilePathExtension = ".csv";
 
-            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
-            const double tournamentSizePercent = 0.002;
-            const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.1;
-            const int epochsQty = 30;
+            var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+            const double tournamentSizePercent = _defaultTournamentSizePercent;
+            const double crossoverProbability = _defaultCrossoverProbability;
+            const double mutationProbability = _defaultMutationProbability;
+            const int epochsQty = _defaultEpochsQty;
 
             var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
             var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
@@ -67,11 +78,11 @@ namespace PCB_problem
             var outputFilePathPrefix = $"../../../../{ResultsDirectoryName}/epochs-qty-investigation";
             const string outputFilePathExtension = ".csv";
 
-            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
-            const double tournamentSizePercent = 0.002;
-            const double crossoverProbability = 0.5;
-            const double mutationProbability = 0.1;
-            const int populationSize = 1000;
+            var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+            const double tournamentSizePercent = _defaultTournamentSizePercent;
+            const double crossoverProbability = _defaultCrossoverProbability;
+            const double mutationProbability = _defaultMutationProbability;
+            const int populationSize = _defaultPopulationSize;
 
             var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
             var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
@@ -86,13 +97,45 @@ namespace PCB_problem
             foreach (var epochQty in epochsQty)
             {
                 var outputFilePath = $"{outputFilePathPrefix}-{epochQty.ToString()}{outputFilePathExtension}";
-                const string contentHeader = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
-                File.WriteAllLines(outputFilePath, new[] {contentHeader});
+                File.WriteAllLines(outputFilePath, new[] {ContentHeaderText});
 
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochQty, startedPopulation);
                 _logger.Info(
                     $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty}");
+            }
+        }
+
+        private static void InvestigateCrossoverProbability(IEnumerable<double> crossoverProbabilities)
+        {
+            var outputFilePathPrefix = $"../../../../{ResultsDirectoryName}/crossover-probability-investigation";
+            const string outputFilePathExtension = ".csv";
+
+            var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+            const double tournamentSizePercent = _defaultTournamentSizePercent;
+            const double mutationProbability = _defaultMutationProbability;
+            const int populationSize = _defaultPopulationSize;
+            const int epochsQty = _defaultEpochsQty;
+
+            var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+            var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
+            var mutationOperator = new MutationA(mutationProbability);
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started crossover probability investigations --");
+            _logger.Info("----------------------------------------------");
+            var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
+
+            foreach (var probability in crossoverProbabilities)
+            {
+                var outputFilePath = $"{outputFilePathPrefix}-{probability.ToString()}{outputFilePathExtension}";
+                File.WriteAllLines(outputFilePath, new[] {ContentHeaderText});
+
+                var crossoverOperator = new UniformCrossover(probability);
+                GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
+                    mutationOperator, epochsQty, startedPopulation);
+                _logger.Info(
+                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{probability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
             }
         }
 
