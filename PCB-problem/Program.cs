@@ -8,7 +8,7 @@ namespace PCB_problem
 {
     internal static class Program
     {
-        private const int ExaminationRepeatQty = 10;
+        private const int ExaminationRepeatQty = 5;
         private const string ResultsDirectoryName = "examination-results";
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private const string ContentHeaderText = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
@@ -18,7 +18,7 @@ namespace PCB_problem
             System.AppDomain.CurrentDomain.RelativeSearchPath ?? "");
 
         private static Pcb pcb;
-        private const int _defaultPopulationSize = 250;
+        private const int _defaultPopulationSize = 100;
         private const int _defaultW1 = 40;
         private const int _defaultW2 = 1;
         private const int _defaultW3 = 2;
@@ -33,12 +33,11 @@ namespace PCB_problem
         {
             var inputFileName = args[0];
             pcb = ReadPcbData(inputFileName);
-            InvestigateAffectOfPopulationSize(new[] {5, 10}, inputFileName); //TODO: tmp
-            // InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
-            // InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
-            // InvestigateCrossoverProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
-            // InvestigateMutationProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
-            // InvestigateTournamentSize(new[] {0.002, 0.005, 0.01, 0.05, 0.1, 0.2, 0.5, 0.9}, inputFileName);
+            InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
+            InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
+            InvestigateCrossoverProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
+            InvestigateMutationProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
+            InvestigateTournamentSize(new[] {0.002, 0.005, 0.01, 0.05, 0.1, 0.2, 0.5, 0.9}, inputFileName);
         }
 
         private static Pcb ReadPcbData(string inputFileName)
