@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using NLog;
 using PCB_problem.solutionSearch.GeneticAlgorithm;
 
 namespace PCB_problem
@@ -10,6 +12,7 @@ namespace PCB_problem
     {
         private const int examinationRepeatQty = 10;
         private const string resultsDirectoryName = "examination-results";
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
 
         private static int _populationSize = 1500;
         private static int _w1 = 40;
@@ -54,20 +57,25 @@ namespace PCB_problem
         {
             var outputFilePathPrefix = $"../../../../{resultsDirectoryName}/population-size-investigation";
             const string outputFilePathExtension = ".csv";
-           
+
             geneticAlgorithm = new GeneticAlgorithm(pcb, _w1, _w2, _w3, _w4, _w5);
             selectionOperator = new TournamentSelection(pcb, _tournamentSizePercent, _w1, _w2, _w3, _w4, _w5);
             crossoverOperator = new UniformCrossover(_crossoverProbability);
             mutationOperator = new MutationA(_mutationProbability);
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started population size investigations --");
+            _logger.Info("----------------------------------------------");
+
             foreach (var t in populationSizes)
             {
                 _populationSize = t;
                 var outputFilePath = $"{outputFilePathPrefix}-{_populationSize.ToString()}{outputFilePathExtension}";
                 const string contentHeader = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
                 File.WriteAllLines(outputFilePath, new[] {contentHeader});
-                
+
                 startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, _populationSize);
-                new Thread(GeneticAlgorithmSolution).Start(outputFilePath);
+                GeneticAlgorithmSolution(outputFilePath);
             }
         }
 
@@ -106,6 +114,8 @@ namespace PCB_problem
             var avgExecTimeMs = (int) execTimes.Average();
             SaveExaminationResult(outputFilePathTxt, worstPenaltiesForEpoch, avgPenaltiesForEpoch,
                 bestPenaltiesForEpoch, avgExecTimeMs);
+            _logger.Info(
+                $"Calulated for:  {_populationSize.ToString()},{_w1.ToString()},{_w2.ToString()},{_w3.ToString()},{_w4.ToString()},{_w5.ToString()},{_tournamentSizePercent.ToString()},{_crossoverProbability.ToString()}{_mutationProbability.ToString()}{epochsQty.ToString()}");
         }
 
         private static void SaveExaminationResult

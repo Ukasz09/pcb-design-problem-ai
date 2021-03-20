@@ -10,7 +10,6 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
         private readonly int _w3;
         private readonly int _w4;
         private readonly int _w5;
-        private readonly ILogger _logger;
 
         public GeneticAlgorithm(Pcb pcb, int w1, int w2, int w3, int w4, int w5)
         {
@@ -20,7 +19,6 @@ namespace PCB_problem.solutionSearch.GeneticAlgorithm
             _w3 = w3;
             _w4 = w4;
             _w5 = w5;
-            _logger = LogManager.GetCurrentClassLogger();
         }
 
         /**
