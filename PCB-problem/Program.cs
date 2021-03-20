@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using NLog;
 using PCB_problem.solutionSearch.GeneticAlgorithm;
 
@@ -10,29 +8,18 @@ namespace PCB_problem
 {
     internal static class Program
     {
-        private const int examinationRepeatQty = 10;
-        private const string resultsDirectoryName = "examination-results";
-        private static Logger _logger = LogManager.GetCurrentClassLogger();
-
-        private static int _populationSize = 1500;
-        private static int _w1 = 40;
-        private static int _w2 = 1;
-        private static int _w3 = 2;
-        private static int _w4 = 30;
-        private static int _w5 = 30;
-        private static double _tournamentSizePercent = 0.002;
-        private static double _crossoverProbability = 0.5;
-        private static double _mutationProbability = 0.1;
-        private static int epochsQty = 30;
+        private const int ExaminationRepeatQty = 10;
+        private const string ResultsDirectoryName = "examination-results";
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        private const string ContentHeaderText = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
 
         private static Pcb pcb;
-        private static Population startedPopulation;
 
         private static void Main(string[] args)
         {
             pcb = ReadPcbData();
-            InvestigateAffectOfPopulationSize(new[] {10, 50});
             // InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000});
+            InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000});
         }
 
         private static Pcb ReadPcbData()
@@ -45,44 +32,84 @@ namespace PCB_problem
 
         private static void InvestigateAffectOfPopulationSize(IEnumerable<int> populationSizes)
         {
-            var outputFilePathPrefix = $"../../../../{resultsDirectoryName}/population-size-investigation";
+            var outputFilePathPrefix = $"../../../../{ResultsDirectoryName}/population-size-investigation";
             const string outputFilePathExtension = ".csv";
 
-            var geneticAlgorithm = new GeneticAlgorithm(pcb, _w1, _w2, _w3, _w4, _w5);
-            var selectionOperator = new TournamentSelection(pcb, _tournamentSizePercent, _w1, _w2, _w3, _w4, _w5);
-            var crossoverOperator = new UniformCrossover(_crossoverProbability);
-            var mutationOperator = new MutationA(_mutationProbability);
+            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
+            const double tournamentSizePercent = 0.002;
+            const double crossoverProbability = 0.5;
+            const double mutationProbability = 0.1;
+            const int epochsQty = 30;
+
+            var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+            var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
+            var crossoverOperator = new UniformCrossover(crossoverProbability);
+            var mutationOperator = new MutationA(mutationProbability);
 
             _logger.Info("----------------------------------------------");
             _logger.Info("-- Started population size investigations --");
             _logger.Info("----------------------------------------------");
 
-            foreach (var t in populationSizes)
+            foreach (var populationSize in populationSizes)
             {
-                _populationSize = t;
-                var outputFilePath = $"{outputFilePathPrefix}-{_populationSize.ToString()}{outputFilePathExtension}";
-                const string contentHeader = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
-                File.WriteAllLines(outputFilePath, new[] {contentHeader});
-
-                startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, _populationSize);
+                var outputFilePath = $"{outputFilePathPrefix}-{populationSize.ToString()}{outputFilePathExtension}";
+                File.WriteAllLines(outputFilePath, new[] {ContentHeaderText});
+                var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
-                    mutationOperator);
+                    mutationOperator, epochsQty, startedPopulation);
+                _logger.Info(
+                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
             }
         }
 
+        private static void InvestigateEpochsQty(IEnumerable<int> epochsQty)
+        {
+            var outputFilePathPrefix = $"../../../../{ResultsDirectoryName}/epochs-qty-investigation";
+            const string outputFilePathExtension = ".csv";
+
+            var (w1, w2, w3, w4, w5) = (40, 1, 1, 30, 30);
+            const double tournamentSizePercent = 0.002;
+            const double crossoverProbability = 0.5;
+            const double mutationProbability = 0.1;
+            const int populationSize = 1000;
+
+            var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+            var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
+            var crossoverOperator = new UniformCrossover(crossoverProbability);
+            var mutationOperator = new MutationA(mutationProbability);
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started epochs qty investigations --");
+            _logger.Info("----------------------------------------------");
+            var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
+
+            foreach (var epochQty in epochsQty)
+            {
+                var outputFilePath = $"{outputFilePathPrefix}-{epochQty.ToString()}{outputFilePathExtension}";
+                const string contentHeader = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
+                File.WriteAllLines(outputFilePath, new[] {contentHeader});
+
+                GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
+                    mutationOperator, epochQty, startedPopulation);
+                _logger.Info(
+                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty}");
+            }
+        }
+
+
         private static void GeneticAlgorithmSolution
         (string outputFilePath, ISelection selectionOperator, GeneticAlgorithm geneticAlgorithm,
-            ICrossover crossoverOperator, IMutation mutationOperator)
+            ICrossover crossoverOperator, IMutation mutationOperator, int epochsQty, Population startedPopulation)
         {
             var bestPenaltiesForEpochs = new Dictionary<int, List<int>>(); // <epoch, penalties>
             for (var i = 0; i < epochsQty; i++)
             {
-                bestPenaltiesForEpochs[i] = new List<int>(examinationRepeatQty);
+                bestPenaltiesForEpochs[i] = new List<int>(ExaminationRepeatQty);
             }
 
-            var execTimes = new long[examinationRepeatQty];
+            var execTimes = new long[ExaminationRepeatQty];
 
-            for (var i = 0; i < examinationRepeatQty; i++)
+            for (var i = 0; i < ExaminationRepeatQty; i++)
             {
                 var (_, penaltiesForEpoch, execTime) = geneticAlgorithm.FindBestIndividual(
                     startedPopulation,
@@ -105,14 +132,12 @@ namespace PCB_problem
             var worstPenaltiesForEpoch = bestPenaltiesForEpochs.Select(e => e.Value.Max()).ToList();
             var avgExecTimeMs = (int) execTimes.Average();
             SaveExaminationResult(outputFilePath, worstPenaltiesForEpoch, avgPenaltiesForEpoch,
-                bestPenaltiesForEpoch, avgExecTimeMs);
-            _logger.Info(
-                $"Calulated for:  {_populationSize.ToString()},{_w1.ToString()},{_w2.ToString()},{_w3.ToString()},{_w4.ToString()},{_w5.ToString()},{_tournamentSizePercent.ToString()},{_crossoverProbability.ToString()}{_mutationProbability.ToString()}{epochsQty.ToString()}");
+                bestPenaltiesForEpoch, avgExecTimeMs, epochsQty);
         }
 
         private static void SaveExaminationResult
         (string outputFilePath, IReadOnlyList<int> worstPenaltiesForEpoch, IReadOnlyList<int> avgPenaltiesForEpoch,
-            IReadOnlyList<int> bestPenaltiesForEpoch, int avgExecTimeMs, char delimiter = ';')
+            IReadOnlyList<int> bestPenaltiesForEpoch, int avgExecTimeMs, int epochsQty, char delimiter = ';')
         {
             var delimiterTxt = delimiter.ToString();
             var avgExecTimeMsTxt = avgExecTimeMs.ToString();
