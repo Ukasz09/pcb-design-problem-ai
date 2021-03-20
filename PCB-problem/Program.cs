@@ -79,7 +79,7 @@ namespace PCB_problem
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochsQty, startedPopulation);
                 _logger.Info(
-                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+                    $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
             }
         }
 
@@ -113,7 +113,7 @@ namespace PCB_problem
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochQty, startedPopulation);
                 _logger.Info(
-                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty}");
+                    $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty}");
             }
         }
 
@@ -148,7 +148,7 @@ namespace PCB_problem
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochsQty, startedPopulation);
                 _logger.Info(
-                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{probability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+                    $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{probability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
             }
         }
 
@@ -182,7 +182,7 @@ namespace PCB_problem
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochsQty, startedPopulation);
                 _logger.Info(
-                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{probability.ToString()},{epochsQty.ToString()}");
+                    $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{tournamentSizePercent.ToString()},{crossoverProbability.ToString()},{probability.ToString()},{epochsQty.ToString()}");
             }
         }
 
@@ -216,7 +216,7 @@ namespace PCB_problem
                 GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
                     mutationOperator, epochsQty, startedPopulation);
                 _logger.Info(
-                    $"Calulated for:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{size.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+                    $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{size.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
             }
         }
 
