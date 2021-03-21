@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using NLog;
+using PCB_problem.solutionSearch;
 using PCB_problem.solutionSearch.GeneticAlgorithm;
 
 namespace PCB_problem
@@ -13,8 +14,8 @@ namespace PCB_problem
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private const string ContentHeaderText = "epochNo;bestPenalty;avgPenalty;worstPenalty;avgExecTimeMs";
 
-        private static string binPath = System.IO.Path.Combine(
-            System.AppDomain.CurrentDomain.BaseDirectory ?? string.Empty,
+        private static readonly string binPath = System.IO.Path.Combine(
+            System.AppDomain.CurrentDomain.BaseDirectory,
             System.AppDomain.CurrentDomain.RelativeSearchPath ?? "");
 
         private static Pcb pcb;
@@ -31,13 +32,15 @@ namespace PCB_problem
 
         private static void Main(string[] args)
         {
-            var inputFileName = args[0];
-            pcb = ReadPcbData(inputFileName);
-            InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
-            InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
-            InvestigateCrossoverProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
-            InvestigateMutationProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
-            InvestigateTournamentSize(new[] {0.002, 0.005, 0.01, 0.05, 0.1, 0.2, 0.5, 0.9}, inputFileName);
+            // var inputFileName = args[0];
+            // pcb = ReadPcbData(inputFileName);
+            // InvestigateAffectOfPopulationSize(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
+            // InvestigateEpochsQty(new[] {10, 50, 100, 500, 1000, 2000}, inputFileName);
+            // InvestigateCrossoverProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
+            // InvestigateMutationProbability(new[] {0.1, 0.25, 0.5, 0.75, 0.9}, inputFileName);
+            // InvestigateTournamentSize(new[] {0.002, 0.005, 0.01, 0.05, 0.1, 0.2, 0.5, 0.9}, inputFileName);
+            // InvestigateRouletteOperator();
+            InvestigateRandomVsGenetic();
         }
 
         private static Pcb ReadPcbData(string inputFileName)
@@ -216,6 +219,107 @@ namespace PCB_problem
                     mutationOperator, epochsQty, startedPopulation);
                 _logger.Info(
                     $"Calculated for {pcbNumber}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{size.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+            }
+        }
+
+        private static void InvestigateRouletteOperator()
+        {
+            const string outputFilePathExtension = ".csv";
+
+            var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+            const int populationSize = _defaultPopulationSize;
+            const int epochsQty = _defaultEpochsQty;
+            const double crossoverProbability = _defaultCrossoverProbability;
+            const double mutationProbability = _defaultMutationProbability;
+
+            var mutationOperator = new MutationA(mutationProbability);
+            var crossoverOperator = new UniformCrossover(crossoverProbability);
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started roulette investigations --");
+            _logger.Info("----------------------------------------------");
+            foreach (var pcbName in new[] {"pcb1", "pcb2", "pcb3"})
+            {
+                var pcb = ReadPcbData(pcbName);
+                var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+                var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
+                var selectionOperator = new RouletteSelection(pcb, w1, w2, w3, w4, w5);
+
+                var outputFilePathPrefix =
+                    $"{binPath}/../../../../{ResultsDirectoryName}/{pcbName}/roulette-investigation";
+                var outputFilePath = $"{outputFilePathPrefix}-{outputFilePathExtension}";
+
+                File.WriteAllLines(outputFilePath, new[] {ContentHeaderText});
+
+                GeneticAlgorithmSolution(outputFilePath, selectionOperator, geneticAlgorithm, crossoverOperator,
+                    mutationOperator, epochsQty, startedPopulation);
+                _logger.Info(
+                    $"Calculated for {pcbName}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+            }
+        }
+
+        private static void InvestigateRandomVsGenetic()
+        {
+            const string outputFilePathExtension = ".csv";
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started PCB investigations --");
+            _logger.Info("----------------------------------------------");
+            foreach (var pcbName in new[] {"pcb1", "pcb2", "pcb3"})
+            {
+                var pcb = ReadPcbData(pcbName);
+                var outputFilePathPrefixForRandomSearch =
+                    $"{binPath}/../../../../{ResultsDirectoryName}/{pcbName}/random-search-investigation";
+                var outputFilePath = $"{outputFilePathPrefixForRandomSearch}-{outputFilePathExtension}";
+
+                var penalties = new int[ExaminationRepeatQty];
+                var execTimes = new long[ExaminationRepeatQty];
+                const int attemptsQty = 1000;
+                for (var i = 0; i < ExaminationRepeatQty; i++)
+                {
+                    var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+                    var randomSearch = new RandomSearch(pcb);
+                    var (_, penalty, execTime) = randomSearch.FindBestIndividual(attemptsQty, w1, w2, w3, w4, w5);
+                    penalties[i] = penalty;
+                    execTimes[i] = execTime;
+                }
+
+                var bestPenalty = penalties.Min();
+                var avgPenalty = (int) penalties.Average();
+                var worstPenalty = penalties.Max();
+                var avgExecTimeMs = (int) execTimes.Average();
+                SaveExaminationResult(outputFilePath, new List<int> {worstPenalty}, new List<int> {avgPenalty},
+                    new List<int> {bestPenalty}, avgExecTimeMs, attemptsQty);
+                _logger.Info(
+                    $"Calculated for {pcbName},{attemptsQty.ToString()}");
+
+            }
+
+            _logger.Info("----------------------------------------------");
+            _logger.Info("-- Started GA investigations --");
+            _logger.Info("----------------------------------------------");
+            foreach (var pcbName in new[] {"pcb1", "pcb2", "pcb3"})
+            {
+                var pcb = ReadPcbData(pcbName);
+                var outputFilePathPrefixForGa =
+                    $"{binPath}/../../../../{ResultsDirectoryName}/{pcbName}/ga-search-investigation";
+
+                var (w1, w2, w3, w4, w5) = (_defaultW1, _defaultW2, _defaultW3, _defaultW4, _defaultW5);
+                const int populationSize = _defaultPopulationSize;
+                const int epochsQty = _defaultEpochsQty;
+                const double tournamentSizePercent = _defaultTournamentSizePercent;
+                const double crossoverProbability = _defaultCrossoverProbability;
+                const double mutationProbability = _defaultMutationProbability;
+                var selectionOperator = new TournamentSelection(pcb, tournamentSizePercent, w1, w2, w3, w4, w5);
+                var mutationOperator = new MutationA(mutationProbability);
+                var geneticAlgorithm = new GeneticAlgorithm(pcb, w1, w2, w3, w4, w5);
+                var crossoverOperator = new UniformCrossover(crossoverProbability);
+                var startedPopulation = GeneticAlgorithmUtils.GetStartedPopulation(pcb, populationSize);
+                GeneticAlgorithmSolution(outputFilePathPrefixForGa, selectionOperator, geneticAlgorithm, crossoverOperator,
+                    mutationOperator, epochsQty, startedPopulation);
+                _logger.Info(
+                    $"Calculated for {pcbName}:  {populationSize.ToString()},{w1.ToString()},{w2.ToString()},{w3.ToString()},{w4.ToString()},{w5.ToString()},{crossoverProbability.ToString()},{mutationProbability.ToString()},{epochsQty.ToString()}");
+
             }
         }
 

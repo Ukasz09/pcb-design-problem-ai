@@ -19,10 +19,10 @@ namespace PCB_problem.solutionSearch
             _pcb = pcb;
             _logger = LogManager.GetCurrentClassLogger();
             _random = seed != null ? new Random(seed.Value) : new Random();
-            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height); 
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height);
         }
 
-        public Individual FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)
+        public (Individual, int, long) FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)
         {
             if (individualsQty < 1)
             {
@@ -50,7 +50,7 @@ namespace PCB_problem.solutionSearch
                 LogLevel.Info,
                 $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms"
             );
-            return bestIndividual;
+            return (bestIndividual, minPenalty, watch.ElapsedMilliseconds);
         }
 
         public Individual FindIndividual()
@@ -117,7 +117,7 @@ namespace PCB_problem.solutionSearch
             for (var i = 0; i < segment.StepSize; i++)
             {
                 var newPathPoint = GetNextPoint(lastPathPoint, segment.Direction);
-            
+
                 // if hit stop point
                 if (newPathPoint.Equals(stopPoint))
                 {
@@ -125,7 +125,7 @@ namespace PCB_problem.solutionSearch
                     segment.StepSize = i + 1;
                     return (segment, newPathPoint, direction);
                 }
-            
+
                 // if overlap with other endpoints point or self startPoint 
                 if (pcb.IsOneOfEndpoints(newPathPoint))
                 {
@@ -138,7 +138,7 @@ namespace PCB_problem.solutionSearch
                             DirectionUtils.GetOppositeDirection(segment.Direction));
                         return (segment, newPathPoint, direction);
                     }
-                
+
                     // To make sure that next time we don't get the same direction
                     availableDirections.Remove(direction);
                     // To not allow turning back
@@ -147,17 +147,17 @@ namespace PCB_problem.solutionSearch
                     {
                         availableDirections.Remove(oppositeDirection);
                     }
-                
+
                     // there is no other move
                     if (availableDirections.Count == 0)
                     {
                         return (null, segmentStartPoint, direction);
                     }
-                
+
                     // change direction
                     return RandSegment(segmentStartPoint, stopPoint, pcb, availableDirections, maxStepSize);
                 }
-            
+
                 lastPathPoint = newPathPoint;
             }
 
