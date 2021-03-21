@@ -29,7 +29,7 @@ namespace PCB_problem.solutionSearch
                 throw new ArgumentException("Amount of individuals must cannot be less than 1", nameof(individualsQty));
             }
 
-            _logger.Log(LogLevel.Info, "Searching best individual ...");
+            _logger.Log(LogLevel.Debug, "Searching best individual ...");
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var bestIndividual = FindIndividual();
@@ -47,7 +47,7 @@ namespace PCB_problem.solutionSearch
 
             watch.Stop();
             _logger.Log(
-                LogLevel.Info,
+                LogLevel.Debug,
                 $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms"
             );
             return (bestIndividual, minPenalty, watch.ElapsedMilliseconds);
