@@ -19,17 +19,17 @@ namespace PCB_problem.solutionSearch
             _pcb = pcb;
             _logger = LogManager.GetCurrentClassLogger();
             _random = seed != null ? new Random(seed.Value) : new Random();
-            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height); 
+            _maxStepSize = Math.Min(_pcb.Width, _pcb.Height);
         }
 
-        public Individual FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)
+        public (Individual, int, long) FindBestIndividual(int individualsQty, int w1, int w2, int w3, int w4, int w5)
         {
             if (individualsQty < 1)
             {
                 throw new ArgumentException("Amount of individuals must cannot be less than 1", nameof(individualsQty));
             }
 
-            _logger.Log(LogLevel.Info, "Searching best individual ...");
+            _logger.Log(LogLevel.Debug, "Searching best individual ...");
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var bestIndividual = FindIndividual();
@@ -47,10 +47,10 @@ namespace PCB_problem.solutionSearch
 
             watch.Stop();
             _logger.Log(
-                LogLevel.Info,
+                LogLevel.Debug,
                 $"Best penalty: {minPenalty}, Execution time: {watch.ElapsedMilliseconds.ToString()} ms"
             );
-            return bestIndividual;
+            return (bestIndividual, minPenalty, watch.ElapsedMilliseconds);
         }
 
         public Individual FindIndividual()
